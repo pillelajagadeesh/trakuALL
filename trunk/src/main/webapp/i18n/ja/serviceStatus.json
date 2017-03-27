@@ -1,0 +1,11 @@
+{
+    "trakeyeApp": {
+        "ServiceStatus" : {
+            "null": "",
+            "INPROGRESS": "INPROGRESS",
+            "PENDING": "PENDING",
+            "CLOSED": "CLOSED",
+            "CANCELLED": "CANCELLED"
+        }
+    }
+}

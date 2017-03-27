@@ -1,0 +1,107 @@
+ <div class="content">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="box box-solid">
+				<div class="box-header">
+					<h3 class="box-title"><i class="fa fa-suitcase"></i> 
+					<span translate="trakeyeApp.assetType.home.title">Asset Types</span></h3>
+					<div class="box-tools">
+						<button class="btn btn-create btn-sm" ui-sref="asset-type.new">
+							<span class="glyphicon glyphicon-plus"></span> <span translate="trakeyeApp.assetType.home.createLabel">Create new Asset Type</span>
+						</button>
+					</div>
+				</div>
+				<div class="box-body">
+					<jhi-alert></jhi-alert>
+					<div class="row">
+						<div class="col-md-3 pull-right">
+							<div class="input-group input-group-sm">
+							<input  type="text"  ng-model="search" class="form-control input-sm" ng-minlength="3" ng-pattern="/^[a-zA-Z0-9_ ]{3,}$/" placeholder="{{'trakeyeApp.assetType.home.search' | translate}}" ng-change="vm.filterSearch()" >
+								<span class="input-group-btn">
+									  <button type="button" class="btn btn-info btn-flat">
+										<i class="fa fa-search"></i></button>
+									</span>
+							</div>
+						</div>
+					</div>
+					<div class="table-responsive mt-10">
+						<table class="jh-table table table-bordered">
+							<thead class="bg-default">
+								<tr jh-sort="vm.predicate" ascending="vm.reverse"
+									callback="vm.transition()">
+									<!-- <th jh-sort-by="id"><span translate="global.field.id">ID</span> 
+										<span class="glyphicon glyphicon-sort"></span></th>-->
+									<th jh-sort-by="name"><span translate="trakeyeApp.assetType.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+									<th jh-sort-by="description"><span translate="trakeyeApp.assetType.description">Description</span><span class="glyphicon glyphicon-sort"></span></th>
+									<th jh-sort-by="layout"><span translate="trakeyeApp.assetType.layout">Layout</span><span class="glyphicon glyphicon-sort"></span></th>
+									<th jh-sort-by="colorcode"><span translate="trakeyeApp.assetType.colorcode">Colorcode</span><span class="glyphicon glyphicon-sort"></span></th>
+									<th><span translate="trakeyeApp.assetType.assetimage">Asset Image</span></th>
+									<!-- <th><span translate="trakeyeApp.assetType.createDate">Create Date</span><span class="glyphicon glyphicon-sort"></span></th>
+									<th><span translate="trakeyeApp.assetType.updateDate">Update Date</span><span class="glyphicon glyphicon-sort"></span></th> -->
+									<th ><span translate="trakeyeApp.assetType.user">User</span></th>				
+									<th>Actions</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="assetType in vm.assetTypes track by assetType.id ">
+									<!-- <td><a ui-sref="asset-type-detail({id:assetType.id})">{{assetType.id}}</a></td> -->
+									<td>{{assetType.name}}</td>
+				                    <td>{{assetType.description}}</td>
+				                    <td translate="{{'trakeyeApp.Layout.' + assetType.layout}}">{{assetType.layout}}</td>
+				                     <!-- <td>{{assetType.colorcode}}</td>  -->
+				                    <td><div class="square" style="background-color: {{assetType.colorcode}}"></div></td> 
+				                    <td> 
+				                    <!-- <img ng-src={{assetType.assetImage}} style="width: 15px; height: 25px;" ng-show="{{assetType.assetImage != null}}"/> -->
+				                    <div class="col-md-3" ng-show="{{assetType.image != null}}">
+				                    <img class="img-responsive" ng-src="data:image/jpeg;base64,{{assetType.image}}" style="padding-bottom: 10px;"> 
+				                    </div>
+				                    </td> 
+				                    <!-- <td>{{assetType.createDate| date:'medium'}}</td>
+				                    <td>{{assetType.updateDate| date:'medium'}}</td> -->
+				                    <td>
+				                        {{assetType.createdBy}}
+				                    </td>
+				                    <td>
+										<div class="action">
+											<a ui-sref="asset-type-detail({id:assetType.id})"
+												class="action-icons text-info" title="View">
+												<span class="fa fa-eye"></span> 
+											</a>
+											<a ui-sref="asset-type.edit({id:assetType.id})"
+												class="action-icons text-primary" title="Edit">
+												<span class="fa fa-pencil-square"></span> 
+											</a>
+											
+										</div>
+									</td>
+								</tr>
+								  <tr>
+				                	<td colspan="10" ng-show="vm.assetTypes == 0" style="text-align: center;"><h4>No data available</h4></td>
+				                </tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<div class="count-length">
+								<jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+							</div>
+						</div>
+						<div class="col-md-8">
+							<div class="pagination-list pull-right">
+								<uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>						
+							</div>					
+						</div>					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+ 
+
+
+
+

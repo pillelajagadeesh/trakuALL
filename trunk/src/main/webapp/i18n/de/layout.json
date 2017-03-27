@@ -1,0 +1,9 @@
+{
+    "trakeyeApp": {
+        "Layout" : {
+            "null": "",
+            "FIXED": "FIXED",
+            "SPREAD": "SPREAD"
+        }
+    }
+}

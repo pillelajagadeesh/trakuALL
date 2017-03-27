@@ -1,0 +1,71 @@
+<div class="content">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<div class="box box-info">
+				<div class="box-header">
+					<h3 class="box-title"><span translate="trakeyeApp.asset.detail.title">Asset</span> - {{vm.asset.name}} </h3>
+				</div>
+				<div class="box-body">
+					<jhi-alert-error></jhi-alert-error>
+						<dl class="dl-horizontal jh-entity-details">
+							<dt><span translate="trakeyeApp.asset.name">Name</span></dt>
+							<dd>
+								<span>{{vm.asset.name}}</span>
+							</dd>
+							<dt><span translate="trakeyeApp.asset.description">Description</span></dt>
+							<dd>
+								<span>{{vm.asset.description}}</span>
+							</dd>
+							<!-- <dt><span translate="trakeyeApp.geofence.coordinates">Coordinates</span></dt>
+							<dd>
+							<div id="map_canvas" style="width:100%;height:400px;    margin-bottom: 10px;"></div>
+							</dd> -->
+							<dt><span translate="trakeyeApp.asset.createDate">Create Date</span></dt>
+							<dd>
+								<span>{{vm.asset.createDate | date:'medium'}}</span>
+							</dd>
+							<dt><span translate="trakeyeApp.asset.updateDate">Update Date</span></dt>
+							<dd>
+								<span>{{vm.asset.updateDate | date:'medium'}}</span>
+							</dd>
+							<dt><span translate="trakeyeApp.asset.user">User</span></dt>
+							<dd>
+								<span>{{vm.asset.userIdDTO.login}}</span>
+							</dd>
+							<dt><span translate="trakeyeApp.asset.assetType">Asset Type</span></dt>
+							<dd>
+								<span><a ui-sref="asset-type-detail({id:vm.asset.assetType.id})">{{vm.asset.assetType.name}}</a></span>
+							</dd>
+							
+							<dd ng-if="has_ROLE_USER">
+					            {{vm.asset.assetType.name}}
+					        </dd>
+					        <div class="form-group" ng-repeat="attribute in vm.asset.assetTypeAttributeValuess track by $index">
+							<dt><span >{{attribute.assetTypeAttribute.name}}</span></dt>
+							<dd>
+								<span >{{vm.asset.assetTypeAttributeValuess[$index].attributeValue}}</span></dt>
+							</dd>
+							</div>
+							
+						</dl>
+					<div class="box-buttons pull-right">
+						<a ui-sref="{{ vm.previousState }}"
+								class="btn btn-info btn-sm mr5">
+							<span class="glyphicon glyphicon-arrow-left"></span> <span translate="entity.action.back"> Back</span>
+						</a>
+						<a ui-sref="asset-detail.edit({id:vm.asset.id})" class="btn btn-primary btn-sm">
+							<span class="glyphicon glyphicon-pencil"></span>
+							<span translate="entity.action.edit"> Edit</span>
+						</a>
+					</div>
+				</div>				
+			</div>
+		</div>
+	</div>    
+</div>
+
+
+
+
+
+

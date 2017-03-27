@@ -1,0 +1,28 @@
+{
+    "trakeyeApp": {
+        "caseType" : {
+            "home": {
+                "title": "Case Types",
+                "createLabel": "Create Case Type",
+                "create": "Create Case Type",
+                "Edit": "Edit Case Type",
+                "search": "Search"
+            },
+            "created": "Case Type is created with identifier {{ param }}",
+            "updated": "Case Type is updated with identifier {{ param }}",
+            "deleted": "Case Type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Case Type {{ id }}?"
+            },
+            "detail": {
+                "title": "Case Type"
+            },
+            "name": "Name",
+            "description": "Description",
+            "createdDate": "Created Date",
+            "updateDate": "Updated Date",
+            "user": "User",
+            "attribute": "Attribute"
+        }
+    }
+}

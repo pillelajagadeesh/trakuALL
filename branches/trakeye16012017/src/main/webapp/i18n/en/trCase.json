@@ -1,0 +1,42 @@
+{
+    "trakeyeApp": {
+        "trCase" : {
+            "home": {
+                "title": "Cases",
+                "createLabel": "Create Case",
+                "create": "Create Case",
+                "EditLabel": "Edit Case",
+                "search": "Search"
+            },
+            "created": "Case is created with identifier {{ param }}",
+            "updated": "Case is updated with identifier {{ param }}",
+            "deleted": "Case is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Tr Case {{ id }}?"
+            },
+            "detail": {
+                "title": "Case"
+            },
+            "description": "Description",
+             "caseiderror": " Enter only numeric values for case id",
+            "createDate": "Created Date",
+            "updateDate": "Updated Date",
+            "pinLat": "Pin Lat",
+            "pinLong": "Pin Long",
+            "address": "Address",
+            "escalated": "Escalated",
+            "status": "Status",
+            "priority":"Priority",
+            "geofence":"Geofence",
+            "reportedBy": "Reported By",
+            "assignedTo": "Assigned To",
+            "updatedBy": "Updated By",
+            "assignedBy": "Assigned By",
+            "caseType": "Case Type",
+            "selectassigned": "--- Select Assign to ---",
+            "selectcase": "--- Select Case Type ---",
+            "caseImages" :"Images",
+            "createdBy" :"Created By"
+        }
+    }
+}

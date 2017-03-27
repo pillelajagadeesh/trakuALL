@@ -1,0 +1,60 @@
+{
+    "userManagement": {
+        "home": {
+            "title": "User Management",
+            "customerstitle": "Customers",
+            "userstitle": "Users",
+            "createUserLabel": "Create User",
+            "createCustomerLabel": "Create Customer",
+            "create": "Create Customer",
+            "createagent": "Create User",
+            "Edit": "Edit Customer",
+            "Editagent": "Edit User",
+			"search": "Search",
+			"active-title": "Active Users",
+			"inactive-title": "Inactive Users",
+			"idle-title": "Idle Users"
+        },
+		"users" : "users",
+		"active-users": "Active Users",
+		"inactive-users": "Inactive Users",
+		"idle-users": "Idle Users",
+        "created": "User is created with identifier {{ param }}",
+        "updated": "User is updated with identifier {{ param }}",
+        "deleted": "User is deleted with identifier {{ param }}",
+        "delete": {
+            "question": "Are you sure you want to delete user {{ login }}?"
+        },
+        "detail": {
+            "customertitle": "Customer",
+            "agenttitle": "User"
+        },
+        "login": "Login Name",
+        "firstName": "First name",
+        "lastName": "Last name",
+        "email": "Email",
+        "imei" : "IMEI",
+        "operatingsystem" : "Operating System",
+        "applicationversion" : "App Version",
+        "gpsstatus": "GPS Status",
+        "gpson": "On",
+        "gpsoff": "Off",
+        "phone" : "Phone No",
+        "imsi" : "IMSI",
+        "activated": "Activated",
+        "deactivated": "Deactivated",
+        "profiles": "Roles",
+        "geofence": "Geofence",
+        "userimage": "User Image",
+        "langKey": "Language",
+        "createdBy": "Created by",
+        "createdDate": "Created date",
+        "lastModifiedBy": "Modified by",
+        "lastModifiedDate": "Modified date",
+        "fromTime": "Duty Start Time",
+        "toTime": "End Time",
+        "trakeye": "Trakeye Type",
+        "status": "Status",
+        "selecttrakeye": "--- Select Trakeye Type --"
+    }
+}

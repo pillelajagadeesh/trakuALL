@@ -1,0 +1,270 @@
+<div class="content">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<div class="box box-info">
+				<div class="box-header">
+					<h3 class="box-title" id="myUserLabel" ng-if="has_ROLE_USER_ADMIN">
+			    		<span ng-if="!vm.user.id" translate="userManagement.home.createagent">Create</span>
+			    		<span ng-if="vm.user.id" translate="userManagement.home.Editagent">Edit</span>
+			    	</h3>
+					<h3 class="box-title" id="myUserLabel" ng-if="has_ROLE_SUPER_ADMIN">
+			    		<span ng-if="!vm.user.id" translate="userManagement.home.create">Create</span>
+			    		<span ng-if="vm.user.id" translate="userManagement.home.Edit">Edit</span>
+			    	</h3>
+				</div>
+				<form class="form-horizontal" name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>	
+				<div class="box-body">
+					<jhi-alert-error></jhi-alert-error>
+						<div class="form-group">
+							<label class="col-md-3 control-label">
+								<span translate="userManagement.login">Login Name</span> 
+								<sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> <sup>
+							</label>
+							<div class="col-md-7">
+							<input type="text" class="form-control" name="login"
+								   ng-model="vm.user.login" ng-required="vm.user.id == null" ng-minlength=1 ng-maxlength=50 ng-pattern="/^[_'.@A-Za-z0-9-]*$/" ng-readonly="vm.user.id">
+
+							<div ng-show="editForm.login.$invalid">						
+								<p class="help-block"
+								   ng-show="editForm.login.$error.maxlength" translate="entity.validation.maxlength"
+								   translate-value-max="50">
+									This field cannot be longer than 50 characters.
+								</p>
+							</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-3 control-label">
+								<span translate="userManagement.firstName">First Name</span> 
+								<sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> <sup>
+							</label>
+							<div class="col-md-7">
+								<input type="text" class="form-control" name="firstName"
+									   ng-model="vm.user.firstName" ng-maxlength="50" ng-required="true">
+
+								<div ng-show="editForm.firstName.$invalid">
+									<p class="help-block"
+									   ng-show="editForm.firstName.$error.maxlength" translate="entity.validation.maxlength"
+									   translate-value-max="50">
+										This field cannot be longer than 50 characters.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-3 control-label">
+								<span translate="userManagement.lastName">Last Name</span> 
+								<sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> <sup>
+							</label>
+							<div class="col-md-7">
+							<input type="text" class="form-control" name="lastName"
+								   ng-model="vm.user.lastName" ng-maxlength="50" ng-required="true">
+
+							<div ng-show="editForm.lastName.$invalid">						
+								<p class="help-block"
+								   ng-show="editForm.lastName.$error.maxlength" translate="entity.validation.maxlength"
+								   translate-value-max="50">
+									This field cannot be longer than 50 characters.
+								</p>
+							</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-3 control-label">
+								<span translate="userManagement.email">Email</span> 
+								<sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> <sup>
+							</label>
+							<div class="col-md-7">
+							<input type="email" class="form-control" name="email"
+								   ng-model="vm.user.email" required ng-maxlength="100" ng-pattern="EMAIL_REGEXP" ng-readonly="vm.user.id">
+
+							<div ng-show="editForm.email.$invalid">
+								<p class="help-block"
+								   ng-show="editForm.email.$error.maxlength" translate="entity.validation.maxlength"
+								   translate-value-max="100">
+									This field cannot be longer than 100 characters.
+								</p>
+								<p class="help-block"
+								   ng-show="editForm.email.$error.pattern" translate="global.messages.validate.email.invalid">
+									Your e-mail is invalid.
+								</p>  
+							</div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+						<label class="col-md-3 control-label">
+								<span translate="userManagement.phone">Phone</span> 
+								<sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> <sup>
+							</label>
+							<div class="col-md-7">
+				            <input type="text" class="form-control" name="phone"
+				                   ng-model="vm.user.phone" ng-maxlength="14" ng-minlength="10" ng-pattern="PHONE_REGEXP" required>
+				
+				                <p class="help-block"
+				                   ng-show="editForm.phone.$error.maxlength" translate="global.messages.validate.phone.maxlength"
+				                   translate-value-max="14">
+				                    This field cannot be longer than 14 characters.
+				                </p>
+				                <p class="help-block"
+				                   ng-show="editForm.phone.$error.minlength" translate="global.messages.validate.phone.minlength"
+				                   translate-value-max="10">
+				                    This field cannot be lesser than 10 characters.
+				                </p>
+				                <p class="help-block"
+				                   ng-show="editForm.phone.$error.pattern" translate="global.messages.validate.phone.invalid">
+				                    Your phone number is invalid.
+				                </p>
+								
+				            </div>
+				        </div>
+				        
+				        <div class="form-group" ng-if="has_ROLE_USER_ADMIN">
+						<label class="col-md-3 control-label">
+								<span translate="userManagement.imei">IMEI</span> 
+								
+							</label>
+							<div class="col-md-7">
+				            <input type="text" class="form-control" name="imei"
+				                   ng-model="vm.user.imei" ng-maxlength="50" ng-minlength="15">
+				
+				                <p class="help-block text-danger"
+				                   ng-show="editForm.imei.$error.maxlength" translate="global.messages.validate.imei.maxlength"
+				                   translate-value-max="15">
+				                    This field cannot be longer than 15 characters.
+				                </p>
+				                <p class="help-block text-danger"
+				                   ng-show="editForm.imei.$error.minlength" translate="global.messages.validate.imei.minlength"
+				                   translate-value-max="15">
+				                    This field cannot be lesser than 15 characters.
+				                </p>
+				                <!-- <p class="help-block text-danger"
+				                   ng-show="editForm.imei.$error.pattern" translate="global.messages.validate.imei.invalid">
+				                    Your IMEI is invalid.
+				                </p> -->
+								
+				            </div>
+				        </div>
+						
+						
+						 <div class="form-group" ng-if="has_ROLE_USER_ADMIN">
+						   <label class="col-md-3 control-label">
+								<span translate="userManagement.fromTime">Duty Start</span> 
+								<sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> <sup>
+							</label>
+						  <div class="col-md-2">
+						   <select class="form-control"  name="selectFrom" ng-model="vm.user.fromTime" 
+								   ng-options="getUTChour(selectfrom) as selectfrom for selectfrom in vm.selectfrom" required>
+								 
+						   </select>
+						</div>
+						<label class="col-md-3 control-label">
+							<span translate="userManagement.toTime">End Time</span> 
+							<sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> <sup>
+						</label>
+						 <div class="col-md-2">
+						   <select class="form-control"  name="selectTo" ng-model="vm.user.toTime" 
+								   ng-options="getUTChour(selectfrom) as selectfrom for selectfrom in vm.selectfrom" required>                  
+						   </select>
+						</div>
+						</div>  
+						
+						<div class="form-group" ng-if="vm.user.id">
+							<label class="col-md-3 control-label" for="activated">
+								<span translate="userManagement.activated">Activated</span> 
+							</label>
+							<div class="col-md-5">
+								<input ng-disabled="vm.user.id === null" name="activated" type="checkbox" class="checkbox" id="field_escalated" ng-model="vm.user.activated">
+						</div>
+						</div>
+						<div class="form-group" ng-hide="vm.user.id || !vm.user.id">
+							<label class="col-md-3 control-label" translate="userManagement.langKey">Lang Key</label>
+							<div class="col-md-7">
+							<select class="form-control" name="langKey" ng-model="vm.user.langKey"
+									ng-options="language as language for language in vm.languages track by language">
+							</select>
+						</div>
+						</div>
+						<div class="form-group" >
+							<label class="col-md-3 control-label">
+								<span translate="userManagement.profiles">Profiles</span> 
+								<sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> <sup>
+							</label>
+							<div class="col-md-7">
+								<select class="form-control"  style="height:52px;" name="authority" ng-model="vm.user.authorities"
+										ng-options="authority for authority in vm.authorities" multiple required>
+								</select>
+							</div>
+						</div>
+
+						 <div class="form-group" ng-if="has_ROLE_USER_ADMIN">
+							<label class="col-md-3 control-label">
+								<span translate="userManagement.geofence">Geofence</span> 
+								<sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> <sup>
+							</label>
+							<div class="col-md-7">
+								<select class="form-control" multiple  name="geofences" ng-model="vm.user.geofences" required
+										ng-options="geofence.name as geofence.name for geofence in vm.geofences">
+									      
+								</select>
+							 </div>
+						 </div>    
+						  <div class="form-group" ng-if="has_ROLE_USER_ADMIN">
+							<label class="col-md-3 control-label">
+								<span translate="userManagement.trakeye">Trakeye Type</span> 
+								<sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> <sup>
+							</label>
+							<div class="col-md-7">
+							   <select class="form-control" name="trakeyeType" ng-model="vm.user.trakeyeType" ng-change="vm.selectattributes()" 
+								 ng-options="item as item.name for item in vm.trakeyeTypes track by item.id" required>
+									<option value="" translate="userManagement.selecttrakeye" >---Trakeye Type---</option>
+								</select>         
+						   </div>
+						 </div> 
+						  <div class="form-group" ng-if="has_ROLE_USER_ADMIN">
+							  <div ng-repeat="attribute in vm.user.trakeyeTypeAttributeValues track by $index">
+								<label class="col-md-3 control-label">
+									<span>{{attribute.trakeyeTypeAttribute.name}}</span> 
+								</label>
+								<div class="col-md-7">
+									<input type="text" class="form-control added-service" name="value" 
+									   ng-model="vm.user.trakeyeTypeAttributeValues[$index].attributeValue">
+								</div>
+							   </div>
+						 </div> 
+						  <div class="form-group"  ng-show="has_ROLE_USER_ADMIN">
+				            <label class="col-md-3 control-label" translate="userManagement.userimage">User Image</label>
+				            <div class="col-md-6">
+								 <input type="file" name="file" class="filestyle" id="userImage" accept="image/*" ng-model= "userImage" valid-file ng-pattern="IMAGE_EXT_REGEXP">
+					       <p class="text-danger" ng-if="editForm.file.$error.pattern" translate="assettype.patternerror">Only image file(jpg, jpeg, png) should be uploaded</p> 
+							</div>	
+							<div class="col-md-2" ng-if="vm.user.id">
+								<a class="btn btn-sm btn-info" ng-click="toggle()">Show Image</a>
+							</div>					
+				        </div>
+				        <div class="form-group" ng-if="allimages">
+						<div class="row">
+							<div class="col-md-2 " ng-show="vm.user.userImage != null">
+							   <img class="img-responsive " ng-src="data:image/jpeg;base64,{{vm.user.userImage}}" style="padding-bottom: 10px;margin-left:250px; width:40px;height:40px;">
+							</div>
+						</div>
+					  </div>
+					  
+				</div>
+				<div class="box-footer">
+						<div class="col-md-4 col-md-offset-3 save-buttons">
+							<button class="btn btn-default btn-sm" ui-sref="user-management">
+								<span class="glyphicon glyphicon-ban-circle"></span> <span
+								translate="entity.action.cancel">Cancel</span>
+							</button>
+							<button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary btn-sm">
+								<span class="glyphicon glyphicon-save"></span> <span translate="entity.action.save">Save</span>
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+

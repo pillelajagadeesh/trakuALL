@@ -1,0 +1,57 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "fromUser",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipName": "toUser",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipName": "trCase",
+            "otherEntityName": "trCase",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "createdDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "NotificationStatus",
+            "fieldValues": "SENT,RECIEVED,DELIVERED,FAILED"
+        },
+        {
+            "fieldName": "subject",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "alertType",
+            "fieldType": "AlertType",
+            "fieldValues": "EMAIL,SMS"
+        }
+    ],
+    "changelogDate": "20160902104649",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "trakeye_notification",
+    "pagination": "pagination"
+}

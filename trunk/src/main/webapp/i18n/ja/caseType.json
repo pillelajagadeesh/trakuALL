@@ -1,0 +1,26 @@
+{
+    "trakeyeApp": {
+        "caseType" : {
+            "home": {
+                "title": "CaseTypes",
+                "createLabel": "Case Type を追加",
+                "createOrEditLabel": "Case Typeを追加または編集",
+                "search": "Search for Case Type"
+            },
+            "created": "A new Case Type is created with identifier {{ param }}",
+            "updated": "A Case Type is updated with identifier {{ param }}",
+            "deleted": "A Case Type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Case Type {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Case Type"
+            },
+            "name": "Name",
+            "description": "Description",
+            "createdDate": "Created Date",
+            "updateDate": "Update Date",
+            "user": "User"
+        }
+    }
+}

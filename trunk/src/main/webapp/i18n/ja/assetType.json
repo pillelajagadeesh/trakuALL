@@ -1,0 +1,29 @@
+{
+    "trakeyeApp": {
+        "assetType" : {
+            "home": {
+                "title": "AssetTypes",
+                "createLabel": "Asset Type を追加",
+                "createOrEditLabel": "Asset Typeを追加または編集",
+                "search": "Search for Asset Type"
+            },
+            "created": "A new Asset Type is created with identifier {{ param }}",
+            "updated": "A Asset Type is updated with identifier {{ param }}",
+            "deleted": "A Asset Type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Asset Type {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Asset Type"
+            },
+            "name": "Name",
+            "description": "Description",
+            "layout": "Layout",
+            "colorcode": "Colorcode",
+            "createDate": "Create Date",
+            "updateDate": "Update Date",
+            "user": "User",
+            "assetTypeAttribute": "Asset Type Attribute"
+        }
+    }
+}

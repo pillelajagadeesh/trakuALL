@@ -1,0 +1,27 @@
+{
+    "trakeyeApp": {
+        "locationLog" : {
+            "home": {
+                "title": "LocationLogs",
+                "createLabel": "नया Location Log बनाएँ",
+                "createOrEditLabel": "Location Log बनाएँ या संपादित करें",
+                "search": "Location Log खोजें"
+            },
+            "created": "एक नया Location Log [identifier: {{ param }}] तैयार है",
+            "updated": "एक Location Log [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Location Log [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Location Log [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Location Log"
+            },
+            "latitude": "Latitude",
+            "longitude": "Longitude",
+            "address": "Address",
+            "logSource": "Log Source",
+            "createdDateTime": "Created Date Time",
+            "user": "User"
+        }
+    }
+}

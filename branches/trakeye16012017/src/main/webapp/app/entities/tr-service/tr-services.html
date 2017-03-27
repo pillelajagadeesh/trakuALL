@@ -1,0 +1,125 @@
+<div class="content">
+	<div class="row">
+		<div class="col-md-12">
+          <!-- Map box -->
+			<div class="box box-solid">
+				<div class="box-header">            
+					<i class="fa fa-server"></i>
+					<h3 class="box-title" translate="trakeyeApp.trService.home.title">Tr Services</h3>
+					<div class="box-tools" ng-if="has_ROLE_USER_ADMIN">
+						 <button class="btn btn-create" ui-sref="tr-service.new" >
+						 <span class="glyphicon glyphicon-plus"></span>
+		                    <span  translate="trakeyeApp.trService.home.createLabel">
+		                        Create Tr Service
+		                    </span>
+		                </button>
+					</div>					
+				</div>
+				<div class="box-body">
+				<jhi-alert></jhi-alert>
+					<div class="row">
+					 <div class="col-md-4">
+						<ul class="nav nav-pills nav-justified">
+							<li ng-class="{active:isSet(1)}"><a href ng-click="setTab(1);" data-toggle="tab">List View</a></li>
+							<li ng-class="{active:isSet(2)}"><a href ng-click="setTab(2);" data-toggle="tab">Map View</a></li>
+						</ul>
+					 </div>
+						<div class="col-md-3 search-top pull-right" ng-show="isSet(1)">
+							<div class="input-group input-group-sm">
+								<input  type="text" ng-model="search" ng-change="vm.filterSearch()" class="form-control" ng-minlength="3" ng-pattern="/^[a-zA-Z0-9_ ]{3,}$/" placeholder="{{'trakeyeApp.trService.home.search' | translate}}">
+								<span class="input-group-btn">
+								  <button type="button" class="btn btn-info btn-flat">
+									<i class="fa fa-search"></i></button>
+								</span>
+							</div>
+						</div>
+						
+						<div class="col-md-3 search-top pull-right"  ng-show="isSet(2)">
+						<div class="input-group input-group-sm">
+							<input type="text" ng-model="seachService" ng-change="vm.filterTrSevices()" class="form-control " ng-minlength="3" ng-pattern="/^[a-zA-Z0-9_ ]{3,}$/" placeholder="Service Id " >
+							<span class="input-group-btn">
+							  <button type="button" class="btn btn-info btn-flat">
+								<i class="fa fa-search"></i></button>
+							</span>
+						</div>
+					</div>
+					</div>
+					<div class="case-table" ng-show="isSet(1)">
+					<div class="table-responsive mt-10">
+						 <table class="jh-table table table-bordered">
+							<thead class="bg-default">
+								  <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+				                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+				                    <th jh-sort-by="description"><span translate="trakeyeApp.trService.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+				                    <th jh-sort-by="service_date"><span translate="trakeyeApp.trService.serviceDate">Service Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+				                    <th jh-sort-by="status"><span translate="trakeyeApp.trService.status">Status</span> <span class="glyphicon glyphicon-sort"></span></th>
+				                     <th ><span translate="trakeyeApp.trService.assignedTo">Assigned To</span> </th>
+				                    <th ><span translate="trakeyeApp.trService.trCase">Tr Case</span></th>
+				                    <th>Actions</th>
+				                </tr>
+				            </thead>
+				            <tbody>
+				                <tr ng-repeat="trService in vm.trServices |filter : search track by $index">
+				                    <td><a ui-sref="tr-service-detail({id:trService.id})">{{trService.id}}</a></td>
+				                  
+				                    <td>{{trService.description}}</td>
+				                    <td>{{trService.serviceDate | date:'medium'}}</td>
+				                    <td translate="{{'trakeyeApp.ServiceStatus.' + trService.status}}">{{trService.status}}</td>
+				                    <td>
+				                        {{trService.trCase.assignedToUser}}
+				                    </td>
+				                    <td>
+				                        <a ui-sref="tr-case-detail({id:trService.trCase.id})"> {{trService.trCase.description}}</a>
+				                    </td>
+				                    <td>
+				                        <div class="actions">
+				                            <a ui-sref="tr-service-detail({id:trService.id})"
+				                                    class="action-icons text-info" title="View">
+				                                <span class="fa fa-eye"></span>
+				                                </a>
+				                            <a ui-sref="tr-service.edit({id:trService.id})"
+				                                    class="action-icons text-primary" title="Edit">
+				                                <span class="fa fa-pencil-square"></span>
+				                              </a>
+				                              
+				                              <a ui-sref="tr-service.delete({id:trService.id})"
+				                                    class="action-icons text-primary" title="Delete">
+				                                <span class="fa fa-trash-o"></span>
+				                              </a>
+				                           
+				                        </div>
+				                    </td>
+				                    <tr>
+				                	<td colspan="10" ng-show="vm.trServices == 0" style="text-align: center;"><h4>No data available</h4></td>
+				                </tr>
+				                </tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="row mt-15">
+						<div class="col-md-4">
+							<div class="count-length">
+								<jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+							</div>
+						</div>
+						<div class="col-md-8">
+							<div class="pagination-list pull-right">
+								<uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>						
+							</div>					
+						</div>					
+					</div>						
+					</div>	
+					<div class="map-view" ng-show="isSet(2)">
+						<div class="row mt-5">
+					    <div class="col-md-12">
+						 <div id="map_canvas" style="height:500px; width:100%"></div>
+						</div>
+					   </div>					
+					</div>
+				   </div>  
+				</div>         
+			</div>		
+		</div>	
+	</div>
+
+

@@ -1,0 +1,6 @@
+framework module Pods_TrakEyeAppTests {
+  umbrella header "Pods-TrakEyeAppTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

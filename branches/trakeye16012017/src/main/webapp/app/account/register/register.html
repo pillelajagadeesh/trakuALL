@@ -1,0 +1,277 @@
+<div>
+<div class="container">
+<div class="row">
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="col-sm-4 mt-20">
+				<div class="row">
+					<div class="col-xs-9 col-sm-12">
+					<img src="content/images/logo.png" alt="trakeye" class="img-responsive"/>
+					</div>
+					<div class="navbar-header col-xs-3">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					  <span class="sr-only">Toggle navigation</span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					</button>
+				  </div>
+		      </div><!--row-->
+		</div><!--col-sm-4-->
+		<div class="col-sm-8 mt-20">
+		
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+			   <li><a ui-sref="home">Home</a></li>
+						<li><a ui-sref="">Solutions</a></li>
+						<li><a ui-sref="">Industries</a></li>
+						<li><a ui-sref="">Support</a></li>
+						<li><a ui-sref="">Blog</a></li>
+						<li><a ui-sref="">Contact Us</a></li>
+			</ul>
+		  </div><!-- /.navbar-collapse -->
+		
+		</div><!--col-sm-8-->
+		</nav>
+		</div><!--row-->
+       <div class="tryitmain">
+			<div class="row">
+        <div  class="col-sm-7">
+			<div class="tryit-content">
+				<h1 class="text-center tryit-head">Welcome to Trakeye </h1>
+				<p class="text-center">The most efficient services management apllication for your organization.</p>
+				<p class="text-center">Now control Manage  and Monitor your field agents, Field activity and Field assets  effectively in real-time.</p>
+				<h2 class="text-center tryit-head">Request for a free demo </h2>
+			</div>
+		</div><!--col-sm-7-->
+		<div class="col-sm-5">
+		  <div class="col-sm-10">
+		  		    <div class="alert alert-success" ng-show="vm.success" translate="register.messages.success">
+     	                <strong>Registration saved!</strong> Please check your email for confirmation.
+     	            </div>
+			<form ng-show="!vm.success" name="form" role="form" ng-submit="vm.register()" novalidate class="tryit-form" autocomplete="off"> <!-- show-validation -->
+					<div class="form-group">					 
+										<jhi-alert-error></jhi-alert-error>										
+							  <div>
+								<input type="firstname" class="form-control" name="firstname" id="firstName" placeholder="{{'register.form.firstname.placeholder' | translate}}"
+							   ng-model="vm.registerAccount.firstName" ng-minlength="3" ng-maxlength="50" ng-required="true">
+								   <div ng-show="form.firstname.$invalid">
+										<p class="help-block"
+										   ng-show="form.firstname.$error.minlength" translate="register.messages.validate.firstname.minlength"
+										   translate-value-min="3">
+											This field should be longer than 3 characters.
+										</p>
+										<p class="help-block"
+										   ng-show="form.firstname.$error.maxlength" translate="register.messages.validate.firstname.maxlength"
+										   translate-value-max="50">
+											This field cannot be longer than 50 characters.
+										</p>
+									</div>
+							  </div>
+					</div>
+				<div class="form-group">					 
+						  <div>
+						 
+							<input type="lastname" class="form-control" name="lastname" id="lastname" placeholder="{{'register.form.lastname.placeholder' | translate}}"
+                           ng-model="vm.registerAccount.lastName" ng-minlength="3" ng-maxlength="50" ng-required="true">
+                                   <div ng-show="form.lastname.$invalid">
+									<p class="help-block"
+									   ng-show="form.lastname.$error.minlength" translate="register.messages.validate.lastname.minlength"
+									   translate-value-min="3">
+										This field should be longer than 3 characters.
+									</p>
+									<p class="help-block"
+									   ng-show="form.organization.$error.maxlength" translate="register.messages.validate.lastname.maxlength"
+									   translate-value-max="50">
+										This field cannot be longer than 50 characters.
+									</p>
+								</div>
+                        
+						  </div>
+				</div>
+                <div class="form-group">
+                  
+                    <input type="email" class="form-control" id="email" name="email" placeholder="{{'global.form.email.placeholder' | translate}}"
+                           ng-model="vm.registerAccount.email" ng-minlength=5 ng-maxlength=100 required>
+                    <div ng-show="form.email.$dirty && form.email.$invalid">
+                        <p class="help-block"
+                               ng-show="form.email.$error.required" translate="global.messages.validate.email.required">
+                            Your e-mail is required.
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.email.$error.email" translate="global.messages.validate.email.invalid">
+                            Your e-mail is invalid.
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.email.$error.minlength" translate="global.messages.validate.email.minlength">
+                            Your e-mail is required to be at least 5 characters.
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.email.$error.maxlength" translate="global.messages.validate.email.maxlength">
+                            Your e-mail cannot be longer than 100 characters.
+                        </p>
+                    </div>
+                </div>
+                
+				<div class="form-group">					 
+						  <div>
+						
+							<input type="number" class="form-control" name="mobileno" id="mobileno" placeholder="{{'register.form.mobileno.placeholder' | translate}}"
+                           ng-model="vm.registerAccount.mobilePhone" ng-minlength="10" ng-maxlength="50" ng-required="true">
+                                 <div ng-show="form.mobileno.$invalid">
+									<p class="help-block"
+									   ng-show="form.mobileno.$error.minlength" translate="register.messages.validate.mobileno.minlength"
+									   translate-value-min="10">
+										This field should be longer than 10 characters.
+									</p>
+									<p class="help-block"
+									   ng-show="form.mobileno.$error.maxlength" translate="register.messages.validate.mobileno.maxlength"
+									   translate-value-max="50">
+										This field cannot be longer than 50 characters.
+									</p>
+								</div>
+                          
+						  </div>
+				</div>
+				<div class="form-group">					 
+						  <div>
+							<input type="organization" class="form-control" name="organization" id="organization" placeholder="{{'register.form.organization.placeholder' | translate}}"
+                           ng-model="vm.registerAccount.organization" ng-minlength="3" ng-maxlength="50" ng-required="true">
+                           
+                           		<div ng-show="form.organization.$invalid">
+									<p class="help-block"
+									   ng-show="form.organization.$error.minlength" translate="register.messages.validate.organization.minlength"
+									   translate-value-min="3">
+										This field should be longer than 3 characters.
+									</p>
+									<p class="help-block"
+									   ng-show="form.organization.$error.maxlength" translate="register.messages.validate.organization.maxlength"
+									   translate-value-max="50">
+										This field cannot be longer than 50 characters.
+									</p>
+								</div>
+                        
+						  </div>
+				</div>
+				
+				<!-- 	<div class="form-group">					 
+						  <div>
+							<select class="form-control countries" name="country" id="countryId sel1" ng-model="vm.registerAccount.country" ng-required="true">
+							<option value="">Select Country</option>
+                           </select>
+                          
+						  </div>
+				</div>
+				
+				<div class="form-group">					 
+						  <div>
+							<select class="form-control states" name="state" id="sel12 stateId" ng-model="vm.registerAccount.state" ng-required="true">
+							<option value="">Select State</option>
+                           </select>
+
+						  </div>
+				</div>
+				
+				<div class="form-group">					 
+						  <div>
+							<select  class="form-control cities" name="city" id="sel13 cityId" 
+                           ng-model="vm.registerAccount.city" ng-required="true">
+                           	<option value="">Select City</option>
+                           </select>
+
+						  </div>
+				</div> -->
+				
+				<div class="form-group">					 
+						  <div>
+						 
+							<input type="text" class="form-control" name="city" id="city" placeholder="{{'register.form.city.placeholder' | translate}}"
+                           ng-model="vm.registerAccount.city" ng-minlength="3" ng-maxlength="50" ng-required="true">
+                                 <div ng-show="form.city.$invalid">
+									<p class="help-block"
+									   ng-show="form.city.$error.minlength" translate="register.messages.validate.city.minlength"
+									   translate-value-min="3">
+										This field should be longer than 10 characters.
+									</p>
+									<p class="help-block"
+									   ng-show="form.city.$error.maxlength" translate="register.messages.validate.city.maxlength"
+									   translate-value-max="50">
+										This field cannot be longer than 50 characters.
+									</p>
+								</div>
+
+						  </div>
+				</div>
+					<div class="form-group">					 
+						  <div>
+						  
+							<input type="text" class="form-control" name="state" id="state" placeholder="{{'register.form.state.placeholder' | translate}}"
+                           ng-model="vm.registerAccount.state" ng-minlength="3" ng-maxlength="50" ng-required="true">
+                                 <div ng-show="form.state.$invalid">
+									<p class="help-block"
+									   ng-show="form.state.$error.minlength" translate="register.messages.validate.state.minlength"
+									   translate-value-min="3">
+										This field should be longer than 10 characters.
+									</p>
+									<p class="help-block"
+									   ng-show="form.state.$error.maxlength" translate="register.messages.validate.state.maxlength"
+									   translate-value-max="50">
+										This field cannot be longer than 50 characters.
+									</p>
+								</div>
+                           
+						  </div>
+				</div>
+					<div class="form-group">					 
+						  <div>
+						 
+							<input type="text" class="form-control" name="country" id="country" placeholder="{{'register.form.country.placeholder' | translate}}"
+                           ng-model="vm.registerAccount.country" ng-minlength="3" ng-maxlength="50" ng-required="true">
+                                 <div ng-show="form.country.$invalid">
+									<p class="help-block"
+									   ng-show="form.country.$error.minlength" translate="register.messages.validate.country.minlength"
+									   translate-value-min="3">
+										This field should be longer than 10 characters.
+									</p>
+									<p class="help-block"
+									   ng-show="form.country.$error.maxlength" translate="register.messages.validate.country.maxlength"
+									   translate-value-max="50">
+										This field cannot be longer than 50 characters.
+									</p>
+								</div>
+                          
+						  </div>
+				</div>
+				
+                <button type="submit" ng-disabled="form.$invalid" class="btn btn-warning btn-block" translate="register.form.button">Register</button>
+            </form>
+			</div>
+			<div class="col-sm-2"></div>
+		</div><!--col-sm-5-->
+    <!--            <div class="alert alert-danger" ng-show="vm.error" translate="register.messages.error.fail">
+                <strong>Registration failed!</strong> Please try again later.
+            </div>
+
+            <div class="alert alert-danger" ng-show="vm.errorUserExists" translate="register.messages.error.userexists">
+                <strong>Login name already registered!</strong> Please choose another one.
+            </div>
+
+            <div class="alert alert-danger" ng-show="vm.errorEmailExists" translate="register.messages.error.emailexists">
+                <strong>E-mail is already in use!</strong> Please choose another one.
+            </div>
+
+            <div class="alert alert-danger" ng-show="vm.doNotMatch" translate="global.messages.error.dontmatch">
+                The password and its confirmation do not match!
+            </div> -->
+        </div>
+		</div>
+    </div>
+    
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://iamrohit.in/lab/js/location.js"></script>
+
+</div>
+

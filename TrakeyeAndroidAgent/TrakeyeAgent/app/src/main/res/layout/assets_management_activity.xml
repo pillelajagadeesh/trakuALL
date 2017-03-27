@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/coordinatorlayout"
+    android:fitsSystemWindows="true"
+    >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/topLayout"
+        android:layout_above="@+id/rl_button_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/fifteen_dp">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name"
+                android:textColor="@color/menutoolbar"
+                android:textSize="@dimen/fifteen_dp"
+                />
+
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@color/transparent"
+                android:gravity="top"
+                android:hint="@string/asset_name"
+                android:maxLength="512"
+                android:maxLines="2"
+                android:textColor="@color/black"
+                android:textColorHint="@color/back_menu"
+                android:textSize="@dimen/fourteen_dp"
+                android:paddingTop="@dimen/five_dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_dp"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="@dimen/three_dp"
+                android:layout_toRightOf="@+id/ivArrow"
+                android:background="@color/light_gray_bg"/>
+
+            <TextView
+                android:id="@+id/tv_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/description"
+                android:textColor="@color/menutoolbar"
+                android:textSize="@dimen/fifteen_dp"
+                android:layout_marginTop="@dimen/fourteen_dp"
+                />
+
+            <EditText
+                android:id="@+id/et_desc"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sixty_dp"
+                android:background="@color/transparent"
+                android:gravity="top"
+                android:hint="@string/enter_description_512_chr_only"
+                android:maxLength="512"
+                android:maxLines="2"
+                android:paddingTop="@dimen/five_dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/back_menu"
+                android:textSize="@dimen/fourteen_dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_dp"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="@dimen/three_dp"
+                android:layout_toRightOf="@+id/ivArrow"
+                android:background="#dfdfdf"/>
+
+            <TextView
+                android:id="@+id/tvAssetType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/asset_type"
+                android:textColor="@color/menutoolbar"
+                android:textSize="@dimen/fifteen_dp"
+                android:layout_marginTop="@dimen/fourteen_dp"/>
+
+            <Spinner
+                android:id="@+id/spAssetType"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/fourty_dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="@dimen/five_dp"
+                android:drawSelectorOnTop="true"
+                android:paddingRight="@dimen/ten_dp"/>
+
+            <LinearLayout
+                android:id="@+id/llAssetTypeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"/>
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <RelativeLayout
+        android:id="@+id/topLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fifty_dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/menutoolbar">
+
+        <RelativeLayout
+            android:id="@+id/rlBack"
+            android:layout_width="@dimen/thirty_dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/fifteen_dp">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/twenty_dp"
+                android:layout_height="@dimen/twenty_dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/arrow_icon"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvSelectedOperator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/rlBack"
+            android:layout_marginLeft="@dimen/fifteen_dp"
+            android:text="@string/createasset"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/twenty_sp"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_button_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:id="@+id/llSpread"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fourty_five_dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/fifty_dp"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:background="@color/menutoolbar"
+                android:orientation="horizontal"
+                android:layout_below="@+id/llSpread"
+                android:id="@+id/bt_start"
+                >
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/start"
+                    android:layout_margin="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/menutoolbar"
+                    android:text="@string/start"
+                    android:textColor="@color/white"
+                    />
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                ></View>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/fifty_dp"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:background="@color/menutoolbar"
+                android:orientation="horizontal"
+                android:layout_below="@+id/llSpread"
+                android:id="@+id/bt_save">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/save"
+                    android:layout_margin="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/menutoolbar"
+                    android:text="@string/save"
+                    android:textColor="@color/white"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bt_pin"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fifty_dp"
+            android:gravity="center"
+            android:background="@color/menutoolbar"
+            android:orientation="horizontal"
+            android:layout_below="@+id/llSpread">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/pin"
+                android:layout_margin="5dp"/>
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pin_n_location1"
+                android:gravity="center"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

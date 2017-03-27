@@ -1,0 +1,29 @@
+{
+    "trakeyeApp": {
+        "trNotification" : {
+            "home": {
+                "title": "Tr Notifications",
+                "createLabel": "Tr Notification erstellen",
+                "createOrEditLabel": "Tr Notification erstellen oder bearbeiten",
+                "search": "Suche nach Tr Notification"
+            },
+            "created": "Tr Notification erstellt mit ID {{ param }}",
+            "updated": "Tr Notification aktualisiert mit ID {{ param }}",
+            "deleted": "Tr Notification gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Tr Notification {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Tr Notification"
+            },
+            "createdDate": "Created Date",
+            "description": "Description",
+            "status": "Status",
+            "subject": "Subject",
+            "alertType": "Alert Type",
+            "fromUser": "From User",
+            "toUser": "To User",
+            "trCase": "Tr Case"
+        }
+    }
+}

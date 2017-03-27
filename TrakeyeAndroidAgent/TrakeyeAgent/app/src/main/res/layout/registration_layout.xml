@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/fifteen_dp"
+        android:layout_marginRight="@dimen/fifteen_dp"
+        android:layout_marginTop="@dimen/sixty_dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/registration"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/twenty_sp"/>
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fifty_dp"
+            android:layout_marginTop="@dimen/ten_dp"
+            android:background="@android:drawable/editbox_background_normal"
+            android:hint="@string/name"
+            android:inputType="text"
+            android:maxLines="1"
+            android:padding="@dimen/three_dp"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sixteen_sp"/>
+
+        <EditText
+            android:id="@+id/etEmailId"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fifty_dp"
+            android:layout_marginTop="@dimen/ten_dp"
+            android:background="@android:drawable/editbox_background_normal"
+            android:hint="@string/email_id"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:padding="@dimen/three_dp"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sixteen_sp"/>
+
+        <EditText
+            android:id="@+id/etPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fifty_dp"
+            android:layout_marginTop="@dimen/ten_dp"
+            android:background="@android:drawable/editbox_background_normal"
+            android:hint="@string/phone_number"
+            android:inputType="phone"
+            android:padding="@dimen/three_dp"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sixteen_sp"/>
+
+        <EditText
+            android:id="@+id/etCountry"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fifty_dp"
+            android:layout_marginTop="@dimen/ten_dp"
+            android:background="@android:drawable/editbox_background_normal"
+            android:hint="@string/country"
+            android:inputType="text"
+            android:padding="@dimen/three_dp"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sixteen_sp"/>
+
+        <EditText
+            android:id="@+id/etCity"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fifty_dp"
+            android:layout_marginTop="@dimen/ten_dp"
+            android:background="@android:drawable/editbox_background_normal"
+            android:hint="@string/city"
+            android:inputType="text"
+            android:padding="@dimen/three_dp"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sixteen_sp"/>
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fifty_dp"
+            android:layout_marginTop="@dimen/ten_dp"
+            android:background="@android:drawable/editbox_background_normal"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:padding="@dimen/three_dp"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sixteen_sp"/>
+
+        <EditText
+            android:id="@+id/etConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fifty_dp"
+            android:layout_marginTop="@dimen/ten_dp"
+            android:background="@android:drawable/editbox_background_normal"
+            android:hint="@string/confirm_password"
+            android:inputType="textPassword"
+            android:padding="@dimen/three_dp"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sixteen_sp"/>
+
+
+        <Button
+            android:id="@+id/btRegister"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fifty_dp"
+            android:layout_marginTop="@dimen/ten_dp"
+            android:background="@android:drawable/bottom_bar"
+            android:text="@string/register"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
+
+</ScrollView>

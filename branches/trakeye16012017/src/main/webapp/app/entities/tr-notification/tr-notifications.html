@@ -1,0 +1,100 @@
+<div class="content">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="box box-solid">
+				<div class="box-header" >            
+					<h3 class="box-title"><i class="fa fa-bell"></i> <span translate="trakeyeApp.trNotification.home.title">Tr Notifications</span></h3>
+					<div class="box-tools" ng-if="has_ROLE_USER_ADMIN">
+						 <button class="btn btn-create" ui-sref="tr-notification.new">
+						 <span class="glyphicon glyphicon-plus"></span>
+		                    <span  translate="trakeyeApp.trNotification.home.createLabel">
+		                        Create Tr Notification
+		                    </span>
+		                </button>
+					</div>					
+				</div>
+				<div class="box-body">
+				<jhi-alert></jhi-alert>
+					<div class="row">
+						<div class="col-md-3 pull-right">
+							<div class="input-group input-group-sm">
+							<input  type="text" ng-model="search" ng-change="vm.filterSearch()" class="form-control input-sm" ng-minlength="3" ng-pattern="/^[a-zA-Z0-9_ ]{3,}$/" placeholder="{{'trakeyeApp.trNotification.home.search' | translate}}">
+								<span class="input-group-btn">
+								  <button type="button" class="btn btn-info btn-flat">
+									<i class="fa fa-search"></i></button>
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="table-responsive mt-10">
+						 <table class="jh-table table table-bordered">
+							<thead class="bg-default">
+								  <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+				                  <!--   <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+									<th jh-sort-by="subject"><span translate="trakeyeApp.trNotification.subject">Subject</span> <span class="glyphicon glyphicon-sort"></span></th>
+									<th jh-sort-by="status"><span translate="trakeyeApp.trNotification.status">Status</span> <span class="glyphicon glyphicon-sort"></span></th>
+				                    <th ><span translate="trakeyeApp.trNotification.type">Type</span></th>
+				                    <th ><span translate="trakeyeApp.trNotification.alertType">Alert Type</span></th>
+				                    <th ><span translate="trakeyeApp.trNotification.toUser">To User</span></span></th>
+				                    <th ><span translate="trakeyeApp.trNotification.trCase">Tr Case</span></th>
+									<th ><span translate="trakeyeApp.trNotification.createdDate">Created Date</span></th>
+				                    <th ng-if="has_ROLE_USER"><span translate="trakeyeApp.trNotification.downloadApp">Download App</span><span class="glyphicon glyphicon-sort"></span></th>
+				                    <th ng-if="has_ROLE_USER_ADMIN"><span translate="trakeyeApp.trNotification.action">Actions</span></th>
+				                </tr>
+				            </thead>
+				            <tbody>
+				                <tr ng-repeat="trNotification in vm.trNotifications | filter: search track by trNotification.id">
+				                   <!--  <td><a ui-sref="tr-notification-detail({id:trNotification.id})">{{trNotification.id}}</a></td> -->
+									<td>{{trNotification.subject}}</td>		                   
+				                    <td translate="{{'trakeyeApp.NotificationStatus.' + trNotification.status}}">{{trNotification.status}}</td>
+				                    <td>{{trNotification.notificationType}}</td>
+				                    
+				                    <td translate="{{'trakeyeApp.AlertType.' + trNotification.alertType}}">{{trNotification.alertType}}</td>
+				                    <td>{{trNotification.toUserName}}</td>
+				                    <td><a ui-sref="tr-case-detail({id:trNotification.trCaseId})">{{trNotification.trCaseId}}</a></td>
+									 <td>{{trNotification.createdDate | date:'medium'}}</td>
+				                    <td ng-if="has_ROLE_USER && trNotification.downloadLink!=null" >
+				                      <a href="{{trNotification.downloadLink}}" target="blank">Trakeye Apk Link</a>
+				                      </td>
+				                      <td ng-if="has_ROLE_USER_ADMIN">
+				                        <div class="actions" ng-if="has_ROLE_USER_ADMIN || has_ROLE_USER">
+				                            <a ui-sref="tr-notification-detail({id:trNotification.id})"
+				                                    class="action-icons text-info">
+				                                <span class="fa fa-eye" title="View"></span>
+				                            </a>
+				                            <a ui-sref="tr-notification.edit({id:trNotification.id})"
+				                                    class="action-icons text-primary" title="Edit">
+				                                <span class="fa fa-pencil-square"></span>
+				                            </a>
+				                            
+				                            <a ui-sref="tr-notification.delete({id:trNotification.id})"
+				                                    class="action-icons text-primary" title="Delete">
+				                                <span class="fa fa-trash-o"></span>
+				                            </a>
+				                            
+				                        </div> 
+				                    </td>
+				                </tr>
+				                <tr>
+				                	<td colspan="10" ng-show="vm.trNotifications == 0" style="text-align: center;"><h4>No data available</h4></td>
+				                </tr>
+							</tbody>
+						</table> 											
+					</div>	
+					<div class="row">
+						<div class="col-md-4">
+							<div class="count-length">
+								<jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+							</div>
+						</div>
+						<div class="col-md-8">
+							<div class="pagination-list pull-right">
+								<uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>						
+							</div>					
+						</div>					
+					</div>						
+				</div>           
+			</div>		
+		</div>	
+	</div>
+</div>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title th:text="#{email.activation.title}">TrakEye creation</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body style="background: #efefef;">
+		<div class="email-template" style="width: 100%; background: #fff; border-bottom: 3px solid #65b8fc; border-left: 1px solid #efefef;
+    border-right: 1px solid #efefef; ">
+			<p style="background:#65b8fc; margin-top: 0px;">
+			<img src="http://trakeye.com/content/images/logo.png"/>
+			</p>
+			<div class="email-body" style="padding: 0px 20px;">
+			<p th:text="#{email.activation.greeting(${user.firstName})}" style=" font-weight: bold;">
+				Dear
+			</p>
+			<p th:text="#{email.creation.welcome.text2}">
+				:
+			</p>
+			<p style="margin: 35px 50px;">			
+			  <a th:href="@{|${baseUrl}/#/reset/finish?key=${user.resetKey}|}" style="background-color: #65b8fc; padding: 8px;border-radius: 3px;
+    color: #fff;  font-weight: bold; text-decoration: none; margin-left: 100px;" th:text="#{email.activation.button.reset}">Reset</a>
+			</p>
+			<p>
+			   <b th:text="#{email.activation.username(${user.login})}"></b>
+			</p>
+			<p>
+			   <b th:text="#{email.activation.email(${user.email})}"></b>
+			</p>
+
+			<p th:text="#{email.creation.text2}">
+				.
+			</p>
+			<p>
+				<span th:text="#{email.activation.text2}">Regards, </span>
+				<br/>
+				<B><em th:text="#{email.signature}">.</em></B>
+			</p>
+		</div>
+		</div>
+    </body>
+</html>

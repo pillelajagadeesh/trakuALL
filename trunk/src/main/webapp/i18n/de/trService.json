@@ -1,0 +1,29 @@
+{
+    "trakeyeApp": {
+        "trService" : {
+            "home": {
+                "title": "Tr Services",
+                "createLabel": "Tr Service erstellen",
+                "createOrEditLabel": "Tr Service erstellen oder bearbeiten",
+                "search": "Suche nach Tr Service"
+            },
+            "created": "Tr Service erstellt mit ID {{ param }}",
+            "updated": "Tr Service aktualisiert mit ID {{ param }}",
+            "deleted": "Tr Service gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Tr Service {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Tr Service"
+            },
+            "createdDate": "Created Date",
+            "modifiedDate": "Modified Date",
+            "description": "Description",
+            "serviceDate": "Service Date",
+            "status": "Status",
+            "notes": "Notes",
+            "user": "User",
+            "trCase": "Tr Case"
+        }
+    }
+}

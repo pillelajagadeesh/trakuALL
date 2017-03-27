@@ -1,0 +1,1182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-1">
+      <createTable tableName="trakeye_asset">
+         <column  name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="trakeye_assetPK"/>
+         </column>
+         <column name="create_date" type="BIGINT"/>
+         <column name="description" type="VARCHAR(255)"/>
+         <column name="name" type="VARCHAR(50)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="update_date" type="BIGINT"/>
+         <column name="asset_type_id" type="BIGINT"/>
+         <column name="tenant_id" type="BIGINT"/>
+         <column name="user_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-2">
+      <createTable tableName="trakeye_asset_coordinate">
+         <column  name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="trakeye_asset_coordinatePK"/>
+         </column>
+         <column name="latitude" type="FLOAT8">
+            <constraints nullable="false"/>
+         </column>
+         <column name="longitude" type="FLOAT8">
+            <constraints nullable="false"/>
+         </column>
+         <column name="asset_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-3">
+      <createTable tableName="trakeye_assettype">
+         <column  name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="trakeye_assettypePK"/>
+         </column>
+         <column name="colorcode" type="VARCHAR(255)"/>
+         <column name="create_date" type="BIGINT"/>
+         <column name="description" type="VARCHAR(255)"/>
+         <column name="asset_image" type="BLOB"/>
+         <column name="layout" type="VARCHAR(255)"/>
+         <column name="name" type="VARCHAR(50)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="update_date" type="BIGINT"/>
+         <column name="tenant_id" type="BIGINT"/>
+         <column name="user_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-4">
+      <createTable tableName="trakeye_assettype_attribute">
+         <column  name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="trakeye_assettype_attributePK"/>
+         </column>
+         <column name="name" type="VARCHAR(50)">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-5">
+      <createTable tableName="trakeye_assettype_attribute_value">
+         <column  name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="trakeye_assettype_attribute_valuePK"/>
+         </column>
+         <column name="attribute_value" type="VARCHAR(255)"/>
+         <column name="asset_type_attribute_id" type="BIGINT"/>
+         <column name="user_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-6">
+      <createTable tableName="trakeye_assettype_trakeye_attribute">
+         <column name="trakeye_assetyype_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+         <column name="trakeye_assettype_attribute_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-7">
+      <createTable tableName="trakeye_assettype_trakeye_attributevalue">
+         <column name="trakeye_asset_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+         <column name="trakeye_assettype_attribute_value_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-8">
+      <createTable tableName="trakeye_case_trakeye_attributevalue">
+         <column name="trakeye_case_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+         <column name="trakeye_casetype_attribute_value_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-9">
+      <createTable tableName="trakeye_case_type">
+         <column  name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="trakeye_case_typePK"/>
+         </column>
+         <column name="created_date" type="BIGINT"/>
+         <column name="description" type="VARCHAR(255)"/>
+         <column name="name" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="update_date" type="BIGINT"/>
+         <column name="tenant_id" type="BIGINT"/>
+         <column name="user_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-10">
+      <createTable tableName="trakeye_casetype_attribute">
+         <column  name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="trakeye_casetype_attributePK"/>
+         </column>
+         <column name="name" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-11">
+      <createTable tableName="trakeye_casetype_attribute_value">
+         <column  name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="trakeye_casetype_attribute_valuePK"/>
+         </column>
+         <column name="attribute_value" type="VARCHAR(255)"/>
+         <column name="case_type_attribute_id" type="BIGINT"/>
+         <column name="user_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-12">
+      <createTable tableName="trakeye_casetype_trakeye_attribute">
+         <column name="trakeye_casetype_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+         <column name="trakeye_casetype_attribute_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-13">
+      <createTable tableName="trakeye_customer">
+         <column  name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="trakeye_customerPK"/>
+         </column>
+         <column name="city" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="country" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="created_date" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+         <column name="email" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="first_name" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="lang_key" type="VARCHAR(5)"/>
+         <column name="last_name" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="mobile_phone" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="organization" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="state" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="status" type="INT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-14">
+      <createTable tableName="trakeye_geofence">
+         <column  name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="trakeye_geofencePK"/>
+         </column>
+         <column name="coordinates" type="CLOB">
+            <constraints nullable="false"/>
+         </column>
+         <column name="created_date" type="BIGINT"/>
+         <column name="description" type="VARCHAR(255)"/>
+         <column name="modified_date" type="BIGINT"/>
+         <column name="name" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="tenant_id" type="BIGINT"/>
+         <column name="user_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-15">
+      <createTable tableName="trakeye_location_log">
+         <column  name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="trakeye_location_logPK"/>
+         </column>
+         <column name="address" type="VARCHAR(255)"/>
+         <column defaultValueNumeric="0" name="battery_percentage" type="INT"/>
+         <column name="created_date_time" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+         <column defaultValueNumeric="0.0" name="distance_travelled" type="FLOAT8">
+            <constraints nullable="false"/>
+         </column>
+         <column name="latitude" type="FLOAT8">
+            <constraints nullable="false"/>
+         </column>
+         <column name="log_source" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="longitude" type="FLOAT8">
+            <constraints nullable="false"/>
+         </column>
+         <column name="updated_date_time" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+         <column name="tenant_id" type="BIGINT"/>
+         <column name="user_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-16">
+      <createTable tableName="trakeye_notification">
+         <column  name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="trakeye_notificationPK"/>
+         </column>
+         <column name="alert_type" type="VARCHAR(255)"/>
+         <column name="created_date" type="BIGINT"/>
+         <column name="description" type="VARCHAR(255)"/>
+         <column name="download_link" type="VARCHAR(255)"/>
+         <column name="notification_type" type="VARCHAR(255)"/>
+         <column name="status" type="VARCHAR(255)"/>
+         <column name="subject" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="from_user_id" type="BIGINT"/>
+         <column name="tenant_id" type="BIGINT"/>
+         <column name="to_user_id" type="BIGINT"/>
+         <column name="tr_case_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-17">
+      <createTable tableName="trakeye_service_trakeye_attributevalue">
+         <column name="trakeye_service_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+         <column name="trakeye_servicetype_attribute_value_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-18">
+      <createTable tableName="trakeye_service_type">
+         <column  name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="trakeye_service_typePK"/>
+         </column>
+         <column name="created_date" type="BIGINT"/>
+         <column name="description" type="VARCHAR(255)"/>
+         <column name="name" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="updated_date" type="BIGINT"/>
+         <column name="tenant_id" type="BIGINT"/>
+         <column name="user_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-19">
+      <createTable tableName="trakeye_servicetype_attribute">
+         <column  name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="trakeye_servicetype_attributePK"/>
+         </column>
+         <column name="name" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-20">
+      <createTable tableName="trakeye_servicetype_attribute_value">
+         <column  name="id" type="BIGINT">
+            <constraints primaryKey="true"
+                         primaryKeyName="trakeye_servicetype_attribute_valuePK"/>
+         </column>
+         <column name="attribute_value" type="VARCHAR(255)"/>
+         <column name="service_type_attribute_id" type="BIGINT"/>
+         <column name="user_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-21">
+      <createTable tableName="trakeye_servicetype_trakeye_attribute">
+         <column name="trakeye_servicetype_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+         <column name="trakeye_servicetype_attribute_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-22">
+      <createTable tableName="trakeye_tenant">
+         <column  name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="trakeye_tenantPK"/>
+         </column>
+         <column name="address" type="VARCHAR(255)"/>
+         <column name="city" type="VARCHAR(255)"/>
+         <column name="created_date" type="BIGINT"/>
+         <column name="email" type="VARCHAR(255)"/>
+         <column name="login_name" type="VARCHAR(50)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="organization" type="VARCHAR(50)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="phone" type="VARCHAR(255)"/>
+         <column name="updated_date" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-23">
+      <createTable tableName="trakeye_trcase">
+         <column  name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="trakeye_trcasePK"/>
+         </column>
+         <column name="address" type="VARCHAR(255)"/>
+         <column name="create_date" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+         <column name="description" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="escalated" type="BOOLEAN"/>
+         <column name="pin_lat" type="FLOAT8"/>
+         <column name="pin_long" type="FLOAT8"/>
+         <column name="priority" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="status" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="update_date" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+         <column name="assigned_by_id" type="BIGINT"/>
+         <column name="assigned_to_id" type="BIGINT"/>
+         <column name="case_type_id" type="BIGINT"/>
+         <column name="geofence_id" type="BIGINT"/>
+         <column name="reported_by_id" type="BIGINT"/>
+         <column name="tenant_id" type="BIGINT"/>
+         <column name="updated_by_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-24">
+      <createTable tableName="trakeye_trcase_images">
+         <column  name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="trakeye_trcase_imagesPK"/>
+         </column>
+         <column name="image" type="BLOB"/>
+         <column name="tr_case_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-25">
+      <createTable tableName="trakeye_trservice">
+         <column  name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="trakeye_trservicePK"/>
+         </column>
+         <column name="created_date" type="BIGINT"/>
+         <column name="description" type="VARCHAR(255)"/>
+         <column name="modified_date" type="BIGINT"/>
+         <column name="notes" type="VARCHAR(255)"/>
+         <column name="service_date" type="BIGINT"/>
+         <column name="status" type="VARCHAR(255)"/>
+         <column name="reported_by_id" type="BIGINT"/>
+         <column name="service_type_id" type="BIGINT"/>
+         <column name="tenant_id" type="BIGINT"/>
+         <column name="tr_case_id" type="BIGINT"/>
+         <column name="updated_by_id" type="BIGINT"/>
+         <column name="user_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-26">
+      <createTable tableName="trakeye_trservice_images">
+         <column  name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="trakeye_trservice_imagesPK"/>
+         </column>
+         <column name="image" type="BLOB"/>
+         <column name="tr_service_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-27">
+      <createTable tableName="trakeye_type">
+         <column  name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="trakeye_typePK"/>
+         </column>
+         <column name="created_date" type="BIGINT"/>
+         <column name="description" type="VARCHAR(255)"/>
+         <column name="name" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="updated_date" type="BIGINT"/>
+         <column name="tenant_id" type="BIGINT"/>
+         <column name="user_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-28">
+      <createTable tableName="trakeye_type_attribute">
+         <column  name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="trakeye_type_attributePK"/>
+         </column>
+         <column name="name" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-29">
+      <createTable tableName="trakeye_type_attribute_value">
+         <column  name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="trakeye_type_attribute_valuePK"/>
+         </column>
+         <column name="attribute_value" type="VARCHAR(255)"/>
+         <column name="trakeye_type_attribute_id" type="BIGINT"/>
+         <column name="user_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-30">
+      <createTable tableName="trakeye_type_trakeye_attribute">
+         <column name="trakeye_type_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+         <column name="trakeye_type_attribute_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-31">
+      <createTable tableName="trakeye_type_trakeye_attributevalue">
+         <column name="trakeye_type_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+         <column name="trakeye_type_attribute_value_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-32">
+      <createTable tableName="trakeye_user_geofence">
+         <column name="user_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+         <column name="geofence_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-33">
+      <addColumn tableName="trakeye_user">
+         <column name="application_version" type="varchar(100)"/>
+      </addColumn>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-34">
+      <addColumn tableName="trakeye_user">
+         <column name="fcm_token" type="varchar(255)"/>
+      </addColumn>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-35">
+      <addColumn tableName="trakeye_user">
+         <column defaultValue="1"
+                 defaultValueNumeric="1"
+                 name="from_time"
+                 type="int4"/>
+      </addColumn>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-36">
+      <addColumn tableName="trakeye_user">
+         <column defaultValue="false"
+                 defaultValueNumeric="false"
+                 name="gps_status"
+                 type="boolean"/>
+      </addColumn>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-37">
+      <addColumn tableName="trakeye_user">
+         <column name="imei" type="varchar(100)"/>
+      </addColumn>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-38">
+      <addColumn tableName="trakeye_user">
+         <column name="operating_system" type="varchar(100)"/>
+      </addColumn>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-39">
+      <addColumn tableName="trakeye_user">
+         <column name="phone" type="varchar(100)"/>
+      </addColumn>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-40">
+      <addColumn tableName="trakeye_user">
+         <column name="tenant_id" type="int8"/>
+      </addColumn>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-41">
+      <addColumn tableName="trakeye_user">
+         <column defaultValue="1"
+                 defaultValueNumeric="1"
+                 name="to_time"
+                 type="int4"/>
+      </addColumn>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-42">
+      <addColumn tableName="trakeye_user">
+         <column name="trakeye_type_id" type="int8"/>
+      </addColumn>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-43">
+      <addColumn tableName="trakeye_user">
+         <column name="user_image" type="LONGBLOB"/>
+      </addColumn>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-44">
+      <addPrimaryKey columnNames="trakeye_assetyype_id, trakeye_assettype_attribute_id"
+                     tableName="trakeye_assettype_trakeye_attribute"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-45">
+      <addPrimaryKey columnNames="trakeye_asset_id, trakeye_assettype_attribute_value_id"
+                     tableName="trakeye_assettype_trakeye_attributevalue"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-46">
+      <addPrimaryKey columnNames="trakeye_case_id, trakeye_casetype_attribute_value_id"
+                     tableName="trakeye_case_trakeye_attributevalue"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-47">
+      <addPrimaryKey columnNames="trakeye_casetype_id, trakeye_casetype_attribute_id"
+                     tableName="trakeye_casetype_trakeye_attribute"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-48">
+      <addPrimaryKey columnNames="trakeye_service_id, trakeye_servicetype_attribute_value_id"
+                     tableName="trakeye_service_trakeye_attributevalue"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-49">
+      <addPrimaryKey columnNames="trakeye_servicetype_id, trakeye_servicetype_attribute_id"
+                     tableName="trakeye_servicetype_trakeye_attribute"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-50">
+      <addPrimaryKey columnNames="trakeye_type_id, trakeye_type_attribute_id"
+                     tableName="trakeye_type_trakeye_attribute"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-51">
+      <addPrimaryKey columnNames="trakeye_type_id, trakeye_type_attribute_value_id"
+                     tableName="trakeye_type_trakeye_attributevalue"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-52">
+      <addPrimaryKey columnNames="user_id, geofence_id" tableName="trakeye_user_geofence"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-53">
+      <addUniqueConstraint columnNames="tenant_id, name" tableName="trakeye_assettype"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-54">
+      <addUniqueConstraint columnNames="trakeye_assettype_attribute_id"
+                           tableName="trakeye_assettype_trakeye_attribute"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-55">
+      <addUniqueConstraint columnNames="trakeye_assettype_attribute_value_id"
+                           tableName="trakeye_assettype_trakeye_attributevalue"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-56">
+      <addUniqueConstraint columnNames="trakeye_casetype_attribute_value_id"
+                           tableName="trakeye_case_trakeye_attributevalue"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-57">
+      <addUniqueConstraint columnNames="tenant_id, name" tableName="trakeye_case_type"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-58">
+      <addUniqueConstraint columnNames="trakeye_casetype_attribute_id"
+                           tableName="trakeye_casetype_trakeye_attribute"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-59">
+      <addUniqueConstraint columnNames="tenant_id, user_id, name" tableName="trakeye_geofence"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-60">
+      <addUniqueConstraint columnNames="user_id, created_date_time, updated_date_time"
+                           tableName="trakeye_location_log"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-61">
+      <addUniqueConstraint columnNames="trakeye_servicetype_attribute_value_id"
+                           tableName="trakeye_service_trakeye_attributevalue"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-62">
+      <addUniqueConstraint columnNames="tenant_id, name" tableName="trakeye_service_type"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-63">
+      <addUniqueConstraint columnNames="trakeye_servicetype_attribute_id"
+                           tableName="trakeye_servicetype_trakeye_attribute"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-64">
+      <addUniqueConstraint columnNames="tenant_id, name" tableName="trakeye_type"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-65">
+      <addUniqueConstraint columnNames="trakeye_type_attribute_id"
+                           tableName="trakeye_type_trakeye_attribute"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-66">
+      <addUniqueConstraint columnNames="trakeye_type_attribute_value_id"
+                           tableName="trakeye_type_trakeye_attributevalue"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-67">
+      <addForeignKeyConstraint baseColumnNames="trakeye_servicetype_attribute_value_id"
+                               baseTableName="trakeye_service_trakeye_attributevalue"
+                               constraintName="FK_11qjjp1xyxs5guu8jjs2yooca"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_servicetype_attribute_value"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-68">
+      <addForeignKeyConstraint baseColumnNames="trakeye_case_id"
+                               baseTableName="trakeye_case_trakeye_attributevalue"
+                               constraintName="FK_1ibsau95x945duounkhcx6cq3"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_trcase"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-69">
+      <addForeignKeyConstraint baseColumnNames="asset_type_id"
+                               baseTableName="trakeye_asset"
+                               constraintName="FK_1tgm9vs86dmlthjajnaas7jvy"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_assettype"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-70">
+      <addForeignKeyConstraint baseColumnNames="trakeye_casetype_id"
+                               baseTableName="trakeye_casetype_trakeye_attribute"
+                               constraintName="FK_201pb98cuahfjpr3w4epnjagf"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_case_type"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-71">
+      <addForeignKeyConstraint baseColumnNames="updated_by_id"
+                               baseTableName="trakeye_trcase"
+                               constraintName="FK_2b1y3g1w5crisaqv5ljvh7i5e"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_user"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-72">
+      <addForeignKeyConstraint baseColumnNames="case_type_attribute_id"
+                               baseTableName="trakeye_casetype_attribute_value"
+                               constraintName="FK_2ml161xbmrbvmhrg2wwcmxe9"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_casetype_attribute"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-73">
+      <addForeignKeyConstraint baseColumnNames="trakeye_type_id"
+                               baseTableName="trakeye_type_trakeye_attribute"
+                               constraintName="FK_2omflqhrgnglx1bke9bartu6k"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_type"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-74">
+      <addForeignKeyConstraint baseColumnNames="tr_service_id"
+                               baseTableName="trakeye_trservice_images"
+                               constraintName="FK_2plwl3tlo09kdohplpygsuf71"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_trservice"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-75">
+      <addForeignKeyConstraint baseColumnNames="case_type_id"
+                               baseTableName="trakeye_trcase"
+                               constraintName="FK_31gu79rv6mvoxf6safvo7m0eq"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_case_type"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-76">
+      <addForeignKeyConstraint baseColumnNames="tenant_id"
+                               baseTableName="trakeye_notification"
+                               constraintName="FK_3lbfjo99vgpgrrs8qjvtkvgrs"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_tenant"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-77">
+      <addForeignKeyConstraint baseColumnNames="to_user_id"
+                               baseTableName="trakeye_notification"
+                               constraintName="FK_3re4dx8dm1k6k986pcy4srumg"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_user"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-78">
+      <addForeignKeyConstraint baseColumnNames="geofence_id"
+                               baseTableName="trakeye_user_geofence"
+                               constraintName="FK_57j6yejegteghry1eoniv37t"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_geofence"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-79">
+      <addForeignKeyConstraint baseColumnNames="from_user_id"
+                               baseTableName="trakeye_notification"
+                               constraintName="FK_5hmrg2wp3emdb4rtrffr5ac8p"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_user"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-80">
+      <addForeignKeyConstraint baseColumnNames="user_id"
+                               baseTableName="trakeye_location_log"
+                               constraintName="FK_5u3bn5jaj0cisl4hujevmndm5"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_user"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-81">
+      <addForeignKeyConstraint baseColumnNames="trakeye_asset_id"
+                               baseTableName="trakeye_assettype_trakeye_attributevalue"
+                               constraintName="FK_6ivl9rp0vj2f8kaqkbp95e3ie"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_asset"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-82">
+      <addForeignKeyConstraint baseColumnNames="tenant_id"
+                               baseTableName="trakeye_user"
+                               constraintName="FK_6n5yb8ukm2phme3h2uwssgwst"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_tenant"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-83">
+      <addForeignKeyConstraint baseColumnNames="tenant_id"
+                               baseTableName="trakeye_case_type"
+                               constraintName="FK_72lftwm48mratkg2jh7i481a4"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_tenant"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-84">
+      <addForeignKeyConstraint baseColumnNames="tenant_id"
+                               baseTableName="trakeye_trservice"
+                               constraintName="FK_72sj7acor7vpmmekg3c5ssheg"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_tenant"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-85">
+      <addForeignKeyConstraint baseColumnNames="tr_case_id"
+                               baseTableName="trakeye_trservice"
+                               constraintName="FK_79mif2px32oajmmfjw81fvmdi"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_trcase"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-86">
+      <addForeignKeyConstraint baseColumnNames="geofence_id"
+                               baseTableName="trakeye_trcase"
+                               constraintName="FK_7pmbyfhnetg408r8r4m5bek1d"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_geofence"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-87">
+      <addForeignKeyConstraint baseColumnNames="trakeye_servicetype_id"
+                               baseTableName="trakeye_servicetype_trakeye_attribute"
+                               constraintName="FK_7tlea5g70ag16xsh3oxp41c72"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_service_type"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-88">
+      <addForeignKeyConstraint baseColumnNames="user_id"
+                               baseTableName="trakeye_case_type"
+                               constraintName="FK_a4xc7tuy8kbybfhpd7j3s3ee4"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_user"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-89">
+      <addForeignKeyConstraint baseColumnNames="user_id"
+                               baseTableName="trakeye_asset"
+                               constraintName="FK_ao8xo2f3xjgxqkcb2av6rjvxr"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_user"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-90">
+      <addForeignKeyConstraint baseColumnNames="tenant_id"
+                               baseTableName="trakeye_asset"
+                               constraintName="FK_b1hn9eew0ove9dely87hbjk1j"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_tenant"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-91">
+      <addForeignKeyConstraint baseColumnNames="assigned_by_id"
+                               baseTableName="trakeye_trcase"
+                               constraintName="FK_blh8qx82iannvkvbjrqyqvyh6"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_user"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-92">
+      <addForeignKeyConstraint baseColumnNames="trakeye_type_id"
+                               baseTableName="trakeye_type_trakeye_attributevalue"
+                               constraintName="FK_bo7pdt489ek6aixwiwx73v78p"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_user"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-93">
+      <addForeignKeyConstraint baseColumnNames="user_id"
+                               baseTableName="trakeye_servicetype_attribute_value"
+                               constraintName="FK_bpyo62a0ta3vara3f4440d1h"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_user"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-94">
+      <addForeignKeyConstraint baseColumnNames="tr_case_id"
+                               baseTableName="trakeye_trcase_images"
+                               constraintName="FK_c3yc96mi1pe9pe6pb1ogfhk6s"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_trcase"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-95">
+      <addForeignKeyConstraint baseColumnNames="service_type_id"
+                               baseTableName="trakeye_trservice"
+                               constraintName="FK_d310agot5ucydlfamqb09e6yq"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_service_type"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-96">
+      <addForeignKeyConstraint baseColumnNames="asset_id"
+                               baseTableName="trakeye_asset_coordinate"
+                               constraintName="FK_dqyyaqe510o6ix9ctkjlw7c9l"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_asset"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-97">
+      <addForeignKeyConstraint baseColumnNames="trakeye_casetype_attribute_value_id"
+                               baseTableName="trakeye_case_trakeye_attributevalue"
+                               constraintName="FK_dy8p13u6iq5j13u82jbu6yx4x"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_casetype_attribute_value"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-98">
+      <addForeignKeyConstraint baseColumnNames="tenant_id"
+                               baseTableName="trakeye_geofence"
+                               constraintName="FK_e7dfonm1ttiwjxrh3wmn8k6vj"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_tenant"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-99">
+      <addForeignKeyConstraint baseColumnNames="user_id"
+                               baseTableName="trakeye_user_geofence"
+                               constraintName="FK_eqh0khx6o7x8vkjcpu74wgbd7"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_user"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-100">
+      <addForeignKeyConstraint baseColumnNames="trakeye_service_id"
+                               baseTableName="trakeye_service_trakeye_attributevalue"
+                               constraintName="FK_eqha6rbnfk7hfkjrrsr92lan"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_trservice"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-101">
+      <addForeignKeyConstraint baseColumnNames="trakeye_assetyype_id"
+                               baseTableName="trakeye_assettype_trakeye_attribute"
+                               constraintName="FK_exuejpiq41f7y4jms1plohwlc"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_assettype"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-102">
+      <addForeignKeyConstraint baseColumnNames="tenant_id"
+                               baseTableName="trakeye_trcase"
+                               constraintName="FK_f0ogduktyrakkosnt35n6jkb"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_tenant"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-103">
+      <addForeignKeyConstraint baseColumnNames="user_id"
+                               baseTableName="trakeye_service_type"
+                               constraintName="FK_flobjinckn852iq0v0hdx0tqu"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_user"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-104">
+      <addForeignKeyConstraint baseColumnNames="trakeye_type_attribute_id"
+                               baseTableName="trakeye_type_trakeye_attribute"
+                               constraintName="FK_g5ywfq12ex07fuc1luxs1rg1q"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_type_attribute"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-105">
+      <addForeignKeyConstraint baseColumnNames="assigned_to_id"
+                               baseTableName="trakeye_trcase"
+                               constraintName="FK_gwcu9w1eq1gph5m4mycnif2gs"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_user"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-106">
+      <addForeignKeyConstraint baseColumnNames="user_id"
+                               baseTableName="trakeye_type"
+                               constraintName="FK_hevcheoy4ldevqq8n88aa15yf"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_user"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-107">
+      <addForeignKeyConstraint baseColumnNames="trakeye_assettype_attribute_value_id"
+                               baseTableName="trakeye_assettype_trakeye_attributevalue"
+                               constraintName="FK_ieyy30ma3kstj2ffet3j4f9dd"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_assettype_attribute_value"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-108">
+      <addForeignKeyConstraint baseColumnNames="trakeye_casetype_attribute_id"
+                               baseTableName="trakeye_casetype_trakeye_attribute"
+                               constraintName="FK_it1fig9appjmuqj9qs461pbgn"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_casetype_attribute"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-109">
+      <addForeignKeyConstraint baseColumnNames="user_id"
+                               baseTableName="trakeye_assettype_attribute_value"
+                               constraintName="FK_ivff6s2277kka4wxauce4xsyn"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_user"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-110">
+      <addForeignKeyConstraint baseColumnNames="tenant_id"
+                               baseTableName="trakeye_location_log"
+                               constraintName="FK_j4vod1nt5uocexgwubyhs2w3k"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_tenant"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-111">
+      <addForeignKeyConstraint baseColumnNames="user_id"
+                               baseTableName="trakeye_trservice"
+                               constraintName="FK_jmafv2c645as32lft77xt47km"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_user"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-112">
+      <addForeignKeyConstraint baseColumnNames="tenant_id"
+                               baseTableName="trakeye_assettype"
+                               constraintName="FK_juxkom1hjufflp8yg7gigdcex"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_tenant"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-113">
+      <addForeignKeyConstraint baseColumnNames="trakeye_type_id"
+                               baseTableName="trakeye_user"
+                               constraintName="FK_kl18o23wbip8py0vf29q1ao0h"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_type"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-114">
+      <addForeignKeyConstraint baseColumnNames="user_id"
+                               baseTableName="trakeye_casetype_attribute_value"
+                               constraintName="FK_kr0ytoak3j0hpgqn9cekibqji"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_user"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-115">
+      <addForeignKeyConstraint baseColumnNames="tenant_id"
+                               baseTableName="trakeye_type"
+                               constraintName="FK_l30r8txudt0ysaytgjpu9wv0n"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_tenant"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-116">
+      <addForeignKeyConstraint baseColumnNames="asset_type_attribute_id"
+                               baseTableName="trakeye_assettype_attribute_value"
+                               constraintName="FK_mn0wt31qtwsgci1c8q49q79tw"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_assettype_attribute"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-117">
+      <addForeignKeyConstraint baseColumnNames="trakeye_type_attribute_value_id"
+                               baseTableName="trakeye_type_trakeye_attributevalue"
+                               constraintName="FK_mw3a2nj8g344joobsv9iijpsc"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_type_attribute_value"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-118">
+      <addForeignKeyConstraint baseColumnNames="user_id"
+                               baseTableName="trakeye_assettype"
+                               constraintName="FK_p8d3ihij22apd8o0v3w84akwm"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_user"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-119">
+      <addForeignKeyConstraint baseColumnNames="user_id"
+                               baseTableName="trakeye_type_attribute_value"
+                               constraintName="FK_q76r1gvr5b8xf59v183o05al4"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_user"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-120">
+      <addForeignKeyConstraint baseColumnNames="reported_by_id"
+                               baseTableName="trakeye_trcase"
+                               constraintName="FK_q907w6dymnkoaj5bapgrb2cbr"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_user"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-121">
+      <addForeignKeyConstraint baseColumnNames="trakeye_assettype_attribute_id"
+                               baseTableName="trakeye_assettype_trakeye_attribute"
+                               constraintName="FK_qah0kmvon1dq14lwhrmjfm680"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_assettype_attribute"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-122">
+      <addForeignKeyConstraint baseColumnNames="trakeye_servicetype_attribute_id"
+                               baseTableName="trakeye_servicetype_trakeye_attribute"
+                               constraintName="FK_qktl1kkulettwmdcfgw2wn6st"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_servicetype_attribute"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-123">
+      <addForeignKeyConstraint baseColumnNames="user_id"
+                               baseTableName="trakeye_geofence"
+                               constraintName="FK_seuraenbi48i77qyhhbhokfhd"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_user"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-124">
+      <addForeignKeyConstraint baseColumnNames="reported_by_id"
+                               baseTableName="trakeye_trservice"
+                               constraintName="FK_sj4fjx7v1k7x90r7uvgjmrwmc"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_user"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-125">
+      <addForeignKeyConstraint baseColumnNames="trakeye_type_attribute_id"
+                               baseTableName="trakeye_type_attribute_value"
+                               constraintName="FK_snb94p8pj4fgfgft6kwf6h07y"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_type_attribute"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-126">
+      <addForeignKeyConstraint baseColumnNames="tr_case_id"
+                               baseTableName="trakeye_notification"
+                               constraintName="FK_t16o90w6jbrhl8yq6jqagcyn3"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_trcase"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-127">
+      <addForeignKeyConstraint baseColumnNames="updated_by_id"
+                               baseTableName="trakeye_trservice"
+                               constraintName="FK_telfmawbck1gn8bmski6p2v8s"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_user"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-128">
+      <addForeignKeyConstraint baseColumnNames="tenant_id"
+                               baseTableName="trakeye_service_type"
+                               constraintName="FK_th7kt9jnyb36ann4pna0gle6"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_tenant"/>
+   </changeSet>
+   <changeSet author="gaddesurendrakumar (generated)" id="1485878482480-129">
+      <addForeignKeyConstraint baseColumnNames="service_type_attribute_id"
+                               baseTableName="trakeye_servicetype_attribute_value"
+                               constraintName="FK_ti8a54ihjcmkglclr7k7t0wrj"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_servicetype_attribute"/>
+   </changeSet>
+   
+</databaseChangeLog>

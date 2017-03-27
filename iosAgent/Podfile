@@ -1,0 +1,37 @@
+# Uncomment this line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'TrakEyeApp' do
+  # Comment this line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for TrakEyeApp
+
+  target 'TrakEyeAppTests' do
+    inherit! :search_paths
+    pod 'Firebase'
+    pod 'ZRScrollableTabBar'
+    # Pods for testing
+  end
+
+  target 'TrakEyeAppUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+pod 'XHRealTimeBlur'
+pod 'pop'
+pod 'AFNetworking'
+pod 'ReachabilitySwift'
+pod 'Firebase/Core'
+pod 'Firebase/Messaging'
+pod 'Firebase/Crash'
+pod 'GoogleMaps'
+pod 'GooglePlaces'
+pod 'Google/SignIn'
+pod 'ZRScrollableTabBar'
+pod 'HTAutocompleteTextField'
+pod 'TPKeyboardAvoiding'
+pod 'NVActivityIndicatorView'
+
+end

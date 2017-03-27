@@ -1,0 +1,5 @@
+id;login;password_hash;first_name;last_name;email;activated;lang_key;created_by;created_date;last_modified_by;last_modified_date;valid_location
+2;admin1;$2a$10$e/i8BL1ghYdu65sEGJ5qFOgMX7AjM3XMoyyXYsKjwHhjdwZH8NLTm;ad;min1;admin1@yopmail.com;1;en;admin;1478092443491;admin;1478092443491;false
+3;bsnl;$2a$10$LzTdwnwmTuQ3Kk6QEXZuMuUjAxT2y09.IpTOa4L4/5WP2Edvwiz5m;bs;nl;bsnl@yopmail.com;1;en;admin;1478092443491;admin;1478092443491;false
+4;voda;$2a$10$msCnMfhP7yOCFmJkgG1mm.VTwIA5KJFSoqnaCxnu2q2Nwj5kNhKHa;vo;da;voda@yopmail.com;1;en;admin1;1478092443491;admin1;1478092443491;false
+5;bsnluser;$2a$10$SrfxOuJnfQj7.rP2q4A60.cabPas0psqWJitQiTA1a5pluNmJlE56;bsnl;user;bsnluser9@yopmail.com;1;en;bsnl;1478092443491;bsnl;1478092443491;false

@@ -1,0 +1,256 @@
+{
+    "global": {
+        "title": "Trakeye",
+        "browsehappy": "You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/?locale=en\">upgrade your browser</a> to improve your experience.",
+        "menu": {
+            "home": "Home",
+            "dashboard": "Dashboard",
+            "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
+            "entities": {
+                "main": "Entity Management",
+                "trakeyeType": "Trakeye Types",
+                "geofence": "Geofence",
+                "caseType": "Case Types",
+                "serviceType": "Service Types",
+                "assetType": "Asset Types",
+                "role": "Role",
+                "trCase": "Cases",
+                "trService": "Services",
+                "asset": "Assets",
+                "trNotification": "Notifications",
+                "locationLog": "Live Monitoring",
+                "tenant": "Tenant",
+                "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
+                "upload": "Upload"
+            },
+			 "report": "Reports",
+			 "generic-report": "Generic Reports",
+			 "battery-report": "Battery Reports",
+			 "distance-travelled": "Distance Travelled",
+            "account": {
+                "main": "Account",
+                "settings": "Settings",
+                "password": "Password",
+                "sessions": "Sessions",
+                "login": "Sign in",
+                "logout": "Sign out",
+                "register": "Try It"
+               
+            },
+            "admin": {
+                "main": "Administration",
+                "userManagement": "User management",
+                "customerManagement": "Registered customers",
+                "active-users": "Active Users",
+                "inactive-users": "Inactive Users",
+                "idle-users": "Idle Users",
+                "tracker": "User tracker",
+                "metrics": "Metrics",
+                "health": "Health",
+                "configuration": "Configuration",
+                "logs": "Logs",
+                "audits": "Audits",
+                "apidocs": "API",
+                "database": "Database",
+                "upload": "Upload",
+                "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
+            },
+            "language": "Language"
+        },
+        "form": {
+            "username": "Username",
+            "username.placeholder": "Username",
+            "newpassword": "Password",
+            "newpassword.placeholder": "Password",
+            "confirmpassword": "Confirm Password",
+            "confirmpassword.placeholder": "Confirm Password",
+            "email": "E-Mail",
+            "email.placeholder": "E-Mail"
+        },
+        "messages": {
+            "info": {
+                "authenticated": " <a class=\"alert-link\" href=\"\" ng-click=\"vm.login()\">sign in</a>",
+                "register": "<a class=\"alert-link\" href=\"\" ng-click=\"vm.register()\">Register a new account</a>"
+            },
+            "error": {
+                "dontmatch": "The password and its confirmation do not match!"
+            },
+            "validate": {
+                "newpassword": {
+                    "required": "Your password is required.",
+                    "minlength": "Your password is required to be at least 4 characters.",
+                    "maxlength": "Your password cannot be longer than 50 characters.",
+                    "strength": "Password strength:"
+                },
+                "confirmpassword": {
+                    "required": "Your confirmation password is required.",
+                    "minlength": "Your confirmation password is required to be at least 4 characters.",
+                    "maxlength": "Your confirmation password cannot be longer than 50 characters."
+                },
+                "email": {
+                    "required": "Your e-mail is required.",
+                    "invalid": "Your e-mail is invalid.",
+                    "minlength": "Your e-mail is required to be at least 5 characters.",
+                    "maxlength": "Your e-mail cannot be longer than 50 characters."
+                },
+                 "tenant": {
+                    "required": "Your e-mail is required.",
+                    "orginvalid": "Your oganization is invalid.",
+                    "minlength": "Your e-mail is required to be at least 5 characters.",
+                    "maxlength": "Your e-mail cannot be longer than 50 characters."
+                },
+                 "username": {
+                    "required": "Your username is required.",
+                    "maxlength": "Your username cannot be longer than 50 characters."
+                },
+                "phone": {
+                   "invalid": "Your phone number is invalid.",
+                   "maxlength": "Your phone number cannot be longer than 14 numbers.",
+                   "minlength": "Your phone number cannot be lesser than 10 numbers."
+                },
+                "imei": {
+                   "invalid": "Your IMEI is invalid.",
+                   "maxlength": "Your IMEI cannot be longer than 50 numbers.",
+                   "minlength": "Your IMEI cannot be lesser than 15 numbers."
+                },
+                 "userimage": {
+                    "patternerror":"Only image file(jpg, jpeg, png) should be uploaded1"
+                },
+                "organization": {
+                   "maxlength": "Your Organization cannot be longer than 50 characters.",
+                   "minlength": "Your Organization cannot be lesser than 3 characters."
+                },
+                 "city": {
+                   "maxlength": "City cannot be longer than 50 characters.",
+                   "minlength": "City cannot be lesser than 3 characters."
+                },
+                  "state": {
+                   "maxlength": "State cannot be longer than 50 characters.",
+                   "minlength": "State cannot be lesser than 3 characters."
+                },
+                  "country": {
+                   "maxlength": "Country cannot be longer than 50 characters.",
+                   "minlength": "Country cannot be lesser than 3 characters."
+                }
+            }
+        },
+        "field": {
+            "id": "ID"
+        },
+        "ribbon": {
+            "dev":"Development"
+        }
+    },
+    "entity": {
+        "action": {
+            "addblob": "Add blob",
+            "addimage": "Add image",
+            "back": "Back",
+            "cancel": "Cancel",
+            "delete": "Delete",
+            "edit": "Edit",
+            "open": "Open",
+            "save": "Save",
+            "assigncase": "Assign Case",
+            "casesuccessmessage": "Case has been assigned successfully",
+             "selectcase": "Enter Case Id",
+            "view": "View"
+        },
+        "detail": {
+            "field": "Field",
+            "value": "Value"
+        },
+        "delete": {
+            "title": "Confirm delete operation"
+        },
+        "validation": {
+            "required": "This field is required.",
+            "minlength": "This field is required to be at least {{ min }} characters.",
+            "maxlength": "This field cannot be longer than {{ max }} characters.",
+            "min": "This field should be more than {{ min }}.",
+            "max": "This field cannot be more than {{ max }}.",
+            "minbytes": "This field should be more than {{ min }} bytes.",
+            "maxbytes": "This field cannot be more than {{ max }} bytes.",
+            "pattern": "This field should follow pattern {{ pattern }}.",
+            "number": "This field should be a number.",
+            "datetimelocal": "This field should be a date and time."
+        }
+    },
+    "error": {
+        "server.not.reachable": "Server not reachable",
+        "url.not.found": "Not found",
+        "NotNull": "Field {{ fieldName }} cannot be empty!",
+        "Size": "Field {{ fieldName }} does not meet min/max size requirements!",
+        "userexists": "Login name already used!",
+        "imeiexists": "IMEI number already used by some other activated user!",
+        "imagesizeexides" : "Image size should be lessthan 4KB and should be of 192 x 192",
+        "firstnameexists": "FirstName already exists!",
+        "emailexists": "E-mail is already in use!",
+        "idexists": "A new {{ entityName }} cannot be created, already have an ID",
+        "idNotExists": "{{ entityName }} cannot be updated, it does not have an ID",
+        "profilerequired" :"Please select a profile",
+        "notallowedtocreatewithrole": "You are not authorized to create user with selected Role",
+        "loggedinusernull": "Logged in user is null",
+        "nanvalue" :"Longitude or lattitude value is null",
+        "geofencealreadyexists": "Geofence with this name already exists",
+        "casetypealreadyexists": "Case type with this name already exists",
+        "assetalreadyexists": "Asset with this name already exists under your tenant",
+        "wrongformat": "Given file format should be same as sample download, click on the sample download link",
+        "assettypeisnotpresent":"Asset type with this name not present. Create spread asset type before creating assets",
+        "trakeyetypealreadyexists": "Trakeye type with this name already exists",
+        "assetfileempty":"Assets file is empty",
+        "servicetypealreadyexists": "Service type with this name already exists",
+        "assettypealreadyexists": "Asset type with this name already exists",
+        "colorandimagenull": "Asset type color code and asset type image both cannot be null",
+        "fixedtypeerror": "Fixed asset type can not have color code",
+        "trnotificationstatusnull":"Notification status can not be null",
+        "spreadtypeerror": "Spread asset type can not have image",
+        "imagenull": "Fixed asset type should have image",
+        "colorcodenull": "Spread asset type should have color code",
+        "coordinatesnull": "Asset coordinates should not be null",
+        "cannotupdatelayout": "Asset type layout can not be changed",
+        "logcreatefailure": "A new locationLog cannot be created, as log time is not between user's from time and to time",
+        "locationloglistisnull" : "LocationLog list is null",
+        "logtimeandzonenull": "Log time and zone is null",
+        "fromTimeisgreater": "From hour shoud be less than to hour",
+        "existinglogisnull":"No location log found with this id",
+         "fileisnotapk": "Only apk file should be uploaded",
+         "fileisnotxls": "Only xlsx or xls file should be uploaded",
+	    "uploadfailure": "Error while uploading the file",
+	    "uploadfileempty": "Uploading file is empty",
+	    "countExceeded" : "Reset password count is exceeded for today. Try after 24 hours",
+	    "usernamenotregistered" : "Username isn't registered! Please check and try again",
+	    "userdeactivated": "User is deactivated",
+	    "emaillinkinvalid" : "Email link is invalid. Please use latest email link",
+	    "pwdsetlinkvalid" : "Your password couldn't be set. Remember a password request is valid only for 24 hours",
+	    "pwdresetlinkvalid" : "Your password couldn't be reset. Remember a password request is valid only for 24 hours",
+	    "trservicecasenull": "No case found with the given case id",
+	    "trcaseusernull": "No User found with the given assigned to user",
+	     "resetkeynull" : "Reset key null"
+	 
+ 	    
+    },
+    "upload":{
+        "success": "Apk has been uploaded successfully",
+        "title": "Upload",
+        "uploadfile":"Upload File",
+        "patternerror":"Only apk file should be uploaded",
+        "versionno": "Version No",
+        "submit":"Submit"     
+    },
+    "assettype":{
+        "patternerror":"Only image file(jpg, jpeg, png) should be uploaded"
+    },
+	"report":{
+        "title": "Report",
+        "report":"Report",
+        "submit":"Submit"     
+    },
+    
+	"footer": "Copyright &copy; 2017 Tresbu Technologies Pvt.Ltd, All rights reserved",
+	
+    "resetlinksent" : "Password reset link has been sent to your email",
+    "setlinksent" : "Password set link has been sent to your email",
+    "pwdsetsuccess": "<strong>Your password has been set.</strong> Please <a class=\"alert-link\" href=\"\" ui-sref=\"login\">sign in</a>.",
+    "pwdresetsuccess": "<strong>Your password has been reset.</strong> Please <a class=\"alert-link\" href=\"\" ui-sref=\"login\">sign in</a>."
+}

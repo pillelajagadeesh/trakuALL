@@ -1,0 +1,195 @@
+<div class="content">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<form name="editForm" role="form" class="form-horizontal" novalidate ng-submit="vm.save()" show-validation>
+		    <div class="box box-info">
+			    <div class="box-header">
+			    	<h3 class="box-title" id="myTrCaseLabel">
+			    	<span ng-if="!vm.trCase.id" translate="trakeyeApp.trCase.home.create">Create</span>
+			    	<span ng-if="vm.trCase.id" translate="trakeyeApp.trCase.home.EditLabel">Edit</span>
+			    	</h3>
+			    	
+			    </div>
+		    <div class="box-body">
+		        <jhi-alert-error></jhi-alert-error>
+		        <div class="form-group" ng-if="vm.trCase.id">
+		            <label for="id" class="col-md-3 control-label" translate="global.field.id">ID</label>		            
+		            <div class="col-md-8">
+		            	<input type="text" class="form-control" id="id" name="id"
+		                    ng-model="vm.trCase.id" readonly />
+		             </div>
+		        </div>
+		        <div class="form-group">
+		            <label class="col-md-3 control-label" for="field_description">
+		          		<span translate="trakeyeApp.trCase.description">Description</span> 
+		          		<sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> </sup>
+		          	</label>		            	
+	            	<div class="col-md-8">
+	            		<textarea class="form-control" rows="2" name="description" id="field_description"
+	                    ng-model="vm.trCase.description"
+	                    required ></textarea>	                   	                	                    
+	            	</div>
+		        </div>		      
+		        <div class="form-group" ng-if="has_ROLE_USER ||  has_ROLE_USER_ADMIN ||  vm.trCase.id">
+		            <label class="col-md-3 control-label">
+		          		<span translate="trakeyeApp.trCase.pinLat">Pin Lat</span> 
+		          		<sup><span class="required-icon">
+		          			<i class="fa fa-asterisk text-danger"></i>
+		          		</span> </sup>
+		          	</label>
+		            <div class="col-md-3">
+		            	<input type="number" class="form-control" name="pinLat" id="field_pinLat"
+		                    ng-model="vm.trCase.pinLat" ng-readonly="vm.trCase.id" required>
+		      		</div>
+		      		<label class="col-md-2 control-label">
+		          		<span translate="trakeyeApp.trCase.pinLong">Pin Long</span> 
+		          		<sup><span class="required-icon">
+		          			<i class="fa fa-asterisk text-danger"></i>
+		          		</span> </sup>
+		          	</label>
+		      		<div class="col-md-3">
+		            	<input type="number" class="form-control" name="pinLong" id="field_pinLong"
+		                    ng-model="vm.trCase.pinLong" ng-readonly="vm.trCase.id" required>
+		             </div>
+		        </div>
+		        <div class="form-group">
+		            <label class="col-md-3 control-label">
+		          		<span translate="trakeyeApp.trCase.address">Address</span> 
+		          		<sup><span class="required-icon">
+		          			<i class="fa fa-asterisk text-danger"></i>
+		          		</span></sup> 
+		          	</label>
+		            <div class="col-md-8">
+		            	<textarea rows="2" class="form-control" name="address" id="field_address"
+		                    ng-model="vm.trCase.address" ng-readonly="vm.trCase.id" required></textarea>
+		             </div>        
+		        </div>
+		        <div class="form-group">
+		            <label class="col-md-3 control-label" translate="trakeyeApp.trCase.escalated" for="field_escalated">Escalated</label>
+		            <div class="col-md-8">
+		            <input type="checkbox" class="checkbox" name="escalated" id="field_escalated"
+		                    ng-model="vm.trCase.escalated" ng-true-value="true" 
+		       ng-false-value="false"
+		                     >
+		       		</div>
+		        </div>
+		        
+		        <div class="form-group" ng-if="vm.trCase.id">
+		            <label class="col-md-3 control-label"  for="field_status">
+		             <span  translate="trakeyeApp.trCase.status">Status</span>
+		            <sup><span class="required-icon">
+		          			<i class="fa fa-asterisk text-danger"></i>
+		          		</span></sup> 
+		            </label>
+		            <div class="col-md-8">
+		            <select class="form-control" name="status" ng-model="vm.trCase.status" id="field_status" required>
+		                <option value="NEW" translate="trakeyeApp.CaseStatus.NEW">NEW</option>
+		                <option value="INPROGRESS" translate="trakeyeApp.CaseStatus.INPROGRESS">IN PROGRESS</option>
+		                <option value="PENDING" translate="trakeyeApp.CaseStatus.PENDING">PENDING</option>
+		                <option value="ASSIGNED" translate="trakeyeApp.CaseStatus.ASSIGNED">ASSIGNED</option>
+		                <option value="RESOLVED" translate="trakeyeApp.CaseStatus.RESOLVED">RESOLVED</option>
+		                <option value="CANCELLED" translate="trakeyeApp.CaseStatus.CANCELLED">CANCELLED</option>
+		            </select>
+		            </div>
+		        </div>
+		        
+		        <div class="form-group">
+		            <label class="col-md-3 control-label"  for="field_priority">
+		             <span  translate="trakeyeApp.trCase.priority">Priority</span>
+		            <sup><span class="required-icon">
+		          			<i class="fa fa-asterisk text-danger"></i>
+		          		</span></sup> 
+		            </label>
+		            <div class="col-md-8">
+		            <select class="form-control" name="priority" ng-model="vm.trCase.priority" id="field_priority" required>
+		            <option disabled selected value> --- Select Priority --- </option>
+		                <option value="HIGH">HIGH</option>
+		                <option value="MEDIUM">MEDIUM</option>
+		                <option value="LOW" selected value>LOW</option>
+		                <option value="CRITICAL">CRITICAL</option>
+		            </select>
+		            </div>
+		        </div>
+		       
+		        <div class="form-group" ng-if="has_ROLE_USER_ADMIN">
+		            <label class="col-md-3 control-label" for="field_assignedTo">
+		            <span  translate="trakeyeApp.trCase.assignedTo">Assigned To</span>
+		            <sup><span class="required-icon">
+		          			<i class="fa fa-asterisk text-danger"></i>
+		          		</span></sup> 
+		            </label>
+		            <div class="col-md-8">
+<!--  		            <input class="form-control" id="field_assignedTo" autocomplete="off" type="text" name="assignedTo" ng-model="vm.trCase.assignedToUser" ng-change="vm.filterUser()" required> --> 
+  		            <input list="userslist" class="form-control" id="field_assignedToUser" placeholder="Search user login name" type="text" ng-model="vm.trCase.assignedToUser" autocomplete="off" name="assignedToUser"  ng-change="vm.filterActivatedUser()" required> 
+  		            <datalist ng-hide="!vm.activatedusers" id="userslist" class="form-control1">		            
+							<option ng-repeat="user in vm.activatedusers" value="{{user.login}}">
+	           			 	</option>
+		            </datalist> 
+<!-- 		            <input class="form-control" id="field_assignedToUser" type="text" ng-model="vm.trCase.assignedToUser"  typeahead="user in vm.users"> 
+ 		            	<select name="assignedTo" ng-model="vm.trCase.assignedToUser" 
+		            	ng-options=" user.id as user.login for user in vm.users" required>
+		             	   <option value="" translate="trakeyeApp.trCase.selectassigned">--- Assign to --- </option>
+		           		</select> -->
+		       		 </div>
+		        </div>	    
+		      	  <div class="form-group">
+		            <label class="col-md-3 control-label">
+		          		<span translate="trakeyeApp.trCase.caseType">caseType</span> 
+		          		<sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span></sup> 
+		          	</label>
+		            <div class="col-md-8">
+		              <select class="form-control select2" name="caseType" ng-model="vm.caseType" ng-change="vm.selectattributes()"  
+		              ng-options="item as item.name for item in vm.caseTypes track by item.id" ng-disabled="vm.trCase.id!=null" required>
+					 	<option value="" translate="trakeyeApp.trCase.selectcase">--- Select CaseType ---</option>
+					 	</select>
+		        </div>
+		        </div>
+		         
+		        <div class="form-group" >
+		          <div ng-repeat="attribute in vm.trCase.caseTypeAttributeValues track by $index">
+		            <label class="col-md-3 control-label">
+		          		<span>{{attribute.caseTypeAttribute.name}}</span> 
+		          		
+		          	</label>
+			            <div class="col-md-8">
+			            	<input type="text" class="form-control added-service" name="value" 
+			                   ng-model="vm.trCase.caseTypeAttributeValues[$index].attributeValue">
+			            </div>
+		           </div>	
+		        </div> 
+		         <div class="form-group">
+		            <label class="col-md-3 control-label" translate="trakeyeApp.trCase.caseImages">images</label>
+		            <div class="col-md-6">
+						 <input type="file" name="file" multiple="multiple" class="filestyle" id="caseImages" accept="image/*" >
+					</div>	
+					<div class="col-md-2" ng-if="vm.trCase.id">
+						<a class="btn btn-sm btn-info" ng-click="toggle()">Show Images</a>
+					</div>					
+		        </div>
+				<div class="form-group" ng-if="allimages">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-3">
+						<div class="col-md-3" ng-repeat="img in vm.caseImages">
+							<img class="img-responsive" ng-src="data:image/jpeg;base64,{{img.image}}" style="padding-bottom: 10px;">
+						
+						</div>
+						</div>
+					</div>
+				  </div>
+		    </div>
+		    <div class="box-footer">
+			    <div class="col-md-4 col-md-offset-3 save-buttons">
+			        <button type="button" class="btn btn-default btn-sm" ui-sref="tr-case">
+			            <span class="glyphicon glyphicon-ban-circle"></span> <span translate="entity.action.cancel">Cancel</span>
+			        </button>
+			        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary btn-sm">
+			            <span class="glyphicon glyphicon-save"></span> <span translate="entity.action.save">Save</span>
+			        </button>
+			    </div>			    
+		    </div>
+		</form>
+		</div>
+	</div>
+</div>
+
+

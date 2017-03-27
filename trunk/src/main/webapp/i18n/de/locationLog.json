@@ -1,0 +1,27 @@
+{
+    "trakeyeApp": {
+        "locationLog" : {
+            "home": {
+                "title": "Location Logs",
+                "createLabel": "Location Log erstellen",
+                "createOrEditLabel": "Location Log erstellen oder bearbeiten",
+                "search": "Suche nach Location Log"
+            },
+            "created": "Location Log erstellt mit ID {{ param }}",
+            "updated": "Location Log aktualisiert mit ID {{ param }}",
+            "deleted": "Location Log gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Location Log {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Location Log"
+            },
+            "latitude": "Latitude",
+            "longitude": "Longitude",
+            "address": "Address",
+            "logSource": "Log Source",
+            "createdDateTime": "Created Date Time",
+            "user": "User"
+        }
+    }
+}

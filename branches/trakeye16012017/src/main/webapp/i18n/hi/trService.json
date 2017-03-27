@@ -1,0 +1,29 @@
+{
+    "trakeyeApp": {
+        "trService" : {
+            "home": {
+                "title": "TrServices",
+                "createLabel": "नया Tr Service बनाएँ",
+                "createOrEditLabel": "Tr Service बनाएँ या संपादित करें",
+                "search": "Tr Service खोजें"
+            },
+            "created": "एक नया Tr Service [identifier: {{ param }}] तैयार है",
+            "updated": "एक Tr Service [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Tr Service [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Tr Service [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Tr Service"
+            },
+            "createdDate": "Created Date",
+            "modifiedDate": "Modified Date",
+            "description": "Description",
+            "serviceDate": "Service Date",
+            "status": "Status",
+            "notes": "Notes",
+            "user": "User",
+            "trCase": "Tr Case"
+        }
+    }
+}

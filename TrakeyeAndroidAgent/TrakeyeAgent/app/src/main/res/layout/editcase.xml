@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/coordinatorlayout"
+    android:fitsSystemWindows="true"
+    >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:weightSum="1">
+
+    <RelativeLayout
+        android:id="@+id/topLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fifty_dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/menutoolbar">
+
+        <RelativeLayout
+            android:id="@+id/rlBack"
+            android:layout_width="@dimen/thirty_dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/fifteen_dp">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/twenty_dp"
+                android:layout_height="@dimen/twenty_dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/arrow_icon"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/fifteen_dp"
+            android:layout_toRightOf="@+id/rlBack"
+            android:text="@string/editcase"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/twenty_sp"
+            />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/bottomlayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fourty_five_dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_clear"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="@dimen/fourty_five_dp"
+            android:layout_weight="1"
+            android:background="@color/light_gray_bg"
+            android:text="@string/cancel"
+            android:textColor="@color/black"
+            android:textSize="@dimen/fifteen_dp"
+            />
+
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="@dimen/fourty_five_dp"
+            android:layout_weight="1"
+            android:background="@color/menutoolbar"
+            android:text="@string/save"
+            android:textColor="@color/list_item_title"
+            android:textSize="@dimen/fifteen_dp"
+            />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/two_fourty_three_dp"
+        android:layout_above="@+id/map"
+        android:layout_below="@+id/topLayout"
+        android:fillViewport="true"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/fifteen_dp"
+            android:paddingRight="@dimen/fifteen_dp"
+            android:layout_marginTop="@dimen/fifteen_dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/description"
+                android:textColor="@color/menutoolbar"
+                android:textSize="@dimen/fifteen_dp"
+                />
+
+            <EditText
+                android:id="@+id/et_desc"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sixty_dp"
+                android:background="@color/transparent"
+                android:gravity="top"
+                android:hint="@string/enter_description_512_chr_only"
+                android:maxLength="512"
+                android:maxLines="2"
+                android:layout_marginTop="@dimen/eight_dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/back_menu"
+                android:textSize="@dimen/twelve_dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_dp"
+                android:layout_margin="@dimen/three_dp"
+                android:background="@color/light_gray_bg"/>
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/status"
+                android:textColor="@color/menutoolbar"
+                android:textSize="@dimen/fifteen_dp"
+                android:layout_marginTop="@dimen/ten_dp"
+                />
+
+            <Spinner
+                android:id="@+id/spStatus"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/fourty_dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="@dimen/five_dp"
+                android:drawSelectorOnTop="true"
+                android:textAlignment="center"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_dp"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="@dimen/three_dp"
+                android:layout_toRightOf="@+id/ivArrow"
+                android:background="@color/light_gray_bg"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

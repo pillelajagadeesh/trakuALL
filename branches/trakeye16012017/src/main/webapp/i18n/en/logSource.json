@@ -1,0 +1,9 @@
+{
+    "trakeyeApp": {
+        "LogSource" : {
+            "null": "",
+            "NP": "NP",
+            "GPS": "GPS"
+        }
+    }
+}

@@ -1,0 +1,162 @@
+ <div class="content">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			
+		    <div class="box box-info">
+			    <div class="box-header">
+			    	<h3 class="box-title" id="myTrCaseLabel">
+			    	<span ng-if="!vm.assetType.id" translate="trakeyeApp.assetType.home.create">Create</span>
+			    	<span ng-if="vm.assetType.id" translate="trakeyeApp.assetType.home.edit">Edit</span>
+			    	</h3>
+			    </div>
+				<form name="editForm" class="form-horizontal" role="form" novalidate ng-submit="vm.save()" show-validation>
+				<div class="box-body">
+						<jhi-alert-error></jhi-alert-error>
+						
+							<!-- <div class="form-group" ng-show="vm.assetType.id">
+					            <label for="id" class="col-md-3 control-label" translate="global.field.id">ID</label>
+					            <div class="col-md-7">
+					            	<input type="text" class="form-control" id="id" name="id"
+					                    ng-model="vm.assetType.id" readonly />
+					            </div>
+					            	
+					        </div> -->
+						
+						<div class="form-group">
+							<label class="col-md-3 control-label">
+								<span translate="trakeyeApp.assetType.name" for="field_name">Name</span> 
+								<sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> </sup>
+							</label>
+							<div class="col-md-7">
+								<input type="text" id="xyz" class="form-control" name="name" id="field_name" ng-model="vm.assetType.name" required ng-minlength="3" ng-maxlength="50"  />
+					            <div ng-show="editForm.name.$invalid">
+					                <p class="help-block"
+					                    ng-show="editForm.name.$error.minlength" translate="entity.validation.minlength" translate-value-min="3">
+					                    This field is required to be at least 3 characters.
+					                </p>
+					                <p class="help-block"
+					                    ng-show="editForm.name.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+					                    This field cannot be longer than 50 characters.
+					                </p>
+					            </div>		
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-3 control-label" translate="trakeyeApp.assetType.description" for="field_description">Description</label>
+						   <div class="col-md-7">
+								<textarea rows="2" class="form-control" name="description" id="field_description" ng-model="vm.assetType.description"></textarea>
+							</div>
+						</div>
+						 <div class="form-group">
+					            <label class="col-md-3 control-label"><span translate="trakeyeApp.assetType.layout" for="field_layout">Layout</span>
+					            <sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> </sup>
+					            </label>
+					            <div class="col-md-7" ng-show="vm.assetType.layout == null">
+					            	<select class="form-control" name="layout" ng-model="vm.assetType.layout" id="field_layout" required>
+					                <option value="FIXED" translate="trakeyeApp.Layout.FIXED">FIXED</option>
+                                    <option value="SPREAD" translate="trakeyeApp.Layout.SPREAD">SPREAD</option>
+					                </select>
+					            </div>
+					            <div class="col-md-7" ng-show="vm.assetType.layout != null" >
+					            	<select class="form-control" name="layout" ng-model="vm.assetType.layout" id="field_layout" ng-disabled="vm.assetType.layout != null">
+					                <option value="FIXED" translate="trakeyeApp.Layout.FIXED">FIXED</option>
+                                    <option value="SPREAD" translate="trakeyeApp.Layout.SPREAD">SPREAD</option>
+					                </select>
+					            </div>
+					      </div>
+					      <div class="form-group" ng-if="vm.assetType.layout=='SPREAD'">
+						   <label class="col-md-3 control-label" translate="trakeyeApp.assetType.selectcolor" for="field_description">Select Color</label>
+						   <div class="col-md-7">
+						   <div class="square" style="background-color: CYAN;" ng-click="vm.colorcode('CYAN')"></div>&nbsp;&nbsp;
+						   <div class="square" style="background-color: BLACK;" ng-click="vm.colorcode('BLACK')"></div>&nbsp;&nbsp;
+						   <div class="square" style="background-color: BLUE;" ng-click="vm.colorcode('BLUE')"></div>&nbsp;&nbsp;
+						   <div class="square" style="background-color: BLUEVIOLET;" ng-click="vm.colorcode('BLUEVIOLET')"></div>&nbsp;&nbsp;
+						   <div class="square" style="background-color: BROWN;" ng-click="vm.colorcode('BROWN')"></div>&nbsp;&nbsp;
+						   <div class="square" style="background-color: CHARTREUSE;" ng-click="vm.colorcode('CHARTREUSE')"></div>&nbsp;&nbsp;
+						   <div class="square" style="background-color: CRIMSON;" ng-click="vm.colorcode('CRIMSON')"></div>&nbsp;&nbsp;
+						   <div class="square" style="background-color: YELLOW;" ng-click="vm.colorcode('YELLOW')"></div>&nbsp;&nbsp;
+						   <div class="square" style="background-color: MAGENTA;" ng-click="vm.colorcode('MAGENTA')"></div>&nbsp;&nbsp;
+						   <div class="square" style="background-color: DEEPPINK;" ng-click="vm.colorcode('DEEPPINK')"></div>&nbsp;&nbsp;
+						   <div class="square" style="background-color: LIGHTCORAL;" ng-click="vm.colorcode('LIGHTCORAL')"></div> 
+						   </div>
+						</div>
+						 <div class="form-group" ng-if="vm.assetType.layout=='SPREAD'">
+							<label class="col-md-3 control-label">
+								<span translate="trakeyeApp.assetType.colorcode" for="field_colorcode">Colorcode</span> 
+								<sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> </sup>
+							</label>
+							   <div class="col-md-7">
+							   
+							   <input type="text" class="form-control" name="colorcode" id="field_colorcode" ng-model="vm.assetType.colorcode" readonly required/> 
+						  </div>
+						</div>
+						<div class="form-group" ng-show="vm.assetType.layout=='FIXED'">
+						  
+						   <label class="col-md-3 control-label">
+								<span translate="trakeyeApp.assetType.assetimage" for="field_assetimage">Asset Image</span> 
+								<sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> </sup>
+							</label>
+						   <div class="col-md-7">
+						   <!--  Donot add required condistion for this inou type. If it is added , then it will not allow to create spread asset type -->
+						   <input type="file" name="file" ng-model="assetImage" id="assetImage" class="filestyle" valid-file accept="image/*" ng-pattern="IMAGE_EXT_REGEXP">
+					       <p class="text-danger" ng-if="editForm.file.$error.pattern" translate="assettype.patternerror">Only image file(jpg, jpeg, png) should be uploaded</p>
+					      
+						   </div>
+						    <div class="col-md-2" ng-if="vm.assetType.id">
+								<a class="btn btn-sm btn-info" ng-click="toggle()">Show Image</a>
+							</div>
+						</div>
+						
+						<div class="form-group" ng-if="allimages">
+					<div class="row">
+						<div class="col-md-3 ">
+						   <img class="img-responsive " ng-src="data:image/jpeg;base64,{{vm.assetType.image}}" style="padding-bottom: 10px; width:55px; height:55px; margin-left:250px;">
+						</div>
+					</div>
+				  </div>
+					
+					    <div class="form-group" ng-repeat="item in vm.items">
+							<label class="col-md-3 control-label">
+								<span translate="trakeyeApp.assetType.attribute">Attribute</span><span> {{$index + 1}}</span> 
+								<sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> <sup>
+							</label>
+							<div class="col-md-7">
+								<input type="text" class="form-control"  id="field_key" name="field"  ng-model="item.name" required>
+							</div>  
+							<div class="col-md-2 mt-5">
+								<button type="button" class="btn btn-xs btn-primary add-more"
+									 ng-click="vm.addmore()" >
+								  <i class="fa fa-plus"></i>
+								  </button>
+								  <button type="button" class="btn btn-xs btn-danger remove"
+									 ng-click="vm.remove($index)" ng-disabled="vm.items.length <= 1"
+									>
+								  <i class="fa fa-minus"></i>
+								  </button>							
+							</div>             
+		               </div>	    
+						
+					</div>
+					<div class="box-footer">
+						<div class="col-md-4 col-md-offset-3 save-buttons">
+						<button type="button" class="btn btn-default btn-sm"  ui-sref="asset-type">
+				            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+				        </button>
+				        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary btn-sm">
+				            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+				        </button>
+							
+						</div>
+					</div>					
+				</form>
+			</div>
+		</div>
+	</div>
+</div>	
+
+
+
+
+
+
+ 

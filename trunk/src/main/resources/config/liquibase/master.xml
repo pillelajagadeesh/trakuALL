@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+   	<include file="classpath:config/liquibase/changelog/20161026082302_changelog.xml" relativeToChangelogFile="false"/>
+   	<include file="classpath:config/liquibase/changelog/20161115131159_changelog.xml" relativeToChangelogFile="false"/>
+   	<include file="classpath:config/liquibase/changelog/20161116100353_changelog.xml" relativeToChangelogFile="false"/>
+   	<include file="classpath:config/liquibase/changelog/20161117132705_changelog.xml" relativeToChangelogFile="false"/>
+   	<include file="classpath:config/liquibase/changelog/20161122093024_changelog.xml" relativeToChangelogFile="false"/>
+   	<include file="classpath:config/liquibase/changelog/20161205092453_changelog.xml" relativeToChangelogFile="false"/>
+   	<include file="classpath:config/liquibase/changelog/20161209084812_changelog.xml" relativeToChangelogFile="false"/>
+   	<include file="classpath:config/liquibase/changelog/20161213074242_changelog.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161215092439_changelog.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161215143952_changelog.xml" relativeToChangelogFile="false"/>	
+    <include file="classpath:config/liquibase/changelog/20161220135804_changelog.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161223105521_changelog.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161230070304_changelog.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170104125039_changelog.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170109064802_changelog.xml" relativeToChangelogFile="false"/>        
+    
+ </databaseChangeLog>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title th:text="#{email.apk.title}">TrakEye APP Link</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+     <body style="background: #efefef;">
+		<div class="email-template" style="width: 100%; background: #fff; border-bottom: 3px solid #65b8fc; border-left: 1px solid #efefef;
+    border-right: 1px solid #efefef;">
+			<p style="background:#65b8fc; margin-top: 0px;"><img src="http://trakeye.com/content/images/logo.png" /></p>
+			<div class="email-body" style="padding: 0px 20px;">
+				<p th:text="#{email.apk.greeting(${user.login})}" style=" font-weight: bold;">
+					Dear
+				</p>
+				<p th:text="#{email.apk.text1}">
+					For your TrakEye application, please click on the below URL :
+				</p>
+				<p style="margin: 35px 50px;">
+					<a th:href="@{|${baseUrl}}" style="background: #65b8fc; padding: 10px 27px; color: #fff; border-radius: 2px; text-decoration:none;"><span style="position: absolute; margin-left: -23px; margin-top: -2px;"><img src="http://trakeye.com/content/images/android.png" style="height: 20px;"/></span><span th:text="#{email.apk.text4}">TrackEye APP Link</span></a>
+					<a th:href="@{|${baseUrlIos}}" style="background: #65b8fc; padding: 10px 20px 10px 40px; color: #fff; border-radius: 2px; text-decoration:none;"><span style="position: absolute; margin-left: -23px; margin-top: -2px;"><img src="http://trakeye.com/content/images/ios.png" style="height: 20px;"/></span><span th:text="#{email.apk.text5}">TrackEye APP Link</span></a>
+				</p>
+				
+				<p th:text="#{email.apk.text2}">
+					If you encounter any issues during installations, contact administrator.
+				</p>
+				<p>
+					<span th:text="#{email.apk.text3}">Regards, </span>
+					<br/>
+					<em th:text="${user.createdBy}">TrakEye.</em>
+				</p>
+				<p th:text="#{email.notification.text3}">.</p>
+			</div>
+		</div>
+    </body>
+</html>

@@ -1,0 +1,211 @@
+<div class="content">
+	<div class="row">
+		<div class="col-md-12">
+          <!-- Map box -->
+			<div class="box box-solid">
+				<div class="box-header">            
+					<h3 class="box-title"><i class="fa fa-th-large"></i> <span translate="trakeyeApp.trCase.home.title"> Case </span></h3>
+					<div class="box-tools">
+					<button class="btn btn-create btn-sm" ui-sref="tr-case.import" ng-if="has_ROLE_USER_ADMIN">
+							<span class="glyphicon glyphicon-plus"></span> <span > Import </span>
+						</button>
+						<button class="btn btn-create btn-sm" ui-sref="tr-case.new">
+						<span class="glyphicon glyphicon-plus"></span>
+		                    <span  translate="trakeyeApp.trCase.home.createLabel">
+		                        Create Tr Case
+		                    </span>
+		                </button>
+					</div>					
+				</div>
+				<div class="box-body">
+				<jhi-alert></jhi-alert>
+				<div class="row">
+					<div class="col-md-8">
+						<ul class="nav nav-pills nav-justified">
+							<li ng-class="{active:isSet(1)}"><a href ng-click="setTab(1);" data-toggle="tab">List View</a></li>
+							<li ng-class="{active:isSet(3)}"><a href ng-click="setTab(3);" data-toggle="tab">Map View </a></li>
+							<li ng-class="{active:isSet(2)}" ng-if="has_ROLE_USER_ADMIN"><a href ng-click="setTab(2);" data-toggle="tab">Find Nearby Agent</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 search-top pull-right"  ng-show="isSet(1)">
+						<div class="input-group input-group-sm">
+							<input  type="text" ng-model="search" ng-change="vm.filterSearch()" class="form-control" ng-minlength="3" ng-pattern="/^[a-zA-Z0-9_ ]{3,}$/" placeholder="{{'trakeyeApp.trCase.home.search' | translate}}">
+							<span class="input-group-btn">
+							  <button type="button" class="btn btn-info btn-flat">
+								<i class="fa fa-search"></i></button>
+							</span>
+						</div>
+					</div>
+					<div class="col-md-3 search-top pull-right"  ng-show="isSet(2)">
+						<div class="input-group input-group-sm">
+							<input type="text" ng-model="seachCase1" ng-change="vm.filterUsers()" class="form-control " ng-minlength="3" ng-pattern="/^[a-zA-Z0-9_ ]{3,}$/" placeholder="Case Id " >
+							<span class="input-group-btn">
+							  <button type="button" class="btn btn-info btn-flat">
+								<i class="fa fa-search"></i></button>
+							</span>
+						</div>
+					</div>
+					<div class="col-md-3 search-top pull-right"  ng-show="isSet(3)">
+						<div class="input-group input-group-sm">
+							<input type="text" ng-model="seachCase" ng-change="vm.filterTrcases()" class="form-control " ng-minlength="3" ng-pattern="/^[a-zA-Z0-9_ ]{3,}$/" placeholder="Case Id " >
+							<span class="input-group-btn">
+							  <button type="button" class="btn btn-info btn-flat">
+								<i class="fa fa-search"></i></button>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="case-table" ng-show="isSet(1)">
+					<div class="table-responsive mt-10" >
+						 <table class="jh-table table table-bordered">
+							<thead class="bg-default">
+								  <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+				                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+				                    <!-- <th jh-sort-by="description"><span translate="trakeyeApp.trCase.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+				                    <th jh-sort-by="address" class="table-size"><span translate="trakeyeApp.trCase.address">Address</span> <span class="glyphicon glyphicon-sort"></span></th>
+				                    <th jh-sort-by="escalated"><span translate="trakeyeApp.trCase.escalated">Escalated</span> <span class="glyphicon glyphicon-sort"></span></th>
+				                    <th jh-sort-by="status"><span translate="trakeyeApp.trCase.status">Status</span> <span class="glyphicon glyphicon-sort"></span></th>
+				                    <th><span translate="trakeyeApp.trCase.assignedTo">Assigned To</span></th>
+				                  	<th><span translate="trakeyeApp.trCase.caseType">Case Type</span> </th>
+				                   <th><span translate="trakeyeApp.trCase.createdBy">CreatedBy</span> </th>
+				                   <th jh-sort-by="priority"><span translate="trakeyeApp.trCase.priority">Priority</span> <span class="glyphicon glyphicon-sort"></span></th>
+				                   <th><span translate="trakeyeApp.trCase.geofence">Geofence</span></th>
+				                    <th>Actions</th>
+				                </tr>
+				            </thead>
+				            <tbody>
+				                <tr ng-repeat="trCase in vm.trCases | filter: search track by trCase.id">
+				                    <td><a ui-sref="tr-case-detail({id:trCase.id})">{{trCase.id}}</a></td>
+				                   <!--  <td>{{trCase.description}}</td> -->
+				                  	<td>{{trCase.address}}</td>
+				                    <td>
+				                    <div ng-if="trCase.escalated">YES</div>
+				                     <div ng-if="!trCase.escalated">NO</div>
+				                    <td translate="{{'trakeyeApp.CaseStatus.' + trCase.status}}">{{trCase.status}}</td>
+				                   <!--  <td>
+				                        {{trCase.reportedByUser}}
+				                    </td> -->
+				                    <td>
+				                        {{trCase.assignedToUser}}
+				                    </td>				                   
+				                    <td ng-if="has_ROLE_USER_ADMIN">
+				                    <!--    <a ui-sref="case-type-detail({id:trCase.caseType.id})" >{{trCase.caseType.name}}</a> -->
+				                     {{trCase.caseType.name}}
+				                    </td> 
+				                    <td ng-if="has_ROLE_USER">
+				                       {{trCase.caseType.name}}
+				                    </td>
+				                    <td>{{trCase.reportedByUser}}</td>
+				                    <td>{{trCase.priority}}</td>
+				                    <td>{{trCase.geofenceName}}</td>
+				                    <td>				                    	
+				                        <div class="actions" ng-if="has_ROLE_USER_ADMIN || has_ROLE_USER">
+				                            <a ui-sref="tr-case-detail({id:trCase.id})"
+				                                    class="action-icons text-info" title="View">
+				                                <span class="fa fa-eye"></span>
+				                            </a>
+				                            <a id="editlink" ui-sref="tr-case.edit({id:trCase.id})"
+				                                    class="action-icons text-primary" title="Edit">
+				                                <span class="fa fa-pencil-square"></span>
+				                            </a>
+				                           <a id="editlink" ui-sref="tr-case.delete({id:trCase.id})"
+				                                    class="action-icons text-primary" title="Delete">
+				                                <span class="fa fa-trash-o"></span>
+				                            </a>
+				                        </div>
+				                    </td>
+				                </tr>
+				                <tr>
+				                	<td colspan="10" ng-show="vm.trCases == 0" style="text-align: center;"><h4>No data available</h4></td>
+				                </tr>
+							</tbody>
+						</table> 											
+					</div>	
+					<div class="row mt-15">
+						<div class="col-md-4">
+							<div class="count-length">
+								<jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+							</div>
+						</div>
+						<div class="col-md-8">
+							<div class="pagination-list pull-right">
+								<uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>						
+							</div>					
+						</div>					
+					</div>						
+				</div>	
+				<div class="map-view" ng-show="isSet(2)">
+						<div class="row mt-5">
+					    <div class="col-md-12">
+						 <div id="map_canvas" style="height:500px; width:100%"></div>
+						</div>
+					   </div>					
+					</div>
+					<div class="map-view" ng-show="isSet(3)">
+						<div class="row mt-5">
+					    <div class="col-md-12">
+						 <div id="map_canvas1" style="height:500px; width:100%"></div>
+						</div>
+					   </div>					
+					</div>
+				</div>
+				</div>           
+			</div>		
+		</div>	
+	</div>
+</div>
+
+<!-- Modal -->
+<div id="assigncaseModal" class="fade  modal"   role="dialog">
+ <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header modal-info">
+        <button type="button" class="close"  ng-click="reset()" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title text-left">Assign case to {{edituserLogin}}</h4>
+      </div>      
+      <div class="modal-body">
+		<div class="row">
+			<form name="editCaseForm" role="form" class="form-horizontal" novalidate ng-submit="vm.editcase()">
+			<div class="form-group">
+				<label class="col-md-3 control-label" translate="entity.action.selectcase">Select Case Id</label> 
+				<!-- <div class="col-md-6">
+					<select class="form-control select2" id="field_caseId" name="caseId"  
+		            	ng-options=" case.id for case in trallcases" ng-model="vm.editCase"  required>
+		            	<option value="" translate="entity.action.selectcase">--- Select Case ---</option>
+		            	</select>
+				</div> -->
+				
+				 <div class="col-md-8">
+		              <!-- <select class="form-control select2" id="field_caseId" name="caseId"  ng-options=" case.id for case in trallcases" ng-model="vm.editCase" 
+		              ng-change="vm.selectattributes()" style="width: 100%" required>
+					 	<option value="" translate="entity.action.selectcase">--- Select Case Id ---</option>
+					 	</select> -->
+					 	<input list="caseslist" class="form-control" id="field_caseId" ng-pattern="/^[0-9]+$/" placeholder="Search case id" type="text" ng-model="vm.seachCaseId" autocomplete="off" name="caseId"  ng-change="vm.filterTrcasesId()" required> 
+  		            <datalist ng-hide="!vm.caseIds" id="caseslist" class="form-control1">		            
+							<option ng-repeat="case in vm.caseIds" value="{{case.id}}">
+	           			 	</option>
+		            </datalist> 
+		            <p class="help-block" ng-show="editCaseForm.caseId.$error.pattern" translate="trakeyeApp.trCase.caseiderror">
+				                  Enter only numeric values for case id
+				    </p>
+		        </div>
+					
+				</div>
+				<div class="form-group">
+					<div class="col-md-3 col-md-offset-3">
+		            	<button type="submit" ng-disabled="editCaseForm.$invalid" class="btn btn-primary btn-sm">
+								<span class="glyphicon glyphicon-save"></span> <span translate="entity.action.assigncase">Assign Case</span>
+					   </button>
+				</div>
+				</div>
+				</form>
+				<p class="text-success text-center" ng-show="vm.success" translate-compile>Case {{vm.editCase.id}} has been assigned successfully to user {{edituserLogin}}.</p>
+				<p class="text-danger text-center" ng-show="vm.error" translate-compile>{{vm.error}}</p>
+                
+        </div>		
+      </div>
+    </div>
+    
+  </div>
+</div>

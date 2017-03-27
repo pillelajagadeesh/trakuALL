@@ -1,0 +1,26 @@
+{
+    "trakeyeApp": {
+        "serviceType" : {
+            "home": {
+                "title": "ServiceTypes",
+                "createLabel": "Service Type を追加",
+                "createOrEditLabel": "Service Typeを追加または編集",
+                "search": "Search for Service Type"
+            },
+            "created": "A new Service Type is created with identifier {{ param }}",
+            "updated": "A Service Type is updated with identifier {{ param }}",
+            "deleted": "A Service Type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Service Type {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Service Type"
+            },
+            "name": "Name",
+            "description": "Description",
+            "createdDate": "Created Date",
+            "updatedDate": "Updated Date",
+            "user": "User"
+        }
+    }
+}

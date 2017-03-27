@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/topLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fifty_dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/menutoolbar">
+
+        <TextView
+            android:id="@+id/tvHeader"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/ten_dp"
+            android:layout_toEndOf="@+id/rlBack"
+            android:layout_toRightOf="@+id/rlBack"
+            android:gravity="center_vertical"
+            android:text="@string/edit_profile"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/twenty_sp"
+            />
+
+        <RelativeLayout
+            android:id="@+id/rlBack"
+            android:layout_width="@dimen/thirty_dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/fifteen_dp">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/twenty_dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/arrow_icon"/>
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:layout_below="@+id/topLayout"
+        android:layout_above="@+id/buttonLay"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/fifteen_dp">
+
+            <TextView
+                android:id="@+id/firstNameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/first_name"
+                android:textColor="@color/menutoolbar"
+                android:textSize="@dimen/fifteen_dp"
+                />
+
+            <EditText
+                android:id="@+id/firstNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:gravity="top"
+                android:hint="@string/first_name"
+                android:textSize="@dimen/twelve_dp"
+                android:maxLength="512"
+                android:maxLines="2"
+                android:paddingBottom="@dimen/five_dp"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/back_menu"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_dp"
+                android:layout_margin="@dimen/three_dp"
+                android:layout_marginTop="@dimen/twelve_dp"
+                android:background="@color/light_gray_bg"/>
+
+            <TextView
+                android:id="@+id/lastNameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/last_name"
+                android:textColor="@color/menutoolbar"
+                android:textSize="@dimen/fifteen_dp"
+                android:layout_marginTop="@dimen/twelve_dp"
+                />
+
+            <EditText
+                android:id="@+id/lastNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:gravity="top"
+                android:hint="@string/last_name"
+                android:textSize="@dimen/twelve_dp"
+                android:maxLength="512"
+                android:maxLines="2"
+                android:paddingBottom="@dimen/five_dp"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/back_menu"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_dp"
+                android:layout_margin="@dimen/three_dp"
+                android:background="@color/light_gray_bg"/>
+
+            <TextView
+                android:id="@+id/emailText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/email"
+                android:textColor="@color/menutoolbar"
+                android:textSize="@dimen/fifteen_dp"
+                android:layout_marginTop="@dimen/twelve_dp"
+                />
+
+            <TextView
+                android:id="@+id/emailTextValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:gravity="top"
+                android:hint="@string/email"
+                android:textSize="@dimen/twelve_dp"
+                android:maxLength="512"
+                android:maxLines="2"
+                android:paddingBottom="@dimen/five_dp"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/back_menu"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_dp"
+                android:layout_margin="@dimen/three_dp"
+                android:background="@color/light_gray_bg"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fourty_five_dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/buttonLay"
+        android:weightSum="1"
+        >
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="@color/light_gray_bg"
+            android:textColor="@color/black"
+            android:text="@string/cancel"
+            android:id="@+id/cancelButton"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:layout_alignParentBottom="true"
+            android:background="@color/menutoolbar"
+            android:textColor="@color/white"
+            android:text="@string/save"
+            android:id="@+id/saveButton"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,28 @@
+{
+    "trakeyeApp": {
+        "serviceType" : {
+            "home": {
+                "title": "Service Types",
+                "createLabel": "Create Service Type",
+                "create": "Create Service Type",
+                "Edit": "Edit Service Type",
+                "search": "Search",
+                "attribute": "Attribute"
+            },
+            "created": "Service Type is created with identifier {{ param }}",
+            "updated": "Service Type is updated with identifier {{ param }}",
+            "deleted": "Service Type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Service Type {{ id }}?"
+            },
+            "detail": {
+                "title": "Service Type"
+            },
+            "name": "Name",
+            "description": "Description",
+            "createdDate": "Created Date",
+            "updatedDate": "Updated Date",
+            "user": "User"
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "trakeyeApp": {
+        "tenant" : {
+            "home": {
+                "title": "Tenants",
+                "createLabel": "नया Tenant बनाएँ",
+                "createOrEditLabel": "Tenant बनाएँ या संपादित करें",
+                "search": "Tenant खोजें"
+            },
+            "created": "एक नया Tenant [identifier: {{ param }}] तैयार है",
+            "updated": "एक Tenant [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Tenant [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Tenant [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Tenant"
+            },
+            "organization": "Organization",
+            "loginName": "Login Name",
+            "email": "Email",
+            "phone": "Phone",
+            "city": "City",
+            "address": "Address",
+            "createdDate": "Created Date",
+            "updatedDate": "Updated Date"
+        }
+    }
+}

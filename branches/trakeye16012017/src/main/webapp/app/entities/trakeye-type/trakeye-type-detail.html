@@ -1,0 +1,48 @@
+<div class="content">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="box box-solid">
+		    	 <div class="box-header with-border">
+		      		 <h3 class="box-title"><span translate="trakeyeApp.trakeyeType.detail.title">Trakeye Type</span> {{vm.trakeyeType.id}}</h3>
+		    	 </div>
+					<div class="box-body">
+					    <jhi-alert-error></jhi-alert-error>
+					   
+					    <dl class="dl-horizontal jh-entity-details">
+					        <dt><span translate="trakeyeApp.trakeyeType.name">Name</span></dt>
+					        <dd>
+					            <span>{{vm.trakeyeType.name}}</span>
+					        </dd>
+					        <dt><span translate="trakeyeApp.trakeyeType.description">Description</span></dt>
+					        <dd>
+					            <span>{{vm.trakeyeType.description}}</span>
+					        </dd>
+					        <dt><span translate="trakeyeApp.trakeyeType.createdDate">Created Date</span></dt>
+					        <dd>
+					            <span>{{vm.trakeyeType.createdDate | date:'medium'}}</span>
+					        </dd>
+					        <dt><span translate="trakeyeApp.trakeyeType.updatedDate">Updated Date</span></dt>
+					        <dd>
+					            <span>{{vm.trakeyeType.updatedDate | date:'medium'}}</span>
+					        </dd>
+					        <dt><span translate="trakeyeApp.trakeyeType.user">User</span></dt>
+					        <dd>
+					            {{vm.trakeyeType.createdBy}}
+					        </dd>
+					    </dl>
+						<div class="box-buttons pull-right">
+						    <a ui-sref="{{ vm.previousState }}"
+						            class="btn btn-info btn-sm mr5">
+						        <span class="glyphicon glyphicon-arrow-left"></span> <span translate="entity.action.back"> Back</span>
+						    </a>
+						
+						    <a ui-sref="trakeye-type.edit({id:vm.trakeyeType.id})" class="btn btn-primary btn-sm">
+						        <span class="glyphicon glyphicon-pencil"></span>
+						        <span translate="entity.action.edit"> Edit</span>
+						    </a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>

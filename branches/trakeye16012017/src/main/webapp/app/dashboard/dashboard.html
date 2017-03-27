@@ -1,0 +1,191 @@
+<div ng-cloak>
+    <div class="content" ng-if="has_ROLE_USER_ADMIN">
+    	<div class="row" >
+		<div class="col-sm-3">
+		  <div class="dashboard_time">
+			<h2 class="text-center">{{vm.time}}</h2>
+			<p class="text-center">{{vm.day}}, {{vm.month}}  {{vm.todayDate}}, {{vm.year}}</p>
+			<div class="line"></div>
+			<div class="col-xs-4 text-center">
+				<i class="fa fa-clock-o text-center" aria-hidden="true"></i>
+			</div><!--col-xs-4-->
+			<div class="col-xs-4 text-center">
+				<i class="fa fa-bell text-center" aria-hidden="true"></i>
+			</div><!--col-xs-4-->
+			<div class="col-xs-4 text-center">
+				<i class="fa fa-calendar text-center" aria-hidden="true"></i>
+			</div><!--col-xs-4-->
+		  </div><!--dashboard_time-->
+		</div><!--col-sm-3-->
+		<div class="col-sm-5 ">
+		 <div class="dashboard_opencases">
+					  <div class="open-head">
+						<i class="fa fa-file-text-o" aria-hidden="true" style="color:rgba(0, 0, 0, 0.39)"></i><span class="case-heading"> OPEN CASES- PRIORITY VIEW </span>
+					  </div>
+					<div class="clearfix"></div>
+					<div class="col-md-3 col-sm-3 col-xs-6 notification-border plr-5">
+						<h3 class="red"> Critical </h3>
+					  <div class="notification-content text-center">
+						<a  ui-sref="tr-case.priority({priority:'CRITICAL'})"><span class="notification-count text-info"> {{vm.casepriority.CRITICAL}}</span>	</a> 
+						
+					  </div>	        					        	
+					</div><!--notification-->
+					<div class="col-md-3 col-sm-3 col-xs-6 notification-border plr-5">
+						<h3 class="yellow">High </h3>
+					  <div class="notification-content text-center">
+						<a  ui-sref="tr-case.priority({priority:'HIGH'})"><span class="notification-count text-success"> {{vm.casepriority.HIGH}}</span></a> 	
+        			  <!-- <span class="notification-count text-success"> {{vm.casepriority.HIGH}}</span> -->
+					  </div>	        					        	
+					</div><!--notification-->
+					<div class="col-md-3 col-sm-3 col-xs-6 notification-border plr-5">
+						<h3 class="green">Medium</h3>
+					  <div class="notification-content text-center">
+						 <a  ui-sref="tr-case.priority({priority:'MEDIUM'})"><span class="notification-count text-success"> {{vm.casepriority.MEDIUM}}</span>	</a> 
+        			 <!--  <span class="notification-count text-success"> {{vm.casepriority.MEDIUM}}</span> -->	
+					  </div>	        					        	
+					</div><!--notification-->
+					<div class="col-md-3 col-sm-3 col-xs-6 plr-5">
+						<h3 class="blue">Low </h3>
+					  <div class="notification-content text-center">
+						 <a  ui-sref="tr-case.priority({priority:'LOW'})"><span class="notification-count text-success"> {{vm.casepriority.LOW}}</span>	</a>	 
+						<!-- <span class="notification-count text-success"> {{vm.casepriority.LOW}}</span> -->
+					  </div>	        					        	
+					</div><!--notification-->
+							
+		 </div><!--dashboard_opencases-->
+		</div><!--col-sm-5-->
+		<div class="col-sm-4 ">
+			<div class="dashboard_opencases">
+					  <div class="open-head">
+						<i class="fa fa-user" aria-hidden="true" style="color:rgba(0, 0, 0, 0.39)"></i><span class="case-heading"> USERS</span>
+					  </div>
+					<div class="clearfix"></div>
+					<div class="col-md-4 col-sm-4 col-xs-6 notification-border plr-5">
+						<h3 class="green"> Active </h3>
+					  <div class="notification-content text-center">
+						<a  ui-sref="user-management.status({status:'ACTIVE'})"><span class="notification-count text-info"> {{vm.users.ACTIVE}}</span>	</a> 
+						
+					  </div>	        					        	
+					</div><!--notification-->
+					<div class="col-md-4 col-sm-4 col-xs-6 notification-border plr-5">
+						<h3 class="yellow">  Idle </h3>
+					  <div class="notification-content text-center">
+						 <a  ui-sref="user-management.status({status:'IDLE'})"><span class="notification-count text-success"> {{vm.users.IDLE}}</span></a>	 
+						
+					  </div>	        					        	
+					</div><!--notification-->
+					<div class="col-md-4 col-sm-4 col-xs-6 plr-5">
+						<h3 class="inactive"> Inactive </h3>
+					  <div class="notification-content text-center">
+						 <a  ui-sref="user-management.status({status:'INACTIVE'})"><span class="notification-count text-success"> {{vm.users.INACTIVE}}</span></a>	 
+						
+					  </div>	        					        	
+					</div><!--notification-->
+							
+		 </div><!--dashboard_opencases-->
+		</div><!--col-sm-5-->
+     </div>   		
+      <div class="row" ng-if="has_ROLE_USER_ADMIN">
+       <!-- <div class="col-md-6">
+			<div class="box box-solid">
+			<div class="box-header">
+			  <h3 class="box-title">Geo Fence Report</h3>
+			</div>
+			<div class="box-body chart-responsive">
+			  <div class="chart" id="bar-chart" style="height: 300px;"></div>
+			</div>
+         </div>
+        </div>-->
+		<div class="col-md-12">
+          <!-- Map box -->
+          	<div class="box box-solid">
+				<div class="box-header">
+				  <h3 class="box-title">Agent Status Report - Geofence View</h3>
+				</div>
+				<div class="box-body chart-responsive">
+				  <div id="geo" style="" ></div>
+				</div>
+            <!-- /.box-body -->
+			</div>
+        </div>		
+		<div class="col-md-4">
+			<div class="box box-solid">
+				<div class="box-header with-border">
+				  <h3 class="box-title"> Cases Chart</h3>
+				</div>
+				<div class="box-body chart-responsive">
+				  <div class="chart" id="case-chart" style="height: 285px; position: relative;"></div>
+				</div>
+				<!-- /.box-body -->
+			  </div>
+		</div>
+		<div class="col-md-4">
+			<div class="box box-solid">
+				<div class="box-header with-border">
+				  <h3 class="box-title">Services Chart</h3>
+				</div>
+				<div class="box-body chart-responsive">
+				  <div class="chart" id="service-chart" style="height: 285px; position: relative;"></div>
+				</div>
+				<!-- /.box-body -->
+			  </div>
+		</div>
+		<div class="col-md-4">
+			<div class="box box-solid" style="height: 346px">
+				<div class="box-header with-border">
+				
+				<div class="row">
+					<div class="col-md-2">
+						<h3 class="box-title">Agent </h3>
+					</div>
+					
+					<div class="col-md-10 ">
+						<h3 class="box-title  pull-right">Distance </h3>
+					</div>
+				</div>
+				</div>
+				<div class="col-md-12 mt-5 mb-5">
+						<div class="input-group input-group-sm">
+							<input  type="text"  ng-model="vm.search" ng-change="vm.filterSearch()" class="form-control input-sm" ng-minlength="3" ng-pattern="/^[a-zA-Z0-9_]{3,}$/" placeholder="Search">
+			      			<span class="input-group-btn">
+							  <button type="button" class="btn btn-primary btn-flat">
+								<i class="fa fa-search"></i></button>
+							</span>
+						</div>
+					</div>
+				
+				<div class="box-body scrollbar" id="style-3"  >
+				
+				  <ul class="nav nav-stacked">
+                    <!--  <li ng-repeat="user in vm.userslist">-->
+                   <li dir-paginate="user in vm.userslist | itemsPerPage: vm.itemsPerPage">
+                    	<a ui-sref="location-log.login({login:'{{user.login}}'})">
+                    		<i class="fa fa-user" aria-hidden="true"></i> {{user.login}} 
+                    		<span class="pull-right badge bg-grey">{{user.distance | number}} KM</span>
+                    	</a>
+                    </li>
+                    <li ng-show="vm.userslist == 0" style="text-align: center;"><h4>No data available</h4> </li>
+                 </ul>
+				</div>
+				     <div class="row mt-5">
+						<!--<div class="col-md-4">
+							<div class="count-length">
+								<jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+							</div>
+						</div>-->
+						<div class="col-md-12">
+						 <div class="pull-right pr-10">
+							<div class="pagination-list ">
+								<!--  <uib-pagination class="pagination-sm pagination-bottom" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>-->
+								<dir-pagination-controls  direction-links="true" boundary-links="true" ></dir-pagination-controls>						
+							</div>	
+							</div>							
+						</div>					
+					</div>	
+				<!-- /.box-body -->
+			  </div>
+		</div>
+      </div>
+    </div>    
+</div>
+

@@ -1,0 +1,92 @@
+<div class="content">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<div class="box box-info">
+				<div class="box-header">
+					<h3 class="box-title" ng-if="!vm.trNotification.id" translate="trakeyeApp.trNotification.home.create">Create</h3>
+    				<h3 class="box-title" ng-if="vm.trNotification.id" translate="trakeyeApp.trNotification.home.Edit">Edit</h3>
+				</div>
+				<form name="editForm" role="form" class="form-horizontal" novalidate ng-submit="vm.save()" show-validation>
+					<div class="box-body">
+					<jhi-alert-error></jhi-alert-error>
+				        <div class="form-group" ng-if="vm.trNotification.id">
+				            <label class="col-md-3 control-label" for="id" translate="global.field.id">ID</label>
+				            <div class="col-md-8">
+				            <input type="text" class="form-control" id="id" name="id"
+				                    ng-model="vm.trNotification.id" readonly >
+				            </div>
+				        </div>
+				        <div class="form-group">
+				            <label class="col-md-3 control-label" translate="trakeyeApp.trNotification.description" for="field_description">Description</label>
+				           <div class="col-md-8">
+				           		<textarea class="form-control" rows="2" name="description" id="field_description"
+				                    ng-model="vm.trNotification.description">
+				            	</textarea>
+				            </div>
+				        </div>
+				        <div class="form-group">
+				            <label class="col-md-3 control-label" translate="trakeyeApp.trNotification.status" for="field_status">Status</label>
+				          <div class="col-md-8">
+				            <select class="form-control" name="status" ng-model="vm.trNotification.status" id="field_status">
+				                <option value="SENT" translate="trakeyeApp.NotificationStatus.SENT">SENT</option>
+				                <option value="RECIEVED" translate="trakeyeApp.NotificationStatus.RECIEVED">RECIEVED</option>
+				                <option value="DELIVERED" translate="trakeyeApp.NotificationStatus.DELIVERED">DELIVERED</option>
+				                <option value="FAILED" translate="trakeyeApp.NotificationStatus.FAILED">FAILED</option>
+				            </select>
+				            </div>
+				        </div>
+				        <div class="form-group">
+				            <label class="col-md-3 control-label" for="field_description">
+				          		<span translate="trakeyeApp.trNotification.subject">Subject</span> 
+				          		<sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> </sup>
+				          	</label>
+				            <div class="col-md-8">
+				            <input type="text" class="form-control" name="subject" id="field_subject"
+				                    ng-model="vm.trNotification.subject"
+				                    required >
+				            </div>
+				        </div>
+				        <div class="form-group">
+				            <label class="col-md-3 control-label" translate="trakeyeApp.trNotification.alertType" for="field_alertType">Alert Type</label>
+					          <div class="col-md-8">
+					            <select class="form-control" name="alertType" ng-model="vm.trNotification.alertType" id="field_alertType">
+					            	<option value="" translate="trakeyeApp.trNotification.selectType"></option>
+					                <option value="EMAIL" translate="trakeyeApp.AlertType.EMAIL">EMAIL</option>
+					                <option value="SMS" translate="trakeyeApp.AlertType.SMS">SMS</option>
+					            </select>
+					        </div>
+				        </div>
+				
+				        <div class="form-group">
+				            <label class="col-md-3 control-label" translate="trakeyeApp.trNotification.toUser" for="field_toUser">Recipient</label>
+				            <div class="col-md-8">
+				            <select class="form-control" id="field_toUser" name="toUser" ng-model="vm.trNotification.toUserId" ng-options="user.id as user.login for user in vm.users">
+				                <option value="" translate="trakeyeApp.trNotification.selectRecipient"></option>
+				            </select>
+				            </div>
+				        </div>
+				        <div class="form-group">
+				            <label class="col-md-3 control-label" translate="trakeyeApp.trNotification.trCase" for="field_trCase">Tr Case</label>
+				            <div class="col-md-8">
+				            <select class="form-control" id="field_trCase" name="trCase" ng-model="vm.trNotification.trCaseId" ng-options="trCase.id as trCase.id for trCase in vm.trcases">
+				                <option value="" translate="trakeyeApp.trNotification.selectCase"></option>
+				            </select>
+				            </div>
+				        </div>
+				    </div>
+				    <div class="box-footer"> 
+				    	<div class="col-md-3 col-md-offset-3 save-buttons">
+				    		<button type="button" ui-sref="tr-notification" class="btn btn-default btn-sm">
+				           		<span class="glyphicon glyphicon-ban-circle"></span> <span translate="entity.action.cancel">Cancel</span>
+				        	</button>
+				        	<button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary btn-sm">
+				           	 	<span class="glyphicon glyphicon-save"></span> <span translate="entity.action.save">Save</span>
+				        	</button>
+				    	</div>				        
+				    </div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+

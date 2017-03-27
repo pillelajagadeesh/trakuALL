@@ -1,0 +1,29 @@
+{
+    "trakeyeApp": {
+        "asset" : {
+            "home": {
+                "title": "Assets",
+                "createLabel": "नया Asset बनाएँ",
+                "createOrEditLabel": "Asset बनाएँ या संपादित करें",
+                "search": "Asset खोजें"
+            },
+            "created": "एक नया Asset [identifier: {{ param }}] तैयार है",
+            "updated": "एक Asset [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Asset [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Asset [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Asset"
+            },
+            "name": "Name",
+            "description": "Description",
+            "createDate": "Create Date",
+            "updateDate": "Update Date",
+            "user": "User",
+            "assetType": "Asset Type",
+            "assetTypeAttributeValue": "Asset Type Attribute Value",
+            "assetCoordinate": "Asset Coordinate"
+        }
+    }
+}

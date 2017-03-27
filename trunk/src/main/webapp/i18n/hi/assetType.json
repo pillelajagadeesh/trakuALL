@@ -1,0 +1,29 @@
+{
+    "trakeyeApp": {
+        "assetType" : {
+            "home": {
+                "title": "AssetTypes",
+                "createLabel": "नया Asset Type बनाएँ",
+                "createOrEditLabel": "Asset Type बनाएँ या संपादित करें",
+                "search": "Asset Type खोजें"
+            },
+            "created": "एक नया Asset Type [identifier: {{ param }}] तैयार है",
+            "updated": "एक Asset Type [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Asset Type [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Asset Type [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Asset Type"
+            },
+            "name": "Name",
+            "description": "Description",
+            "layout": "Layout",
+            "colorcode": "Colorcode",
+            "createDate": "Create Date",
+            "updateDate": "Update Date",
+            "user": "User",
+            "assetTypeAttribute": "Asset Type Attribute"
+        }
+    }
+}

@@ -1,0 +1,73 @@
+<div class="content">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="box box-solid">
+		    	 <div class="box-header with-border">
+		      		 <h3 class="box-title">
+		      		 	<span translate="trakeyeApp.trService.detail.title">Tr Service</span> {{vm.trService.id}}
+		      		 </h3>
+		    	 </div>
+					<div class="box-body">
+					    <jhi-alert-error></jhi-alert-error>					   
+					    <dl class="dl-horizontal jh-entity-details">
+							 <dt><span translate="trakeyeApp.trService.description">Description</span></dt>
+							<dd>
+								<span>{{vm.trService.description}}</span>
+							</dd>
+							<dt><span translate="trakeyeApp.trService.serviceDate">Service Date</span></dt>
+							<dd>
+								<span>{{vm.trService.serviceDate | date:'medium'}}</span>
+							</dd>
+							<dt><span translate="trakeyeApp.trService.status">Status</span></dt>
+							<dd>
+								<span translate="{{'trakeyeApp.ServiceStatus.' + vm.trService.status}}">{{vm.trService.status}}</span>
+							</dd>
+							<dt><span translate="trakeyeApp.trService.user">User</span></dt>
+							<dd>
+								{{vm.trService.trCase.assignedToUser}}
+							</dd>
+							<dt><span translate="trakeyeApp.trService.createdDate">Created Date</span></dt>
+							<dd>
+								<span>{{vm.trService.createdDate | date:'medium'}}</span>
+							</dd>
+							<dt><span translate="trakeyeApp.trService.modifiedDate">Modified Date</span></dt>
+							<dd>
+								<span>{{vm.trService.modifiedDate | date:'medium'}}</span>
+							</dd>
+							<dt><span translate="trakeyeApp.trService.trCase">Tr Case</span></dt>
+							<dd>
+								<a ui-sref="tr-case-detail({id:vm.trService.trCase.id})">  {{vm.trService.trCase.description}}</a>
+							</dd>
+							<div class="form-group" ng-repeat="attribute in vm.trService.serviceTypeAttributeValues track by $index">
+							<dt><span >{{attribute.serviceTypeAttribute.name}}</span></dt>
+							<dd>
+								<span >{{vm.trService.serviceTypeAttributeValues[$index].attributeValue}}</span></dt>
+							</dd>
+							</div>
+							
+							
+							 <dt><span translate="trakeyeApp.trService.serviceImages">Service Images</span></dt>
+					        <dd>
+					        <div >
+								<div class="col-md-3" ng-repeat="img in vm.trService.serviceImages track by img.id">
+									<img class="img-responsive" ng-src="data:image/jpeg;base64,{{img.image}}" style="padding-bottom: 10px;">
+								</div>
+					        </div>
+					           
+					        </dd>
+						</dl>  
+						<div class="box-buttons pull-right">
+						      <a ui-sref="{{ vm.previousState }}"
+							            class="btn btn-info btn-sm mr5">
+							        <span class="glyphicon glyphicon-arrow-left"></span> <span translate="entity.action.back"> Back</span>
+							    </a>
+							    							
+							    <a ui-sref="tr-service.edit({id:vm.trService.id})" class="btn btn-primary btn-sm">
+							        <span class="glyphicon glyphicon-pencil"></span> <span translate="entity.action.edit"> Edit</span>
+							    </a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>

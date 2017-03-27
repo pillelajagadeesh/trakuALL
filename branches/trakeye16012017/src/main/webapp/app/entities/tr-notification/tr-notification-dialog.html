@@ -1,0 +1,127 @@
+<div class="content">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<div class="box box-info">
+				<div class="box-header">
+					<h3 class="box-title" ng-if="!vm.trNotification.id" translate="trakeyeApp.trNotification.home.create">Create</h3>
+    				<h3 class="box-title" ng-if="vm.trNotification.id" translate="trakeyeApp.trNotification.home.Edit">Edit</h3>
+				</div>
+				<form name="editForm" role="form" class="form-horizontal" novalidate ng-submit="vm.save()" show-validation>
+					<div class="box-body">
+					<jhi-alert-error></jhi-alert-error>
+				       <!--  <div class="form-group" ng-if="vm.trNotification.id">
+				            <label class="col-md-3 control-label" for="id" translate="global.field.id">ID</label>
+				            <div class="col-md-8">
+				            <input type="text" class="form-control" id="id" name="id"
+				                    ng-model="vm.trNotification.id" readonly >
+				            </div>
+				        </div> -->
+				        <div class="form-group">
+				           <!--  <label class="col-md-3 control-label" translate="trakeyeApp.trNotification.description" for="field_description">Description</label> -->
+				             <label class="col-md-3 control-label" for="field_description">
+				          		<span translate="trakeyeApp.trNotification.description" >Description</span> 
+				          		<sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> </sup>
+				          	</label>
+				           
+				           <div class="col-md-8">
+				           		<textarea class="form-control" rows="2" name="description" id="field_description"
+				                   required ng-model="vm.trNotification.description" ng-readonly="vm.trNotification.id">
+				            	</textarea>
+				            </div>
+				        </div>
+				        <div class="form-group">
+				           <!--  <label class="col-md-3 control-label" translate="trakeyeApp.trNotification.status" for="field_status">Status</label> -->
+				            <label class="col-md-3 control-label" for="field_status">
+				          		<span translate="trakeyeApp.trNotification.status" >Status</span> 
+				          		<sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> </sup>
+				          	</label>
+				          
+				          <div class="col-md-8">
+				            <select class="form-control" name="status" required ng-model="vm.trNotification.status" id="field_status" ng-readonly="vm.trNotification.status == 'DELIVERED'">
+				                <option value="SENT" translate="trakeyeApp.NotificationStatus.SENT">SENT</option>
+				                <option value="RECIEVED" translate="trakeyeApp.NotificationStatus.RECIEVED">RECIEVED</option>
+				                <option value="DELIVERED" translate="trakeyeApp.NotificationStatus.DELIVERED">DELIVERED</option>
+				                <option value="FAILED" translate="trakeyeApp.NotificationStatus.FAILED">FAILED</option>
+				            </select>
+				            </div>
+				        </div>
+				        <div class="form-group">
+				            <label class="col-md-3 control-label" for="field_description">
+				          		<span translate="trakeyeApp.trNotification.subject">Subject</span> 
+				          		<sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> </sup>
+				          	</label>
+				            <div class="col-md-8">
+				            <input type="text" class="form-control" name="subject" id="field_subject"
+				                    ng-model="vm.trNotification.subject"
+				                    required ng-readonly="vm.trNotification.id">
+				            </div>
+				        </div>
+				        <div class="form-group">
+				           
+				             <label class="col-md-3 control-label" for="field_alertType">
+				          		<span translate="trakeyeApp.trNotification.alertType" >Alert Type</span> 
+				          		<sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> </sup>
+				          	</label>
+					          <div class="col-md-8">
+					            <select class="form-control" name="alertType" ng-model="vm.trNotification.alertType" id="field_alertType" required ng-readonly="vm.trNotification.id">
+					            	<option value="" translate="trakeyeApp.trNotification.selectType"></option>
+					                <option value="EMAIL" translate="trakeyeApp.AlertType.EMAIL">EMAIL</option>
+					                <option value="SMS" translate="trakeyeApp.AlertType.SMS">SMS</option>
+					            </select>
+					        </div>
+				        </div>
+				
+				        <div class="form-group">
+				           
+				             <label class="col-md-3 control-label" for="field_toUser">
+				          		<span  translate="trakeyeApp.trNotification.toUser" >Recipient</span> 
+				          		<sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> </sup>
+				          	</label>
+				            <div class="col-md-8">
+				            <!-- <select class="form-control" id="field_toUser" name="toUser" ng-model="vm.trNotification.toUserId" ng-options="user.id as user.login for user in vm.users">
+				                <option value="" translate="trakeyeApp.trNotification.selectRecipient"></option>
+				            </select> -->
+				            <input list="userslist" class="form-control" id="field_toUser" placeholder="Search user login name" type="text" ng-model="vm.trNotification.toUserId" autocomplete="off" name="toUser"  ng-change="vm.filterActivatedUser()" required ng-readonly="vm.trNotification.id"> 
+  		            <datalist ng-hide="!vm.activatedusers" id="userslist" class="form-control1">		            
+							<option ng-repeat="user in vm.activatedusers" value="{{user.login}}">
+	           			 	</option>
+		            </datalist> 
+				            </div>
+				        </div>
+				        <div class="form-group">
+				           
+				            <label class="col-md-3 control-label" for="field_trCase">
+				          		<span  translate="trakeyeApp.trNotification.trCase" >Tr Case</span> 
+				          		<sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> </sup>
+				          	</label>
+				            <div class="col-md-8">
+				            <!-- <select class="form-control" id="field_trCase" name="trCase" ng-model="vm.trNotification.trCaseId" ng-options="trCase.id as trCase.id for trCase in vm.trcases">
+				                <option value="" translate="trakeyeApp.trNotification.selectCase"></option>
+				            </select> -->
+				            <input list="caseslist" class="form-control" id="field_trCase" ng-pattern="/^[0-9]+$/" placeholder="Search case id" type="text" ng-model="vm.trNotification.trCaseId" autocomplete="off" name="trCase"  ng-change="vm.filtertrcasesid()" required ng-readonly="vm.trNotification.id"> 
+  		                    <datalist ng-hide="!vm.caseids" id="caseslist" class="form-control1">		            
+							<option ng-repeat="case in vm.caseids" value="{{case.id}}">
+	           			 	</option>
+		                    </datalist> 
+		                    <p class="help-block" ng-show="editForm.trCase.$error.pattern" translate="trakeyeApp.trNotification.caseiderror">
+				                  Enter only numeric values for case id
+				          </p>
+				            </div>
+				        </div>
+				    </div>
+				    <div class="box-footer"> 
+				    	<div class="col-md-3 col-md-offset-3 save-buttons">
+				    		<button type="button" ui-sref="tr-notification" class="btn btn-default btn-sm">
+				           		<span class="glyphicon glyphicon-ban-circle"></span> <span translate="entity.action.cancel">Cancel</span>
+				        	</button>
+				        	<button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary btn-sm">
+				           	 	<span class="glyphicon glyphicon-save"></span> <span translate="entity.action.save">Save</span>
+				        	</button>
+				    	</div>				        
+				    </div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+

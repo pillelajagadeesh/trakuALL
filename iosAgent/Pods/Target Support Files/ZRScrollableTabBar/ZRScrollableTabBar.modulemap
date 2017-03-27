@@ -1,0 +1,6 @@
+framework module ZRScrollableTabBar {
+  umbrella header "ZRScrollableTabBar-umbrella.h"
+
+  export *
+  module * { export * }
+}

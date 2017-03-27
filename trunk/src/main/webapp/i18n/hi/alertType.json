@@ -1,0 +1,9 @@
+{
+    "trakeyeApp": {
+        "AlertType" : {
+            "null": "",
+            "EMAIL": "EMAIL",
+            "SMS": "SMS"
+        }
+    }
+}

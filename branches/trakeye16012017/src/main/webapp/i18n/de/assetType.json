@@ -1,0 +1,29 @@
+{
+    "trakeyeApp": {
+        "assetType" : {
+            "home": {
+                "title": "Asset Types",
+                "createLabel": "Asset Type erstellen",
+                "createOrEditLabel": "Asset Type erstellen oder bearbeiten",
+                "search": "Suche nach Asset Type"
+            },
+            "created": "Asset Type erstellt mit ID {{ param }}",
+            "updated": "Asset Type aktualisiert mit ID {{ param }}",
+            "deleted": "Asset Type gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Asset Type {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Asset Type"
+            },
+            "name": "Name",
+            "description": "Description",
+            "layout": "Layout",
+            "colorcode": "Colorcode",
+            "createDate": "Create Date",
+            "updateDate": "Update Date",
+            "user": "User",
+            "assetTypeAttribute": "Asset Type Attribute"
+        }
+    }
+}

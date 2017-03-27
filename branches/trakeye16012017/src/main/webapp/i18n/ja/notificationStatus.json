@@ -1,0 +1,11 @@
+{
+    "trakeyeApp": {
+        "NotificationStatus" : {
+            "null": "",
+            "SENT": "SENT",
+            "RECIEVED": "RECIEVED",
+            "DELIVERED": "DELIVERED",
+            "FAILED": "FAILED"
+        }
+    }
+}

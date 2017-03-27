@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+   <changeSet author="Administrator (generated)" id="1481794027080-1">
+      <createTable tableName="trakeye_customer">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="trakeye_customerPK"/>
+         </column>
+         <column name="created_date" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+         <column name="email" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="first_name" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="gender" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="lang_key" type="VARCHAR(5)"/>
+         <column name="last_name" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="mobile_phone" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="organization" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="status" type="INT"/>
+      </createTable>
+   </changeSet>
+</databaseChangeLog>

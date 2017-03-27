@@ -1,0 +1,280 @@
+<div class="content">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<div class="box box-info">
+				<div class="box-header">
+					<h3 class="box-title" id="myUserLabel">
+			    		<span ng-if="!vm.tenant.id" translate="trakeyeApp.tenant.home.create">Create</span>
+			    		<span ng-if="vm.tenant.id" translate="trakeyeApp.tenant.home.edit">Edit</span>
+			    	</h3>
+				</div>
+				<form class="form-horizontal" name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>	
+				<div class="box-body">
+					<jhi-alert-error></jhi-alert-error>
+					<div class="form-group" ng-show="vm.tenant.id">
+					            <label for="id" class="col-md-3 control-label" translate="global.field.id">ID</label>
+					            <div class="col-md-7">
+					            	<input type="text" class="form-control" id="id" name="id"
+					                    ng-model="vm.tenant.id" readonly />
+					            </div>
+					</div>
+					 <div class="form-group">
+							<label class="col-md-3 control-label">
+								<span translate="trakeyeApp.tenant.organization">Organization</span> 
+								<sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> <sup>
+							</label>
+							<div class="col-md-7">
+							<input type="text" class="form-control" name="organization" id="field_organization"
+								   ng-model="vm.tenant.organization" ng-required ng-minlength=3 ng-maxlength=50 ng-pattern="/^[a-zA-Z0-9]*$/">
+
+							<div ng-show="editForm.organization.$invalid">						
+								<p class="help-block"
+								   ng-show="editForm.organization.$error.maxlength" translate="entity.validation.maxlength"
+								   translate-value-max="50">
+									This field cannot be longer than 50 characters.
+								</p>
+								<p class="help-block"
+								   ng-show="editForm.organization.$error.minlength" translate="entity.validation.minlength"
+								   translate-value-min="3">
+									This field is required to be at least 3 characters.
+								</p>
+								<p class="help-block"
+								   ng-show="editForm.organization.$error.pattern" translate="entity.validation.pattern">
+									This field should follow pattern "^[a-zA-Z0-9]*$".
+								</p> 
+							</div>
+							</div>
+						</div>
+					 <div class="form-group">
+							<label class="col-md-3 control-label">
+								<span translate="trakeyeApp.tenant.loginName">Login Name</span> 
+								<sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> <sup>
+							</label>
+							<div class="col-md-7">
+							<input type="text" class="form-control" name="loginName" id="field_loginName"
+								  ng-model="vm.tenant.loginName" ng-minlength=3 ng-maxlength=50 ng-pattern="/^[a-zA-Z0-9]*$/" ng-readonly="vm.tenant.id" ng-required>
+
+							<div ng-show="editForm.loginName.$invalid">						
+								<p class="help-block"
+								   ng-show="editForm.loginName.$error.maxlength" translate="entity.validation.maxlength"
+								   translate-value-max="50">
+									This field cannot be longer than 50 characters.
+								</p>
+								<p class="help-block"
+								   ng-show="editForm.loginName.$error.minlength" translate="entity.validation.minlength"
+								   translate-value-min="3">
+									This field is required to be at least 3 characters.
+								</p>
+								<p class="help-block"
+								   ng-show="editForm.loginName.$error.pattern" translate="entity.validation.pattern">
+									This field should follow pattern "/^[a-zA-Z0-9]*$/".
+								</p> 
+							</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-3 control-label">
+								<span translate="trakeyeApp.tenant.email">Email</span> 
+								<sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> <sup>
+							</label>
+							<div class="col-md-7">
+							<input type="email" class="form-control" name="email" id="field_email"
+								   ng-model="vm.tenant.email" ng-pattern="EMAIL_REGEXP" ng-required ng-maxlength="100" ng-readonly="vm.tenant.id">
+
+							<div ng-show="editForm.email.$invalid">
+								<p class="help-block"
+								   ng-show="editForm.email.$error.maxlength" translate="entity.validation.maxlength"
+								   translate-value-max="100">
+									This field cannot be longer than 100 characters.
+								</p>
+								<p class="help-block"
+								   ng-show="editForm.email.$error.pattern" translate="global.messages.validate.email.invalid">
+									Your e-mail is invalid.
+								</p>  
+							</div>
+							</div>
+						</div>
+						<div class="form-group">
+						<label class="col-md-3 control-label">
+								<span translate="trakeyeApp.tenant.phone">Phone</span> 
+								<sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> <sup>
+							</label>
+							<div class="col-md-7">
+				            <input type="text" class="form-control" name="phone" id="field_phone"
+				                   ng-model="vm.tenant.phone" ng-maxlength="14" ng-minlength="10" ng-pattern="PHONE_REGEXP" required>
+				
+				                <p class="help-block"
+				                   ng-show="editForm.phone.$error.maxlength" translate="global.messages.validate.phone.maxlength"
+				                   translate-value-max="14">
+				                    This field cannot be longer than 14 characters.
+				                </p>
+				                <p class="help-block"
+				                   ng-show="editForm.phone.$error.minlength" translate="global.messages.validate.phone.minlength"
+				                   translate-value-max="10">
+				                    This field cannot be lesser than 10 characters.
+				                </p>
+				                <p class="help-block"
+				                   ng-show="editForm.phone.$error.pattern" translate="global.messages.validate.phone.invalid">
+				                    Your phone number is invalid.
+				                </p>
+								
+				            </div>
+				        </div>
+				        <div class="form-group">
+						<label class="col-md-3 control-label">
+								<span ttranslate="trakeyeApp.tenant.city" >City</span> 
+							</label>
+							<div class="col-md-7">
+				            <input type="text" class="form-control" name="city" id="field_city"
+				                  ng-model="vm.tenant.city" >
+				            </div>
+				        </div>
+				         <div class="form-group">
+						<label class="col-md-3 control-label">
+								<span ttranslate="trakeyeApp.tenant.address" >Address</span> 
+							</label>
+							<div class="col-md-7">
+				            <input type="text" class="form-control" name="address" id="field_address"
+				                  ng-model="vm.tenant.address" >
+				            </div>
+				        </div>
+				</div>
+				<div class="box-footer">
+						<div class="col-md-4 col-md-offset-3 save-buttons">
+							<button class="btn btn-default btn-sm" ui-sref="tenant">
+								<span class="glyphicon glyphicon-ban-circle"></span> <span
+								translate="entity.action.cancel">Cancel</span>
+							</button>
+							<button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary btn-sm">
+								<span class="glyphicon glyphicon-save"></span> <span translate="entity.action.save">Save</span>
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- <form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myTenantLabel" translate="trakeyeApp.tenant.home.createOrEditLabel">Create or edit a Tenant</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.tenant.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.tenant.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="trakeyeApp.tenant.organization" for="field_organization">Organization</label>
+            <input type="text" class="form-control" name="organization" id="field_organization"
+                    ng-model="vm.tenant.organization"
+                    required ng-minlength="3" ng-maxlength="50" ng-pattern="/^[a-zA-Z0-9]*$/" />
+            <div ng-show="editForm.organization.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.organization.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.organization.$error.minlength" translate="entity.validation.minlength" translate-value-min="3">
+                    This field is required to be at least 3 characters.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.organization.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                    This field cannot be longer than 50 characters.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.organization.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[a-zA-Z0-9]*$">
+                    This field should follow pattern "^[a-zA-Z0-9]*$".
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="trakeyeApp.tenant.loginName" for="field_loginName">Login Name</label>
+            <input type="text" class="form-control" name="loginName" id="field_loginName"
+                    ng-model="vm.tenant.loginName"
+                    required ng-minlength="3" ng-maxlength="50" ng-pattern="/^[a-zA-Z0-9]*$/" />
+            <div ng-show="editForm.loginName.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.loginName.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.loginName.$error.minlength" translate="entity.validation.minlength" translate-value-min="3">
+                    This field is required to be at least 3 characters.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.loginName.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                    This field cannot be longer than 50 characters.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.loginName.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[a-zA-Z0-9]*$">
+                    This field should follow pattern "^[a-zA-Z0-9]*$".
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="trakeyeApp.tenant.email" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                    ng-model="vm.tenant.email" ng-pattern="EMAIL_REGEXP"
+                     />
+            <div ng-show="editForm.email.$invalid">
+								<p class="help-block"
+								   ng-show="editForm.email.$error.maxlength" translate="entity.validation.maxlength"
+								   translate-value-max="100">
+									This field cannot be longer than 100 characters.
+								</p>
+								<p class="help-block"
+								   ng-show="editForm.email.$error.pattern" translate="global.messages.validate.email.invalid">
+									Your e-mail is invalid.
+								</p>  
+							</div>         
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="trakeyeApp.tenant.phone" for="field_phone">Phone</label>
+            <input type="text" class="form-control" name="phone" id="field_phone"
+                    ng-model="vm.tenant.phone"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="trakeyeApp.tenant.city" for="field_city">City</label>
+            <input type="text" class="form-control" name="city" id="field_city"
+                    ng-model="vm.tenant.city"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="trakeyeApp.tenant.address" for="field_address">Address</label>
+            <input type="text" class="form-control" name="address" id="field_address"
+                    ng-model="vm.tenant.address"
+                     />
+        </div>
+       <div class="form-group">
+            <label class="control-label" translate="trakeyeApp.tenant.createdDate" for="field_createdDate">Created Date</label>
+            <input type="number" class="form-control" name="createdDate" id="field_createdDate"
+                    ng-model="vm.tenant.createdDate"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="trakeyeApp.tenant.updatedDate" for="field_updatedDate">Updated Date</label>
+            <input type="number" class="form-control" name="updatedDate" id="field_updatedDate"
+                    ng-model="vm.tenant.updatedDate"
+                     />
+        </div>  
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
+ -->

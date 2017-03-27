@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+   <changeSet author="Admin (generated)" id="1479389233336-1">
+      <addColumn tableName="trakeye_location_log">
+         <column defaultValue="0"
+                 defaultValueNumeric="0.0"
+                 name="distance_travelled"
+                 type="double precision">
+            <constraints nullable="false"/>
+         </column>
+      </addColumn>
+   </changeSet>
+    <changeSet author="Admin (generated)" id="1479465535043-1">
+      <addColumn tableName="trakeye_location_log">
+         <column defaultValue="0"
+                 defaultValueNumeric="0"
+                 name="battery_percentage"
+                 type="integer"/>
+      </addColumn>
+   </changeSet>
+</databaseChangeLog>

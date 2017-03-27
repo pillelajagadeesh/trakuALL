@@ -1,0 +1,35 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++8251",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++6146" : {
+
+    },
+    "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++8251" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++6146" : 9223372036854775807,
+    "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++8251" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "44756C2E-8232-489E-9770-EB93D12CC857",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++6146" : "iosAgent\/",
+    "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++8251" : "iosAgent\/Alamofire\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "TrakEyeApp",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "TrakEyeApp.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/xp-dev.com\/svn\/trak-eye",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++6146"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/tresbu.xp-dev.com\/svn\/trak-eye",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++8251"
+    }
+  ]
+}

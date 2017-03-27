@@ -1,0 +1,55 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++6146+++61C32EC",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++6146+++207CDD8" : {
+
+    },
+    "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++6146+++207CDD8" : {
+    "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++8251+++61C32EC" : {
+    "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++6146+++01813E9" : {
+
+    },
+    "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++6146+++61C32EC" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++6146+++207CDD8" : 9223372036854775807,
+    "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++6146+++01813E9" : 9223372036854775807,
+    "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++6146+++207CDD8" : 9223372036854775807,
+    "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++6146+++61C32EC" : 9223372036854775807
+    "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++8251+++61C32EC" : 9223372036854775807,
+    "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++6146+++207CDD8" : 9223372036854775807
+    "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++6146+++61C32EC" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9DC92330-5538-47AA-9330-CD44A78B9927",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++6146+++207CDD8" : "iosAgent\/",
+    "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++6146+++01813E9" : "iosAgent\/",
+    "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++6146+++207CDD8" : "iosAgent\/",
+    "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++6146+++61C32EC" : "iosAgent\/Alamofire\/"
+    "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++8251+++61C32EC" : "iosAgent\/Alamofire\/",
+    "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++6146+++207CDD8" : "iosAgent\/"
+    "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++6146+++61C32EC" : "iosAgent\/Alamofire\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "TrakEyeApp",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "TrakEyeApp.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/xp-dev.com\/svn\/trak-eye",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++6146+++01813E9"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/xp-dev.com\/svn\/trak-eye",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++6146+++207CDD8"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/xp-dev.com\/svn\/trak-eye",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3e1eaca3-a595-4b36-9f50-75413ddfd5ee++6146+++61C32EC"
+    }
+  ]
+}

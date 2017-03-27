@@ -1,0 +1,27 @@
+{
+    "trakeyeApp": {
+        "locationLog" : {
+            "home": {
+                "title": "LocationLogs",
+                "createLabel": "Location Log を追加",
+                "createOrEditLabel": "Location Logを追加または編集",
+                "search": "Search for Location Log"
+            },
+            "created": "A new Location Log is created with identifier {{ param }}",
+            "updated": "A Location Log is updated with identifier {{ param }}",
+            "deleted": "A Location Log is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Location Log {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Location Log"
+            },
+            "latitude": "Latitude",
+            "longitude": "Longitude",
+            "address": "Address",
+            "logSource": "Log Source",
+            "createdDateTime": "Created Date Time",
+            "user": "User"
+        }
+    }
+}

@@ -1,0 +1,222 @@
+<resources>
+    <string name="app_name">Trakeye Agent</string>
+    <string name="server_url">http://139.59.29.230/</string>
+    <string name="title_activity_maps">Trakeye Agent</string>
+    <string name="sign_in">Sign In</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot your Password?</string>
+    <string name="submit">Submit</string>
+    <string name="version">2.9.19</string>
+    <string name="operating_system">android</string>
+
+    <string name="MenuGeoFence">Geo Fence</string>
+    <string name="MenuCase">Case</string>
+    <string name="MenuNotification">Notification</string>
+    <string name="MenuProfile">Profile</string>
+
+    <string name="notifications">Notifications</string>
+    <string name="cases">My Cases</string>
+    <string name="notification">Notification</string>
+    <string name="_case">Case</string>
+    <string name="case_description">Case Description</string>
+    <string name="_asset">Asset</string>
+    <string name="servicetype">Service Type</string>
+    <string name="edit">Edit</string>
+    <string name="createcase">Create Case</string>
+    <string name="createasset">Create Asset</string>
+    <string name="services">Services</string>
+    <string name="assets">Assets</string>
+    <string name="service">Service</string>
+    <string name="description">Description</string>
+    <string name="createdate">Create Date</string>
+    <string name="updatedate">Update Date</string>
+    <string name="updateddate">Updated Date</string>
+    <string name="pinlat">Pin Lat</string>
+    <string name="pinlong">Pin Long</string>
+    <string name="address">Address</string>
+    <string name="escalated">Escalated</string>
+    <string name="status">Status</string>
+    <string name="reportedby">Reported By</string>
+    <string name="assignto">Assigned To</string>
+    <string name="updatedby">Updated By</string>
+    <string name="assignedby">Assigned By</string>
+    <string name="casetype">Case Type</string>
+    <string name="modifieddate">Modified Date</string>
+    <string name="createddate">Created Date</string>
+    <string name="serviceDate">Service Date</string>
+    <string name="id">Id</string>
+    <string name="date">Date</string>
+    <string name="subject">Subject</string>
+    <string name="notes">Notes</string>
+    <string name="user">User</string>
+    <string name="alerttype">Alert Type</string>
+    <string name="fromuser">From User</string>
+    <string name="touser">To User</string>
+    <string name="editservice">Edit Service</string>
+    <string name="editasset">Edit Asset</string>
+    <string name="editcase">Edit Case</string>
+
+    <string name="activity_label">Trakeye Agent</string>
+    <string name="trakeye_version">TEV_</string>
+    <string name="login">Login</string>
+
+    <string name="create_case">Create Case</string>
+
+    <string name="edit_service">Edit Service</string>
+    <string name="edit_asset">Edit Asset</string>
+    <string name="create_asset">Create Asset</string>
+    <string name="service_type">Service Type</string>
+
+    <string name="reported_by">Reported By</string>
+    <string name="assigned_to">Assigned To</string>
+    <string name="updated_by">Updated By</string>
+    <string name="assigned_by">Assigned By</string>
+
+    <string name="created_date">Created Date</string>
+    <string name="updated_date">Updated Date</string>
+    <string name="modified_date">Modified Date</string>
+    <string name="service_date">Service Date</string>
+    <string name="date_format">dd/MM/yyyy HH:mm:ss</string>
+
+    <string name="alert_type">Alert Type</string>
+    <string name="from_user">From User</string>
+    <string name="to_user">To User</string>
+    <string name="search_here">Search Here</string>
+    <string name="case_type">Case Type</string>
+    <string name="enable_gps">Enable GPS</string>
+
+    <string name="please_enable_gps">You need to enable GPS for best results. Please enable GPS in next screen</string>
+    <string name="please_enter_your_credentials">Please enter your credentials!</string>
+    <string name="please_select_case_type">Please Select Case Type</string>
+    <string name="please_check_your_internet_connectivity">Please check your internet connectivity</string>
+
+    <string name="location_should_not_be_empty">Location should not be empty</string>
+    <string name="description_cannot_be_empty">Description cannot be empty!</string>
+
+    <string name="something_bad_happened">Something bad happened!</string>
+    <string name="something_went_wrong">Something went wrong…</string>
+
+    <string name="no_issues_available">No Issues Available</string>
+    <string name="no_services_are_available">No Services are available</string>
+    <string name="no_notifications_are_available">No Notifications are available</string>
+    <string name="no_internet">No internet Connection available!</string>
+    <string name="no_attribute_is_available">No attribute is available!</string>
+    <string name="name_cannot_be_empty">Name cannot be empty!</string>
+    <string name="no_cases_are_available">No Cases are Available</string>
+    <string name="no_assets_are_available">No Assets are Available</string>
+    <string name="no_points_are_available">No Point Are Available</string>
+    <string name="posting_your_service_request">Posting your service request!</string>
+    <string name="service_updated_successfully">Service updated successfully!</string>
+    <string name="asset_created_successfully">Asset created successfully!</string>
+    <string name="posting_your_request">posting your request!</string>
+    <string name="unexpected_error">Unexpected error!</string>
+    <string name="access_is_denied">Access is denied!</string>
+    <string name="note_cannot_be_empty">Note cannot be empty!</string>
+
+    <string name="fetching_details">Fetching Details....</string>
+    <string name="fetching_cases_please_wait">Fetching cases, Please Wait…</string>
+    <string name="fetching_assets_please_wait">Fetching assets, Please Wait…</string>
+    <string name="fetching_services_please_wait">Fetching services, Please Wait…</string>
+    <string name="fetching_notifications_please_wait">Fetching notifications, Please Wait…</string>
+    <string name="fetching_case_details_please_wait">Fetching case details, Please Wait…</string>
+    <string name="fetching_service_details_please_wait">Fetching service details, Please Wait…</string>
+    <string name="fetching_asset_details_please_wait">Fetching asset details, Please Wait…</string>
+
+
+    <string name="inactive">INACTIVE</string>
+    <string name="x_total_count">X-Total-Count</string>
+    <string name="low">LOW</string>
+    <string name="medium">MEDIUM</string>
+    <string name="high">HIGH</string>
+    <string name="critical">CRITICAL</string>
+
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+
+
+    <string name="_1">1</string>
+    <string name="asset_path_started">Asset Path Started</string>
+    <string name="layout">Layout</string>
+    <string name="name">Name</string>
+    <string name="spread">SPREAD</string>
+
+    <string name="my_profile">My Profile</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="true_val">True</string>
+    <string name="false_val">False</string>
+    <string name="service_is_closed_you_cannot_edit_closed_service">Service is closed. You cannot edit Closed Service!</string>
+
+    <string name="take_photo">Take Photo</string>
+    <string name="choose_from_gallery">Choose from Gallery</string>
+    <string name="add_photo">Add Photo!</string>
+    <string name="temp_jpg">temp.jpg</string>
+    <string name="images">Images</string>
+    <string name="upload_image">Upload Image</string>
+
+    <string name="activate">activate</string>
+    <string name="closed">CLOSED</string>
+    <string name="cancel">Cancel</string>
+    <string name="enter_description_512_chr_only">Enter Description ( 512 chr only)</string>
+    <string name="priority">Priority</string>
+    <string name="battery_level">BATTERY LEVEL</string>
+    <string name="battery">Battery</string>
+    <string name="version_code">VERSION CODE</string>
+    <string name="location">LOCATION</string>
+    <string name="large_text">Large Text</string>
+    <string name="asset_type">Asset Type</string>
+    <string name="select_asset_type">Select Asset Type</string>
+    <string name="start">START</string>
+    <string name="save">SAVE</string>
+    <string name="pin_n_location1">PIN Location</string>
+    <string name="pin_n_location">PIN \n Location</string>
+    <string name="search_case_type">Search Case Type</string>
+    <string name="asset_name">Asset Name</string>
+    <string name="update">UPDATE</string>
+    <string name="menu">Menu</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="_0">0</string>
+    <string name="my_location">My Location</string>
+    <string name="select_case_type">Select Case Type</string>
+    <string name="select_priority">Select Priority</string>
+    <string name="registration">Registration</string>
+    <string name="email_id">EmailId</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="country">Country</string>
+    <string name="city">City</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="register">Register</string>
+
+    <string-array name="operator">
+        <item>No</item>
+        <item>Yes</item>
+    </string-array>
+
+    <string-array name="priorityVal">
+        <item>Select Priority</item>
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+        <item>Critical</item>
+    </string-array>
+
+    <string-array name="servicestatus">
+        <item>INPROGRESS</item>
+        <item>PENDING</item>
+        <item>CLOSED</item>
+        <item>CANCELLED</item>
+    </string-array>
+
+    <string-array name="casestatus">
+        <item>NEW</item>
+        <item>INPROGRESS</item>
+        <item>PENDING</item>
+        <item>ASSIGNED</item>
+        <item>RESOLVED</item>
+        <item>CANCELLED</item>
+    </string-array>
+
+</resources>
+

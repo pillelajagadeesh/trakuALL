@@ -1,0 +1,13 @@
+{
+    "trakeyeApp": {
+        "CaseStatus" : {
+            "null": "",
+            "NEW": "NEW",
+            "INPROGRESS": "IN PROGRESS",
+            "PENDING": "PENDING",
+            "ASSIGNED": "ASSIGNED",
+            "RESOLVED": "RESOLVED",
+            "CANCELLED": "CANCELLED"
+        }
+    }
+}

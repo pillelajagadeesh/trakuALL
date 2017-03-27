@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "322481284381",
+    "firebase_url": "https://trakeyeagent-44854.firebaseio.com",
+    "project_id": "trakeyeagent-44854",
+    "storage_bucket": "trakeyeagent-44854.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:590835085844:android:a87b25a3c47b0dbd",
+        "android_client_info": {
+          "package_name": "com.agent.trakeye.tresbu.trakeyeagent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "590835085844-l3rv8p9n5j2qm0hj2b9rf4dcijuoi4uj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.agent.trakeye.tresbu.trakeyeagent",
+            "certificate_hash": "F389FD7F1B75C22B3031184944688387A5C22D4A"
+          }
+        },
+        {
+          "client_id": "590835085844-b5lfofi9mfr5oo461foejud2rluqb1p6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpnhVvb5Xp1CMIXarfd-_MkAU10_0sCfw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "590835085844-b5lfofi9mfr5oo461foejud2rluqb1p6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

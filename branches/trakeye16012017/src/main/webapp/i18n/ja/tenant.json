@@ -1,0 +1,29 @@
+{
+    "trakeyeApp": {
+        "tenant" : {
+            "home": {
+                "title": "Tenants",
+                "createLabel": "Tenant を追加",
+                "createOrEditLabel": "Tenantを追加または編集",
+                "search": "Search for Tenant"
+            },
+            "created": "A new Tenant is created with identifier {{ param }}",
+            "updated": "A Tenant is updated with identifier {{ param }}",
+            "deleted": "A Tenant is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Tenant {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Tenant"
+            },
+            "organization": "Organization",
+            "loginName": "Login Name",
+            "email": "Email",
+            "phone": "Phone",
+            "city": "City",
+            "address": "Address",
+            "createdDate": "Created Date",
+            "updatedDate": "Updated Date"
+        }
+    }
+}

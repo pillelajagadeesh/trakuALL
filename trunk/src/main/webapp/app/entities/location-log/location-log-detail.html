@@ -1,0 +1,52 @@
+<div class="content">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="box box-solid">
+		    	 <div class="box-header with-border">
+		      		 <h3 class="box-title"><span translate="trakeyeApp.locationLog.detail.title">Location Log</span> {{vm.locationLog.id}}</h3>
+		    	 </div>
+					<div class="box-body">
+					    <jhi-alert-error></jhi-alert-error>
+					   		<dl class="dl-horizontal jh-entity-details">
+						        <dt><span translate="trakeyeApp.locationLog.latitude">Latitude</span></dt>
+						        <dd>
+						            <span>{{vm.locationLog.latitude}}</span>
+						        </dd>
+						        <dt><span translate="trakeyeApp.locationLog.longitude">Longitude</span></dt>
+						        <dd>
+						            <span>{{vm.locationLog.longitude}}</span>
+						        </dd>
+						        <dt><span translate="trakeyeApp.locationLog.address">Address</span></dt>
+						        <dd>
+						            <span>{{vm.locationLog.address}}</span>
+						        </dd>
+						        <dt><span translate="trakeyeApp.locationLog.logSource">Log Source</span></dt>
+						        <dd>
+						            <span translate="{{'trakeyeApp.LogSource.' + vm.locationLog.logSource}}">{{vm.locationLog.logSource}}</span>
+						        </dd>
+						        <dt><span translate="trakeyeApp.locationLog.createdDateTime">Created Date Time</span></dt>
+						        <dd>
+						            <span>{{vm.locationLog.createdDateTime | date:'medium'}}</span>
+						        </dd>
+						        <dt><span translate="trakeyeApp.locationLog.user">User</span></dt>
+						        <dd>
+						            {{vm.locationLog.userId}}
+						        </dd>
+						    </dl>
+						<div class="box-buttons pull-right">
+						    <button type="submit"
+						            ui-sref="{{ vm.previousState }}"
+						            class="btn btn-info">
+						        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+						    </button>
+												
+												   <button type="button" ui-sref="location-log-detail.edit({id:vm.locationLog.id})" class="btn btn-primary">
+						        <span class="glyphicon glyphicon-pencil"></span>
+						        <span class="hidden-xs hidden-sm" translate="entity.action.edit"> Edit</span>
+						    </button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>

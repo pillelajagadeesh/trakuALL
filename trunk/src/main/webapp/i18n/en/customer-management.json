@@ -1,0 +1,43 @@
+{
+    "customerManagement": {
+        "home": {
+            "title": "Customer Management",
+            "customerstitle": "Customers",
+            "createCustomerLabel": "Create Customer",
+            "create": "Create Customer",
+            "edit": "Edit Customer",
+			"search": "Search"
+        },
+		"customers" : "customers",
+		"active-customers": "Active Customers",
+		"inactive-customers": "Inactive Customers",
+		"idle-customers": "Idle Customers",
+        "created": "Customer is created with identifier {{ param }}",
+        "updated": "Customer is updated with identifier {{ param }}",
+        "deleted": "Customer is deleted with identifier {{ param }}",
+        "delete": {
+            "question": "Are you sure you want to delete customer {{ login }}?"
+        },
+        "detail": {
+            "customertitle": "Customer"
+        },
+        "firstName": "First name",
+        "lastName": "Last name",
+        "email": "Email",
+        "mobilephone" : "Phone No",
+        "organization" : "Organization",        
+        "gender" : "Gender",
+        "city" : "City",
+        "state" : "State",
+        "country" : "Country",
+        "status" : "Status",
+        "langKey": "Language",
+        "createdDate": "Created date",
+        "lastModifiedBy": "Modified by",
+        "lastModifiedDate": "Modified date",
+        "fromTime": "Duty Start Time",
+        "toTime": "End Time",
+        "trakeye": "Trakeye Type",
+        "selecttrakeye": "--- Select Trakeye Type --"
+    }
+}

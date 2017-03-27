@@ -1,0 +1,80 @@
+<div class="content">
+    <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+	<jhi-alert-error></jhi-alert-error>
+	</div>
+        <div class="col-md-4 col-md-offset-4">
+        <div class="box box-info login-panel" ng-if="vm.verifyaccount != 'true'">
+         <div class="alert alert-danger">
+                <p translate="reset.finish.messages.emaillinkinvalid">Email link is invalid. Please use latest email link.</p>
+            </div>
+        </div>
+        	<div class="box box-info login-panel" ng-if="vm.verifyaccount">
+        		<div class="box-header">
+        			<h3 class="box-title" translate="reset.finish.title">Set Password</h3>
+        		</div>
+        		<div class="box-body">
+        			<div class="alert alert-danger" translate="reset.finish.messages.keymissing" ng-show="vm.keyMissing">
+                <strong>The password reset key is missing.</strong>
+            </div>
+            <!-- <div class="alert alert-danger" ng-show="vm.error">
+                <p translate="reset.finish.messages.error">Your password couldn't be reset. Remember a password request is only valid for 24 hours.</p>
+            </div> -->
+            
+            <!-- <div class="alert alert-danger" ng-show="vm.emaillinkinvalid">
+                <p translate="reset.finish.messages.emaillinkinvalid">Email link is invalid. Please use latest email link.</p>
+            </div> -->
+
+            <div class="alert alert-success" ng-show="vm.success">
+                <p translate="reset.finish.messages.success" translate-compile><strong>Your password has been reset.</strong> Please <a class="alert-link"  ui-sref="login">sign in</a>.</p>
+            </div>	
+			
+            <div class="alert alert-danger" ng-show="vm.doNotMatch" translate="global.messages.error.dontmatch">
+                The password and its confirmation do not match!
+            </div>
+
+            <div ng-hide="vm.keyMissing">
+                <form ng-show="!vm.success" name="form" role="form" novalidate ng-submit="vm.finishReset()" show-validation>
+                    <div class="form-group">
+                        <label class="control-label" for="password" translate="global.form.newpassword"> password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="{{'global.form.newpassword.placeholder' | translate}}"
+                               ng-model="vm.resetAccount.password" ng-minlength=4 ng-maxlength=50 required>
+                        <div ng-show="form.password.$dirty && form.password.$invalid">
+                            <p class="help-block"
+                               ng-show="form.password.$error.minlength" translate="global.messages.validate.newpassword.minlength">
+                                Your password is required to be at least 4 characters.
+                            </p>
+                            <p class="help-block"
+                               ng-show="form.password.$error.maxlength" translate="global.messages.validate.newpassword.maxlength">
+                                Your password cannot be longer than 50 characters.
+                            </p>
+                        </div>
+                        <password-strength-bar password-to-check="vm.resetAccount.password"></password-strength-bar>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="confirmPassword" translate="global.form.confirmpassword"> password confirmation</label>
+                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="{{'global.form.confirmpassword.placeholder' | translate}}"
+                               ng-model="vm.confirmPassword" ng-minlength=4 ng-maxlength=50 required>
+                        <div ng-show="form.confirmPassword.$dirty && form.confirmPassword.$invalid">
+                            <p class="help-block"
+                               ng-show="form.confirmPassword.$error.minlength" translate="global.messages.validate.confirmpassword.minlength">
+                                Your password confirmation is required to be at least 4 characters.
+                            </p>
+                            <p class="help-block"
+                               ng-show="form.confirmPassword.$error.maxlength" translate="global.messages.validate.confirmpassword.maxlength">
+                                Your password confirmation cannot be longer than 50 characters.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form-group">					  
+						<button type="submit" ng-disabled="form.$invalid" class="btn btn-primary btn-block" translate="reset.finish.form.button">Set Password</button>
+					</div>                    
+                </form>
+            </div>
+        		</div>
+        	</div>
+
+        </div>
+    </div>
+</div>

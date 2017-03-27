@@ -1,0 +1,1550 @@
+<div class="content">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<div class="box box-info">
+				<div class="box-header">
+					<h3 class="box-title">
+						<i class="fa fa-briefcase"></i> <span translate="global.menu.generic-report"> Generic Reports</span>
+					</h3>
+				</div>
+				<!-- /.box-header -->
+				<!-- form start -->
+
+				<form class="form-horizontal" name="reportForm" ng-submit="report()">
+					<div class="box-body">
+						<div class="form-group">
+							<label class="col-sm-3 control-label" translate="report.report">Report</label>
+							<div class="col-sm-8">
+								<label class="radio-inline"> <input type="radio"
+									name="report" class="report" ng-model="vm.reportType"
+									value="agent" required ng-click="vm.reportTypeChange()"><span>User-Agent
+										Report</span>
+								</label> <label class="radio-inline"> <input type="radio"
+									name="report" class="report" ng-model="vm.reportType"
+									value="geofence" ng-click="vm.reportTypeChange()">Geofence
+									Report
+								</label>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Date Range</label>
+							<div class="col-sm-8">
+								<label class="radio-inline"><input type="radio"
+									name="dateRange" required ng-model="vm.dateRange" value="week"
+									ng-click="vm.selecterange('week')">One Week </label> <label
+									class="radio-inline"><input type="radio"
+									name="dateRange" ng-model="vm.dateRange" value="month"
+									ng-click="vm.selecterange('month')">One Month </label> <label
+									class="radio-inline"><input type="radio"
+									name="dateRange" ng-model="vm.dateRange" value="year"
+									ng-click="vm.selecterange('year')">One Year </label> <label
+									class="radio-inline pl-10"><input type="radio"
+									name="dateRange" ng-model="vm.dateRange" value="custom">Custom</label>
+							</div>
+						</div>
+
+						<div class="form-group" ng-if="vm.dateRange == 'custom'">
+							<label class="col-sm-3 control-label">From Date</label>
+							<div class="col-sm-3">
+								<div class="input-group">
+									<input type="text" class="form-control" name="fromDate"
+										required disabled datetime-picker="mediumDate"
+										enable-time="false" ng-model="vm.fromDate"
+										ng-change="vm.calculateFromDate()"
+										is-open="vm.datePickerOpenStatus.fromDate" /> <span
+										class="input-group-btn">
+										<button type="button" class="btn btn-default"
+											ng-click="vm.openCalendar('fromDate')">
+											<i class="glyphicon glyphicon-calendar"></i>
+										</button>
+									</span>
+								</div>
+							</div>
+							<label class="col-sm-2 control-label">To Date</label>
+							<div class="col-sm-3">
+								<div class="input-group">
+									<input type="text" class="form-control" name="toDate" required
+										disabled datetime-picker="mediumDate" enable-time="false"
+										ng-model="vm.toDate" ng-change="vm.calculateToDate()"
+										is-open="vm.datePickerOpenStatus.toDate" /> <span
+										class="input-group-btn">
+										<button type="button" class="btn btn-default"
+											ng-click="vm.openCalendar('toDate')">
+											<i class="glyphicon glyphicon-calendar"></i>
+										</button>
+									</span>
+								</div>
+							</div>
+						</div>
+						<!-- Custom Field -->
+						<!-- useragent Report -->
+						<div class="form-group" ng-if="vm.reportType == 'agent'">
+							<label class="col-sm-3 control-label">User-Agent Report</label>
+							<div class="col-sm-6">
+								<label class="radio-inline"><input type="radio"
+									name="user" required ng-model="vm.userAgent" value="username"
+									ng-click="vm.select2()">User-Agent Name</label> <label
+									class="radio-inline"><input type="radio" name="user"
+									ng-model="vm.userAgent" value="all">All Users </label>
+							</div>
+						</div>
+						<div class="form-group"
+							ng-if="vm.reportType == 'agent' && vm.userAgent=='username'">
+							<label class="col-sm-3 control-label"> <span>Select
+									User</span>
+							</label>
+							<div class="col-sm-6">
+
+								<select class="select2 form-control " name="search" required
+									ng-model="vm.id"
+									ng-options="item.id as item.login for item in vm.users">
+									<option value="">Select UserName</option>
+									<option ng-repeat="user in vm.users" value="user.id">{{user.login}}</option>
+								</select>
+							</div>
+						</div>
+						<!-- useragent Report -->
+						<!-- Geofence Report -->
+						<div class="form-group" ng-if="vm.reportType == 'geofence'">
+							<label class="col-sm-3 control-label">Geofence Report</label>
+							<div class="col-sm-6">
+								<label class="radio-inline"><input type="radio"
+									name="geofence" required ng-model="vm.geofence"
+									value="geofence" ng-click="vm.select2()">Geofence Name</label>
+								<label class="radio-inline"><input type="radio"
+									name="geofence" ng-model="vm.geofence" value="all">All
+									Geofence </label>
+							</div>
+						</div>
+						<div class="form-group"
+							ng-if="vm.reportType == 'geofence' && vm.geofence == 'geofence'">
+							<label class="col-sm-3 control-label"> <span>Select
+									Geofence</span>
+							</label>
+							<div class="col-sm-7">
+								<select class="form-control select2" name="search" required
+									id="geofences" ng-model="vm.id"
+									ng-options="item.id as item.name for item in vm.geofences">
+									<option value="">Select Geofence</option>
+								</select>
+							</div>
+						</div>
+						<!--Geofence Report -->
+					</div>
+
+					<div class="box-footer">
+						<div class="col-md-2 col-md-offset-3">
+							<button type="submit" class="btn btn-primary btn-sm"
+								ng-disabled="reportForm.$invalid" translate="upload.submit">
+								Submit</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row" ng-if="reporthide">
+		<div class="col-md-10 col-md-offset-1">
+			<!-- Map box -->
+			<div class="box box-solid">
+				<div class="box-header">
+					<i class="fa fa-server"></i>
+					<h3 class="box-title" translate="global.menu.generic-report"> Generic Reports</h3>
+				</div>
+				<div class="box-body">
+					<div class="row">
+						<div class="col-md-3 pull-right">
+							<div class="input-group input-group-sm">
+								<input type="text" ng-model="search"
+									class="form-control input-sm" placeholder="Search"
+									ng-model="search"> <span class="input-group-btn">
+									<button type="button" class="btn btn-info btn-flat">
+										<i class="fa fa-search"></i>
+									</button>
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="table-responsive mt-10">
+						<table class="jh-table table table-bordered">
+							<thead class="bg-default">
+								<tr>
+									<th ng-if="vm.reportType=='agent'"><span>Login</span> </th>
+									<th ng-if="vm.reportType=='geofence'"><span>Name</span> </th>
+									<!-- <th ng-if="vm.reportType=='agent'"><span>From Hour</span></th>
+									<th ng-if="vm.reportType=='agent'"><span>To Hour</span> </th> -->
+									<th><span>Cases</span> </th>
+									<th><span>Services</span> </th>
+									<th ng-if="vm.reportType=='agent'">Distance Covered</th>
+									<th>Actions</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="record in vm.reportRecords | filter:search">
+									<td ng-if="vm.reportType=='agent'">{{record.login}}</td>
+									<td ng-if="vm.reportType=='geofence'">{{record.name}}</td>
+								<!-- 	<td ng-if="vm.reportType=='agent'">{{getLocalhour(record.fromTime)}}</td>
+									<td ng-if="vm.reportType=='agent'">{{getLocalhour(record.toTime)}}</td> -->
+									<td>{{record.cases}}</td>
+									<td>{{record.services}}</td>
+									<td ng-if="vm.reportType=='agent'">{{record.distance |
+										number:2}} KM</td>
+									<td><a href="" data-toggle="modal" data-target="#report"
+										ng-click="vm.detailedReport(record.id)"><i
+											class="fa fa-eye"></i></a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div id="report" class="fade  modal" role="dialog">
+						<div class="modal-dialog modal-lg">
+							<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header modal-info">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title text-left">
+										<img ng-src="content/images/logo.png"
+											class="img-responsive report-logo" style="height: 30px;">
+									</h4>
+								</div>
+								<div class="modal-body" ng-if="vm.reportType=='geofence'">
+									<button class="btn btn-primary" ng-click="generatePDF()"><i class="fa fa-save"></i> Save as PDF</button>
+								</div>
+								<div class="modal-body" ng-if="vm.reportType=='geofence'" id="getpdf">
+								
+									<h4 class="text-center mt-5">
+										Geofence Report for <b>{{vm.detailedReportCounts.name}}</b>
+									</h4>
+									<div class="box box-solid">
+										<!-- Cases -->
+										<div class="box-header">
+											<h3 class="box-title">Cases</h3>
+										</div>
+										<div class="box-body">
+											<div class="col-sm-3 report-data">
+												<h4 class="report-head text-danger">Critical</h4>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">New</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCriticalNew}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Inprogress</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCriticalInprogress}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Pending</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCriticalPending}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Assigned</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCriticalAssigned}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Resolved</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCriticalResolved}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Cancelled</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCriticalCancelled}}</p>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3 report-data">
+												<h4 class="report-head text-success">High</h4>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">New</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesHighNew}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Inprogress</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesHighInprogress}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Pending</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesHighPending}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Assigned</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesHighAssigned}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Resolved</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesHighResolved}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Cancelled</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesHighCancelled}}</p>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3 report-data">
+												<h4 class="report-head text-primary">Medium</h4>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">New</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesMediumNew}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Inprogress</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesMediumInprogress}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Pending</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesMediumPending}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Assigned</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesMediumAssigned}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Resolved</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesMediumResolved}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Cancelled</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesMediumCancelled}}</p>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<h4 class="report-head text-warning">Low</h4>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">New</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesLowNew}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Inprogress</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesLowInprogress}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Pending</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesLowPending}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Assigned</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesLowAssigned}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Resolved</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesLowResolved}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Cancelled</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesLowCancelled}}</p>
+													</div>
+												</div>
+											</div>
+
+										</div>
+									</div>
+
+									<div class="box box-solid">
+										<!-- Services -->
+										<div class="box-header">
+											<h3 class="box-title">Services</h3>
+										</div>
+										<div class="box-body">
+											<div class="col-sm-3 report-data">
+												<h4 class="report-head text-danger">Critical</h4>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Inprogress</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesCriticalInprogress}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Pending</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesCriticalPending}}</p>
+													</div>
+												</div>
+
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Closed</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesCriticalClosed}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Cancelled</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesCriticalCancelled}}</p>
+													</div>
+												</div>
+											</div>
+
+											<div class="col-sm-3 report-data">
+												<h4 class="report-head text-success">High</h4>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Inprogress</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesHighInprogress}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Pending</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesHighPending}}</p>
+													</div>
+												</div>
+
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Closed</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesHighClosed}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Cancelled</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesHighCancelled}}</p>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3 report-data">
+												<h4 class="report-head text-primary">Medium</h4>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Inprogress</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesMediumInprogress}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Pending</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesMediumPending}}</p>
+													</div>
+												</div>
+
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Closed</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesMediumClosed}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Cancelled</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesMediumCancelled}}</p>
+													</div>
+												</div>
+											</div>
+
+
+											<div class="col-sm-3">
+												<h4 class="report-head text-warning">Low</h4>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Inprogress</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesLowInprogress}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Pending</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesLowPending}}</p>
+													</div>
+												</div>
+
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Closed</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesLowClosed}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Cancelled</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesLowCancelled}}</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+										<div class="box box-solid"> 
+								<div class="box-header">        
+									<h3 class="box-title">Geofence - Bangalore</h3>
+								</div>
+								<div class="box-body">
+									<div class="row">
+										<div class="col-md-12">
+											<div id="map_canvas" style="height:300px; width:100%;"></div>
+										</div>	
+									</div>
+								</div>
+							</div>
+
+								</div>
+								
+								<div class="modal-body" ng-if="vm.reportType=='agent'">
+									<button class="btn btn-primary" ng-click="generateagentPDF()"><i class="fa fa-save"></i> Save as PDF</button>
+								</div>
+								<div class="modal-body" ng-if="vm.reportType=='agent'" id="getagentpdf">
+									<!-- <div class="modal-body" ng-if="vm.reportType=='agent'"> -->
+									<h4 class="text-center mt-5">
+										Agent Report for <b>{{vm.detailedReportCounts.name}} ({{vm.detailedReportCounts.login}})</b> 
+									</h4>
+									
+									
+									<div class="box box-solid">
+										<!-- Cases -->
+										<div class="box-header">
+											<h3 class="box-title">Cases Created by Agent</h3>
+										</div>
+										<div class="box-body">
+											<div class="col-sm-3 report-data">
+												<h4 class="report-head text-danger">Critical</h4>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">New</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedCriticalNew}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Inprogress</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedCriticalInprogress}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Pending</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedCriticalPending}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Assigned</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedCriticalAssigned}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Resolved</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedCriticalResolved}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Cancelled</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedCriticalCancelled}}</p>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3 report-data">
+												<h4 class="report-head text-success">High</h4>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">New</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedHighNew}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Inprogress</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedHighInprogress}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Pending</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedHighPending}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Assigned</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedHighAssigned}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Resolved</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedHighResolved}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Cancelled</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedHighCancelled}}</p>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3 report-data">
+												<h4 class="report-head text-primary">Medium</h4>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">New</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedMediumNew}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Inprogress</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedMediumInprogress}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Pending</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedMediumPending}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Assigned</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedMediumAssigned}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Resolved</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedMediumResolved}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Cancelled</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedMediumCancelled}}</p>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<h4 class="report-head text-warning">Low</h4>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">New</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedLowNew}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Inprogress</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedLowInprogress}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Pending</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedLowPending}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Assigned</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedLowAssigned}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Resolved</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedLowResolved}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Cancelled</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedLowCancelled}}</p>
+													</div>
+												</div>
+											</div>
+
+										</div>
+									</div>
+									<div class="box box-solid">
+										<!-- Cases -->
+										<div class="box-header">
+											<h3 class="box-title">Cases Assigned to Agent</h3>
+										</div>
+										<div class="box-body">
+											<div class="col-sm-3 report-data">
+												<h4 class="report-head text-danger">Critical</h4>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">New</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedCriticalNew}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Inprogress</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedCriticalInprogress}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Pending</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedCriticalPending}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Assigned</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedCriticalAssigned}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Resolved</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedCriticalResolved}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Cancelled</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedCriticalCancelled}}</p>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3 report-data">
+												<h4 class="report-head text-success">High</h4>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">New</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedHighNew}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Inprogress</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedHighInprogress}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Pending</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedHighPending}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Assigned</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedHighAssigned}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Resolved</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedHighResolved}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Cancelled</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedHighCancelled}}</p>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3 report-data">
+												<h4 class="report-head text-primary">Medium</h4>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">New</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedMediumNew}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Inprogress</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedMediumInprogress}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Pending</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedMediumPending}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Assigned</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedMediumAssigned}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Resolved</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedMediumResolved}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Cancelled</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedMediumCancelled}}</p>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<h4 class="report-head text-warning">Low</h4>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">New</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedLowNew}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Inprogress</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedLowInprogress}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Pending</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedLowPending}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Assigned</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedLowAssigned}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Resolved</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedLowResolved}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Cancelled</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.casesCreatedLowCancelled}}</p>
+													</div>
+												</div>
+											</div>
+
+										</div>
+									</div>
+									<div class="box box-solid">
+										<!-- Services -->
+										<div class="box-header">
+											<h3 class="box-title">Services</h3>
+										</div>
+										<div class="box-body">
+											<div class="col-sm-3 report-data">
+												<h4 class="report-head text-danger">Critical</h4>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Inprogress</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesCriticalInprogress}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Pending</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesCriticalPending}}</p>
+													</div>
+												</div>
+
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Closed</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesCriticalClosed}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Cancelled</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesCriticalCancelled}}</p>
+													</div>
+												</div>
+											</div>
+
+											<div class="col-sm-3 report-data">
+												<h4 class="report-head text-success">High</h4>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Inprogress</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesHighInprogress}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Pending</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesHighPending}}</p>
+													</div>
+												</div>
+
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Closed</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesHighClosed}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Cancelled</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesHighCancelled}}</p>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-3 report-data">
+												<h4 class="report-head text-primary">Medium</h4>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Inprogress</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesMediumInprogress}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Pending</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesMediumPending}}</p>
+													</div>
+												</div>
+
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Closed</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesMediumClosed}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Cancelled</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesMediumCancelled}}</p>
+													</div>
+												</div>
+											</div>
+
+
+											<div class="col-sm-3">
+												<h4 class="report-head text-warning">Low</h4>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Inprogress</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesLowInprogress}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Pending</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesLowPending}}</p>
+													</div>
+												</div>
+
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Closed</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesLowClosed}}</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-6 col-xs-6">
+														<p class="report-info">Cancelled</p>
+													</div>
+													<div class="col-sm-2 col-xs-2">
+														<p class="report-info">:</p>
+													</div>
+													<div class="col-sm-4 col-xs-4">
+														<p class="report-info">{{vm.detailedReportCounts.counts.servicesLowCancelled}}</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+										<div class="box box-solid"> 
+								<div class="box-header">        
+									<h3 class="box-title">Geofence - Bangalore</h3>
+								</div>
+								<div class="box-body">
+									<div class="row">
+										<div class="col-md-12">
+											<div id="map_canvas" style="height:300px; width:100%;"></div>
+										</div>	
+									</div>
+								</div>
+							</div> 
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			
+			</div>
+		</div>
+	</div>
+
+<!--	<div class="row">
+		<div class="col-md-10 col-md-offset-1" id="linegraphmessage">
+			<p class="text-danger">No battery data available for the given input</p>
+		</div>
+		<div id="linegraphdiv">
+			<div class="col-md-10 col-md-offset-1">
+				<div class="box box-solid">
+					<div class="box-header">
+						<h3 class="box-title">Battery Line Graph</h3>
+					</div>
+					<div class="box-body chart-responsive">
+						<div id="sensorline" style=""></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>-->
+</div>

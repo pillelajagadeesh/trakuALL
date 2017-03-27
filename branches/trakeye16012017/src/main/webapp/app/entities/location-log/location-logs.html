@@ -1,0 +1,153 @@
+<div class="content">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="box box-solid">
+			 	<div class="box-header">            
+					<h3 class="box-title"><i class="fa fa-map-marker"></i> <span translate="trakeyeApp.locationLog.home.title">Live Monitoring</span></h3>
+					<!-- <div class="box-tools" has-authority="ROLE_USER">
+						  <button class="btn btn-create" ui-sref="location-log.new" >
+			                    <span class="glyphicon glyphicon-plus"></span>
+			                    <span  translate="trakeyeApp.locationLog.home.createLabel">
+			                        Create Location Log
+			                    </span>
+			                </button>
+					</div>	--> 			
+				</div> 
+				<div class="box-body">
+				<jhi-alert></jhi-alert>
+				<div class="row">
+					<div class="col-md-9" ng-if="has_ROLE_USER_ADMIN">
+					    <a ng-click="vm.all()" class="btn btn-md" ng-class="{'btn-info':vm.selectedLogs=='ALL','btn-default':vm.selectedLogs!='ALL'}"><i class="fa text-info fa-map-marker"></i> All : {{alllength}} users</a>
+						<a ng-click="vm.active()" class="btn btn-md" ng-class="{'btn-success':vm.selectedLogs=='ACTIVE','btn-default':vm.selectedLogs!='ACTIVE'}"><i class="fa text-success fa-map-marker"></i> Active : {{activelength}} users</a>
+						<a ng-click="vm.inactive()" class="btn btn-md" ng-class="{'inactive-bg':vm.selectedLogs=='INACTIVE','btn-default':vm.selectedLogs!='INACTIVE'}"><i class="fa  inactive fa-map-marker"></i> Inactive : {{inactivelength}} users</a>
+						<a ng-click="vm.idle()" class="btn btn-md" ng-class="{'btn-warning':vm.selectedLogs=='IDLE','btn-default':vm.selectedLogs!='IDLE'}"><i class="fa fa-map-marker yellow"></i> Idle : {{idlelength}} users</a>
+						</div>
+						<div class="col-md-3 search-top" ng-if="has_ROLE_USER_ADMIN">
+							<div class="input-group input-group-sm">
+								<input type="text" ng-model="vm.searchUser" ng-change="vm.filterUsers()" class="form-control " placeholder="Search" >
+								<span class="input-group-btn">
+								  <button type="button" class="btn btn-info btn-flat">
+									<i class="fa fa-search"></i></button>
+								</span>
+							</div>
+						</div>					
+				</div>	
+				<div class="row mt-5">
+					<div class="col-md-12">
+						<div id="map_canvas" style="height:500px; width:100%;"></div>
+					</div>					
+				</div>					
+				</div>           
+			</div>		
+		</div>	
+	</div>
+<!-- 	<div class="row">
+		<div class="col-md-12">
+			<div class="box box-info">
+				 <div class="box-header">
+					<h3 class="box-title"></h3>
+				</div>
+				  <div class="box-body">
+					<div class="table-responsive">					 
+				  <table class="jh-table table table-bordered">
+					<thead class="bg-default">
+						 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+		                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+		                    <th jh-sort-by="latitude"><span translate="trakeyeApp.locationLog.latitude">Latitude</span> <span class="glyphicon glyphicon-sort"></span></th>
+		                    <th jh-sort-by="longitude"><span translate="trakeyeApp.locationLog.longitude">Longitude</span> <span class="glyphicon glyphicon-sort"></span></th>
+		                    <th jh-sort-by="address"><span translate="trakeyeApp.locationLog.address">Address</span> <span class="glyphicon glyphicon-sort"></span></th>
+		                    <th jh-sort-by="logSource"><span translate="trakeyeApp.locationLog.logSource">Log Source</span> <span class="glyphicon glyphicon-sort"></span></th>
+		                    <th jh-sort-by="createdDateTime"><span translate="trakeyeApp.locationLog.createdDateTime">Created Date Time</span> <span class="glyphicon glyphicon-sort"></span></th>
+		                    <th jh-sort-by="createdDateTime"><span>Updated Date Time</span> <span class="glyphicon glyphicon-sort"></span></th>
+		                    <th jh-sort-by="userId"><span translate="trakeyeApp.locationLog.user">User</span> <span class="glyphicon glyphicon-sort"></span></th>
+		                    <th>Actions</th>
+		                </tr>
+		            </thead>
+		            <tbody>
+		                <tr ng-repeat="locationLog in vm.locationLogs | filter : users  track by locationLog.id">
+		                    <td><a ui-sref="location-log-detail({id:locationLog.id})">{{locationLog.id}}</a></td>
+		                    <td>{{locationLog.latitude}}</td>
+		                    <td>{{locationLog.longitude}}</td>
+		                    <td>{{locationLog.address}}</td>
+		                    <td translate="{{'trakeyeApp.LogSource.' + locationLog.logSource}}">{{locationLog.logSource}}</td>
+		                    <td>{{locationLog.createdDateTime | date:'medium'}}</td>
+		                    <td>{{locationLog.updatedDateTime | date:'medium'}}</td>
+		                    <td>
+		                        {{locationLog.userName}}
+		                    </td>
+		                    <td>
+		                        <div class="actions">
+		                            <a type="submit"
+		                                    ui-sref="location-log-detail({id:locationLog.id})"
+		                                    class="btn btn-info btn-sm" ng-if="has_ROLE_USER">
+		                                <span class="glyphicon glyphicon-eye-open"></span>
+		                            </a>
+		                            <a type="submit"
+		                                    ui-sref="location-log.edit({id:locationLog.id})"
+		                                    class="btn btn-primary btn-sm" ng-if="has_ROLE_USER">
+		                                <span class="glyphicon glyphicon-pencil"></span>
+		                            </a>
+		                            
+		                        </div>
+		                    </td>
+		                </tr>
+					</tbody>
+				</table>
+			</div>
+				</div>
+			</div>
+		</div>
+	</div>-->
+
+
+
+<!-- Modal -->
+<div id="userPathModal" class="fade  modal"   role="dialog">
+ <div class="modal-dialog modal-fluid" >
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header modal-info">
+        <button type="button" class="close"  ng-click="reset()" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title text-left">{{vm.userPathName}} - travel map</h4>
+      </div>      
+      <div class="modal-body">
+	  <div class="rows">
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label class="control-label col-md-2" translate="trakeyeApp.locationLog.fromDate">From Date</label>
+				<div class="col-md-3">
+				<!-- 	<input type="date" class="input-sm form-control" name="start" ng-model="vm.fromDate" ng-change="vm.onChangeDate()" required/> -->
+					<div class="input-group">
+			             <input id="field_serviceDate" type="text" class="input-sm form-control" name="fromDate" ng-model="vm.fromDate" ng-change="vm.onChangeDate()" datetime-picker="dd/MM/yyyy" is-open="vm.datePickerOpenStatus.fromDate"
+		                     enable-time="false" required />
+		                 <span class="input-group-btn" >
+		                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.openCalendar('fromDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+		                    </span>
+                </div>
+				</div>
+				<label class="control-label col-md-2" translate="trakeyeApp.locationLog.toDate">To Date</label>
+				<div class="col-md-3">
+				<div class="input-group">
+	             <input id="field_toDate" type="text" class="input-sm form-control" name="toDate" ng-model="vm.toDate" ng-change="vm.onChangeDate()" datetime-picker="dd/MM/yyyy" is-open="vm.datePickerOpenStatus.toDate"
+                     enable-time="false" required />
+                 <span class="input-group-btn" >
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.openCalendar('toDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+                </div>
+			</div>
+			</form>
+			</div>
+			<div class="row">
+					<div id="userPath" style="height:450px;"></div>
+					
+			</div>
+		</div>		
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+
+ 	 

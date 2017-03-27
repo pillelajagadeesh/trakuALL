@@ -1,0 +1,29 @@
+{
+    "trakeyeApp": {
+        "tenant" : {
+            "home": {
+                "title": "Tenants",
+                "createLabel": "Tenant erstellen",
+                "createOrEditLabel": "Tenant erstellen oder bearbeiten",
+                "search": "Suche nach Tenant"
+            },
+            "created": "Tenant erstellt mit ID {{ param }}",
+            "updated": "Tenant aktualisiert mit ID {{ param }}",
+            "deleted": "Tenant gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Tenant {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Tenant"
+            },
+            "organization": "Organization",
+            "loginName": "Login Name",
+            "email": "Email",
+            "phone": "Phone",
+            "city": "City",
+            "address": "Address",
+            "createdDate": "Created Date",
+            "updatedDate": "Updated Date"
+        }
+    }
+}

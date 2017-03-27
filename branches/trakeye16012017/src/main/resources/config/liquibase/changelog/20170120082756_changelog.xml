@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+   
+   <changeSet author="gaddesurendrakumar (generated)" id="1484900881947-1">
+    <createProcedure catalogName="cat"
+            dbms="postgresql,oracle"
+            encoding="utf8"
+            procedureName="get_allusers"
+            relativeToChangelogFile="true"
+            schemaName="public">
+    		CREATE OR REPLACE FUNCTION public.get_allusers(
+			f_login character varying,
+			f_tenantid bigint)
+		    RETURNS setof trakeye_user
+		    LANGUAGE 'sql'
+		    COST 100.0
+		    VOLATILE NOT LEAKPROOF 
+			AS $function$
+		
+			WITH RECURSIVE usertree  AS (
+		    SELECT a.*
+		    FROM trakeye_user a
+		    WHERE a.login = f_login and a.tenant_id = f_tenantid 
+		    UNION ALL
+		    SELECT c.*
+		    FROM trakeye_user c
+		       JOIN usertree p ON c.created_by = p.login
+			 )
+			 SELECT a.*     
+		 	FROM usertree a ;
+		
+			$function$;
+		
+			ALTER FUNCTION public.get_allusers(character varying, bigint)
+		    OWNER TO trakeye;
+		    
+    
+    
+    </createProcedure>
+</changeSet>
+</databaseChangeLog>

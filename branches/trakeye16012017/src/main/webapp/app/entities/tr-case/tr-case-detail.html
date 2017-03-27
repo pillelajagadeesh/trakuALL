@@ -1,0 +1,104 @@
+<div class="content">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="box box-solid">
+		    	 <div class="box-header with-border">
+		      		 <h3 class="box-title"><span translate="trakeyeApp.trCase.detail.title">Tr Case</span> {{vm.trCase.id}}</h3>
+		    	 </div>
+					<div class="box-body">
+					    <jhi-alert-error></jhi-alert-error>					   
+					    <dl class="dl-horizontal jh-entity-details">
+					        <dt><span translate="trakeyeApp.trCase.description">Description</span></dt>
+					        <dd>
+					            <span>{{vm.trCase.description}}</span>
+					        </dd>
+					        
+					        <dt><span translate="trakeyeApp.trCase.status">Status</span></dt>
+					        <dd>
+					            <span translate="{{'trakeyeApp.CaseStatus.' + vm.trCase.status}}">{{vm.trCase.status}}</span>
+					        </dd>
+					        <dt><span translate="trakeyeApp.trCase.escalated">Escalated</span></dt>
+					        <dd>
+					            <span ng-if="vm.trCase.escalated">YES</span>
+					            <span ng-if="!vm.trCase.escalated">NO</span>
+					        </dd>
+					        <dt><span translate="trakeyeApp.trCase.address">Address</span></dt>
+					        <dd>
+					           <span>{{vm.trCase.address}}</span>
+					            <!-- <a ui-sref="case-type-detail({id:vm.trCase.address})">{{vm.trCase.address}}</a> -->
+					        </dd>
+							  <dt><span translate="trakeyeApp.trCase.assignedTo">Assigned To</span></dt>
+					        <dd>
+					            {{vm.trCase.assignedToUser}}
+					        </dd>
+					        <dt><span translate="trakeyeApp.trCase.reportedBy">Reported By</span></dt>
+					        <dd>
+					            {{vm.trCase.reportedByUser}}
+					        </dd>
+					        <dt><span translate="trakeyeApp.trCase.updatedBy">Updated By</span></dt>
+					        <dd>
+					            {{vm.trCase.updatedByUser}}
+					        </dd>
+					        <dt><span translate="trakeyeApp.trCase.assignedBy">Assigned By</span></dt>
+					        <dd>
+					            {{vm.trCase.assignedByUser}}
+					        </dd>
+					        <dt><span translate="trakeyeApp.trCase.createDate">Create Date</span></dt>
+					        <dd>
+					            <span>{{vm.trCase.createDate | date:'medium'}}</span>
+					        </dd>
+					        <dt><span translate="trakeyeApp.trCase.updateDate">Update Date</span></dt>
+					        <dd>
+					            <span>{{vm.trCase.updateDate | date:'medium'}}</span>
+					        </dd>
+					        
+					          <dt><span translate="trakeyeApp.trCase.caseType">Case Type</span></dt>
+					        <dd ng-if="has_ROLE_USER_ADMIN">
+					           <!--  <a ui-sref="case-type-detail({id:vm.trCase.caseType.id})">{{vm.trCase.caseType.name}}</a> -->
+					        {{vm.trCase.caseType.name}}
+					        </dd>
+					         <dd ng-if="has_ROLE_USER">
+					            {{vm.trCase.caseType.name}}
+					        </dd>
+					        
+					        
+					       <!--  <dt><span translate="trakeyeApp.trCase.pinLat">Pin Lat</span></dt>
+					        <dd>
+					            <span>{{vm.trCase.pinLat}}</span>
+					        </dd>
+					        <dt><span translate="trakeyeApp.trCase.pinLong">Pin Long</span></dt>
+					        <dd>
+					            <span>{{vm.trCase.pinLong}}</span>
+					        </dd> -->
+					           <div class="form-group" ng-repeat="attribute in vm.trCase.caseTypeAttributeValues track by $index">
+							<dt><span >{{attribute.caseTypeAttribute.name}}</span></dt>
+							<dd>
+								<span >{{vm.trCase.caseTypeAttributeValues[$index].attributeValue}}</span></dt>
+							</dd>
+							</div>
+					       
+					         <dt><span translate="trakeyeApp.trCase.caseImages">Case Images</span></dt>
+					        <dd>
+					        <div >
+								<div class="col-md-3" ng-repeat="img in vm.trCase.caseImages ">
+									<img class="img-responsive" ng-src="data:image/jpeg;base64,{{img.image}}" style="padding-bottom: 10px;">
+								</div>
+					        </div>
+					           
+					        </dd>
+					    </dl>    
+						<div class="box-buttons pull-right">
+						    <a ui-sref="tr-case"
+						            class="btn btn-info btn-sm mr5">
+						        <span class="glyphicon glyphicon-arrow-left"></span> <span translate="entity.action.back"> Back</span>
+						    </a>						
+						   <a ui-sref="tr-case.edit({id:vm.trCase.id})" class="btn btn-primary btn-sm">
+						        <span class="glyphicon glyphicon-pencil"></span>
+						        <span translate="entity.action.edit"> Edit</span>
+						    </a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>

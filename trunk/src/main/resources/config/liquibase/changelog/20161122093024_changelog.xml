@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+   <changeSet author="Admin (generated)" id="1479807049083-1">
+      <addColumn tableName="trakeye_user">
+         <column name="application_version" type="varchar(100)"/>
+      </addColumn>
+   </changeSet>
+   <changeSet author="Admin (generated)" id="1479807049083-5">
+      <addColumn tableName="trakeye_user">
+         <column name="operating_system" type="varchar(100)"/>
+      </addColumn>
+   </changeSet>
+</databaseChangeLog>

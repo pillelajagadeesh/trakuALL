@@ -1,0 +1,31 @@
+{
+    "trakeyeApp": {
+        "locationLog" : {
+            "home": {
+                "title": "Live Monitoring",
+                "createLabel": "Create Location Log",
+                "create": "Create Location Log",
+                "EditLabel": "Edit Location Log",
+                "search": "Search for Location Log"
+            },
+            "created": "A new Location Log is created with identifier {{ param }}",
+            "updated": "A Location Log is updated with identifier {{ param }}",
+            "deleted": "A Location Log is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Location Log {{ id }}?"
+            },
+            "detail": {
+                "title": "Live Monitoring"
+            },
+            "latitude": "Latitude",
+            "longitude": "Longitude",
+            "address": "Address",
+            "logSource": "Log Source",
+            "createdDateTime": "Created Date Time",
+            "user": "User",
+            "fromDate": "From Date",
+            "toDate": "To Date",
+            "select": "--- Select Log Source ---"
+        }
+    }
+}

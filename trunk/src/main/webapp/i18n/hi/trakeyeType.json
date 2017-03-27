@@ -1,0 +1,26 @@
+{
+    "trakeyeApp": {
+        "trakeyeType" : {
+            "home": {
+                "title": "TrakeyeTypes",
+                "createLabel": "नया Trakeye Type बनाएँ",
+                "createOrEditLabel": "Trakeye Type बनाएँ या संपादित करें",
+                "search": "Trakeye Type खोजें"
+            },
+            "created": "एक नया Trakeye Type [identifier: {{ param }}] तैयार है",
+            "updated": "एक Trakeye Type [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Trakeye Type [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Trakeye Type [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Trakeye Type"
+            },
+            "name": "Name",
+            "description": "Description",
+            "createdDate": "Created Date",
+            "updatedDate": "Updated Date",
+            "user": "User"
+        }
+    }
+}

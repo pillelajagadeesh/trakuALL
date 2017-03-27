@@ -1,0 +1,64 @@
+<div class="container">
+<div class="content" ng-if="!vm.isAuthenticated()" ng-cloak>
+<div class="row login-sizes">
+	<div class="mt-45"></div>
+		<div class="col-md-7 col-sm-8 login-main">
+			<div class="login-image">
+				<img class="img-responsive" ng-src="content/images/trakeye.png">
+			</div>
+		</div>
+		<div class="col-md-4 col-sm-8 col-md-offset-1 col-sm-offset-2">
+			<div class="mt-45"></div>
+			<div class="panel panel-primary login-panel">
+				<div class="panel-heading ">
+				<span translate="login.title" class="signin-heading">Sign in</span>
+				</div>
+				<div class="panel-body">					 
+					<form class="form-horizontal" role="form" ng-submit="vm.login($event)">	
+						<div class="form-group">
+							<div class="col-md-12">
+					            <div class="alert alert-danger" ng-show="vm.authenticationError" translate="login.messages.error.authentication">
+					                <strong>Failed to sign in!</strong> Please check your credentials and try again.
+					            </div>
+					        </div>
+						</div>	   
+						<div class="form-group has-feedback">					 
+						  <div class="col-sm-12">
+							<input type="text" class="form-control" id="username" placeholder="{{'global.form.username.placeholder' | translate}}" ng-model="vm.username">
+							<span class="fa fa-user form-control-feedback"></span>
+						  </div>
+						</div>
+						<div class="form-group has-feedback">					 
+						  <div class="col-sm-12">
+							<input type="password" class="form-control" id="password" placeholder="{{'login.form.password.placeholder' | translate}}"
+                           ng-model="vm.password">
+                           <span class="fa fa-lock form-control-feedback"></span>
+						  </div>
+						</div>
+						<div class="form-group">
+		                    <label for="rememberMe" class="col-md-12">
+		                        <input type="checkbox" id="rememberMe" ng-model="vm.rememberMe" checked>
+		                        <span translate="login.form.rememberme">Remember me</span>
+		                    </label>
+		                </div>
+						<div class="form-group">
+						  <div class="col-sm-12 ">
+							<button type="submit" class="btn btn-info btn-sm btn-block" translate="login.form.button">Sign in</button>
+						  </div>
+						</div> 			
+					</form>
+					<div class="mt-20"></div>				
+				</div>	
+				<div class="panel-footer bg-default text-center">
+					 <a class="alert-link" href="" ng-click="vm.requestResetPassword()" translate="login.password.forgot">Did you forget your password?</a>				
+				</div>						
+			</div>	
+			<div class="col-md-12 login-shadow">
+					<div class="footer-shadow">
+						<img ng-src="content/images/shadow.png" class="img-responsive">
+					</div>
+				</div>	
+			</div>
+	</div>
+</div>
+</div>

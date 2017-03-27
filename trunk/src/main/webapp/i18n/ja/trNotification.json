@@ -1,0 +1,29 @@
+{
+    "trakeyeApp": {
+        "trNotification" : {
+            "home": {
+                "title": "TrNotifications",
+                "createLabel": "Tr Notification を追加",
+                "createOrEditLabel": "Tr Notificationを追加または編集",
+                "search": "Search for Tr Notification"
+            },
+            "created": "A new Tr Notification is created with identifier {{ param }}",
+            "updated": "A Tr Notification is updated with identifier {{ param }}",
+            "deleted": "A Tr Notification is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Tr Notification {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Tr Notification"
+            },
+            "createdDate": "Created Date",
+            "description": "Description",
+            "status": "Status",
+            "subject": "Subject",
+            "alertType": "Alert Type",
+            "fromUser": "From User",
+            "toUser": "To User",
+            "trCase": "Tr Case"
+        }
+    }
+}

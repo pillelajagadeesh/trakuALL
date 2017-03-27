@@ -1,0 +1,27 @@
+{
+    "trakeyeApp": {
+        "geofence" : {
+            "home": {
+                "title": "Geofences",
+                "createLabel": "नया Geofence बनाएँ",
+                "createOrEditLabel": "Geofence बनाएँ या संपादित करें",
+                "search": "Geofence खोजें"
+            },
+            "created": "एक नया Geofence [identifier: {{ param }}] तैयार है",
+            "updated": "एक Geofence [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Geofence [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Geofence [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Geofence"
+            },
+            "name": "Name",
+            "description": "Description",
+            "coordinates": "Coordinates",
+            "createdDate": "Created Date",
+            "modifiedDate": "Modified Date",
+            "user": "User"
+        }
+    }
+}

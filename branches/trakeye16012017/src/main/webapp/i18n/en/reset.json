@@ -1,0 +1,32 @@
+{
+    "reset": {
+        "request": {
+            "title": "Forgot Password",
+            "form": {
+                "button": "Submit",
+                "signin": "RETURN TO SIGN IN"
+            },
+            "messages": {
+                "info": "Enter the e-mail address you used to register",
+                "success": "Password reset link has been sent to your email.",
+                "notfound": "<strong>Username isn't registered!</strong> Please check and try again",
+                "userdeactivated" : "User is deactivated.",
+                "countExceeded" : "Reset password count is exceeded for today. Try after 24 hours"
+            }
+        },
+        "finish" : {
+            "title": "Set Password",
+            "form": {
+                "button": "Set Password"
+            },
+            "messages": {
+                "info": "Choose a new password",
+                "success": "<strong>Your password has been reset.</strong> Please <a class=\"alert-link\" href=\"\" ui-sref=\"login\">sign in</a>.",
+                "keymissing": "The reset key is missing.",
+                "error": "Your password couldn't be reset. Remember a password request is only valid for 24 hours.",
+                "emaillinkinvalid" : "Email link is invalid. Please use latest email link."
+            }
+        }
+    }
+
+}

@@ -1,0 +1,36 @@
+{
+    "trakeyeApp": {
+        "trService" : {
+            "home": {
+                "title": "Services",
+                "createLabel": "Create Service",
+                "create": "Create Service",
+                "EditLabel": "Edit Service",
+                "search": "Search"
+            },
+            "created": "Service is created with identifier {{ param }}",
+            "updated": "Service is updated with identifier {{ param }}",
+            "deleted": "Service is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete  Service {{ id }}?"
+            },
+            "detail": {
+                "title": "Service"
+            },
+            "createdDate": "Created Date",
+            "modifiedDate": "Updated Date",
+            "description": "Description",
+            "serviceDate": "Service Date",
+            "status": "Status",
+            "notes": "Notes",
+            "user": "Assigned To",
+            "caseiderror" : "Enter only numeric values for case id",
+            "trCase": "Related Case",
+            "selectType": "--- Select Type ---",
+            "trServicetype": "Service Type",
+            "selectCase": "--- Select Case ---",
+            "assignedTo" : "Assigned To",
+            "serviceImages" : "Images"
+        }
+    }
+}

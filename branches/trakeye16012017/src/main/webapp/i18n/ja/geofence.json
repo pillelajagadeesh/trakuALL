@@ -1,0 +1,27 @@
+{
+    "trakeyeApp": {
+        "geofence" : {
+            "home": {
+                "title": "Geofences",
+                "createLabel": "Geofence を追加",
+                "createOrEditLabel": "Geofenceを追加または編集",
+                "search": "Search for Geofence"
+            },
+            "created": "A new Geofence is created with identifier {{ param }}",
+            "updated": "A Geofence is updated with identifier {{ param }}",
+            "deleted": "A Geofence is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Geofence {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Geofence"
+            },
+            "name": "Name",
+            "description": "Description",
+            "coordinates": "Coordinates",
+            "createdDate": "Created Date",
+            "modifiedDate": "Modified Date",
+            "user": "User"
+        }
+    }
+}

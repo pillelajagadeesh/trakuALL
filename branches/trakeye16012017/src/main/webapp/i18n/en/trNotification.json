@@ -1,0 +1,37 @@
+{
+    "trakeyeApp": {
+        "trNotification" : {
+            "home": {
+                "title": "Notifications",
+                "createLabel": "Create Notification",
+                "create": "Create Notification",
+                "Edit": "Edit Notification",
+                "search": "Search"
+            },
+            "created": "Notification is created with identifier {{ param }}",
+            "updated": "Notification is updated with identifier {{ param }}",
+            "deleted": "Notification is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Notification {{ id }}?"
+            },
+            "detail": {
+                "title": " Notification"
+            },
+            "createdDate": "Created Date",
+            "description": "Description",
+            "status": "Status",
+            "type":"Notification Type",
+            "subject": "Subject",
+            "alertType": "Type",
+            "fromUser": "From User",
+            "toUser": "Recipients",
+            "trCase": "Case No",
+            "downloadApp": "Download App",
+            "action": "Actions",
+            "caseiderror" : "Enter only numeric values for case id",
+            "selectCase": "--- Select Case ---",
+            "selectType": "--- Select Type ---",
+            "selectRecipient":"--- Select Recipient ---"
+        }
+    }
+}

@@ -1,0 +1,127 @@
+<div class="content">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="box box-solid">
+				<div class="box-header">         
+					<h3 class="box-title">
+						<span class="fa fa-user"></span>
+						<span translate="userManagement.home.customerstitle" ng-if="has_ROLE_SUPER_ADMIN">Customers</span>
+						<span translate="userManagement.home.userstitle" ng-if="has_ROLE_USER_ADMIN">Agents</span>
+					</h3>
+					<div class="box-tools">
+					  <button class="btn btn-success btn-create" ui-sref="user-management.new">
+			              <span class="glyphicon glyphicon-plus"></span> <span ng-if="has_ROLE_SUPER_ADMIN" translate="userManagement.home.createCustomerLabel">Create Customer</span>
+			              <span ng-if="has_ROLE_USER_ADMIN" translate="userManagement.home.createUserLabel">Create Agent</span>
+			              
+			          </button>
+					</div>					
+				</div>
+				<div class="box-body">
+				<jhi-alert></jhi-alert>
+					<div class="row">												
+						<div class="col-md-3 pull-right">
+							<div class="input-group input-group-sm">
+							<input  type="text" ng-model="search" ng-change="vm.filterSearch()" class="form-control input-sm ng-pristine ng-valid ng-empty ng-touched" ng-minlength="3" ng-pattern="/^[a-zA-Z0-9_@ ]{3,}$/" placeholder="{{'userManagement.home.search' | translate}}" aria-invalid="false">
+								<span class="input-group-btn">
+								  <button type="button" class="btn btn-info btn-flat">
+									<i class="fa fa-search"></i></button>
+								</span>
+							</div>	
+						</div> 
+					</div> 
+					<div class="table-responsive mt-10">					
+						 <table class="jh-table table table-bordered">
+							<thead class="bg-default">
+								 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+									<th jh-sort-by="login"><span translate="userManagement.login">Login</span> <span class="glyphicon glyphicon-sort"></span></th>
+					                <th jh-sort-by="email"><span translate="userManagement.email">Email</span> <span class="glyphicon glyphicon-sort"></span></th>
+					                <th jh-sort-by="phone"><span translate="userManagement.phone">Phone</span> <span class="glyphicon glyphicon-sort"></span></th>
+					                <th jh-sort-by="imei" ng-if="has_ROLE_USER_ADMIN"><span translate="userManagement.imei">IMEI</span> <span class="glyphicon glyphicon-sort"></span></th>
+					                <th ng-if="has_ROLE_USER_ADMIN"><span translate="userManagement.operatingsystem">Operating System</span> </th>
+					                <th ng-if="has_ROLE_USER_ADMIN"><span translate="userManagement.applicationversion">Application Vesrion</span> </th>
+					                <th><span translate="userManagement.status">Status</span></th>
+					                <th ng-if="has_ROLE_USER_ADMIN"><span translate="userManagement.gpsstatus">GPS Status</span></th>
+					                <th ng-if="has_ROLE_USER_ADMIN"><span translate="userManagement.geofence">Geofences</span></th>					           
+					               <th ng-if="has_ROLE_USER_ADMIN"><span translate="userManagement.profiles">Profiles</span></th> 
+					                 <th ng-if="has_ROLE_USER_ADMIN"><span translate="userManagement.fromTime">From Time</span></th>  
+					                 <th ng-if="has_ROLE_USER_ADMIN"><span translate="userManagement.toTime">To Time</span></th>
+					                 <th ng-if="has_ROLE_USER_ADMIN"><span translate="userManagement.userimage">User Image</span></th>
+					                <th>Actions</th>
+					            </tr>
+					            </thead>
+					            <tbody>
+					            <tr ng-repeat="user in vm.users   | filter :search track by user.id">
+					                <td><a ui-sref="user-management-detail({login:user.login})">{{user.login}}</a></td>
+					                <td>{{user.email}}</td>
+					                <td>{{user.phone}}</td>
+					                 <td ng-if="has_ROLE_USER_ADMIN">{{user.imei}}</td>
+					                 <td ng-if="has_ROLE_USER_ADMIN"><span class="admin-name">{{user.operatingSystem}}</span></td>
+					                 <td ng-if="has_ROLE_USER_ADMIN">{{user.applicationVersion}}</td>
+					                <td>
+					                    <span class="label label-danger"  ng-show="!user.activated"
+					                          translate="userManagement.deactivated" >Deactivated</span>
+					                    <span class="label label-success"  ng-show="user.activated"
+					                          translate="userManagement.activated" >Activated</span>
+					                </td>
+					                <td ng-if="has_ROLE_USER_ADMIN">
+					                    <span ng-show="user.gpsStatus" translate="userManagement.gpson" >On</span>
+					                    <span ng-show="!user.gpsStatus" translate="userManagement.gpsoff" >Off</span>
+					                </td>
+					               <td ng-if="has_ROLE_USER_ADMIN"><div ng-repeat="authority in user.geofences">
+					                        <span class="label label-default">{{ authority }}</span>
+					                    </div></td>
+					             
+					                <td ng-if="has_ROLE_USER_ADMIN">
+					                    <div ng-repeat="authority in user.authorities">
+					                        <span ng-show="authority === 'ROLE_USER_ADMIN'" class="label label-primary">{{ authority }}</span>
+					                        <span ng-show="authority === 'ROLE_USER'" class="label label-info">{{ authority }}</span>
+					                    </div>
+					                </td> 
+					                <td ng-if="has_ROLE_USER_ADMIN">{{getLocalhour(user.fromTime)}}</td>
+					                <td ng-if="has_ROLE_USER_ADMIN">{{getLocalhour(user.toTime)}}</td>
+					                <td>
+					                  <div class="col-md-10">
+					                  <img ng-show="user.userImage" class="img-responsive" ng-src="data:image/jpeg;base64,{{user.userImage}}" style="padding-bottom: 10px; height: 50px; width: 80px"> 
+					                  <img ng-show="!user.userImage" class="img-responsive" ng-src="content/images/userimg.gif" style="padding-bottom: 10px;">
+					                 </div>
+                                    </td>
+					                <td>
+					                    <div class="actions">
+					                        <a ui-sref="user-management-detail({login:user.login})" class="action-icons text-info" title="View">
+					                            <span class="fa fa-eye"></span>
+					                        </a>
+					                        <a ui-sref="user-management.edit({login:user.login})"
+					                                class="actions-icons text-primary" title="Edit">
+					                            <span class="fa fa-pencil-square"></span>
+					                        </a>
+					                        <!--<a ui-sref="user-management.delete({login:user.login})"
+					                                class="action-icons text-danger" ng-disabled="vm.currentAccount.login==user.login">
+					                            <span class="fa fa-times-circle"></span>
+					                        </a>-->
+					                    </div>
+					                </td>
+					            </tr>
+					              <tr>
+				                	<td colspan="10" ng-show="vm.users == 0" style="text-align: center;"><h4>No data available</h4></td>
+				                </tr>
+					            
+							</tbody>
+						</table> 											
+					</div>	
+					<div class="row mt-10">
+						<div class="col-md-4">
+							<div class="count-length">
+								<jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+							</div>
+						</div>
+						<div class="col-md-8">
+							<div class="pagination-list pull-right">
+								<uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>						
+							</div>					
+						</div>					
+					</div>						
+				</div>           
+			</div>		
+		</div>	
+	</div>
+</div>

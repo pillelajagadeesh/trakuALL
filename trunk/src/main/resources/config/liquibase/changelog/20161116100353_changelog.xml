@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+   <changeSet author="Tresbu (generated)" id="1479290665977-1">
+      <addColumn tableName="trakeye_trcase">
+         <column name="geofence_id" type="bigint"/>
+      </addColumn>
+   </changeSet>
+   <changeSet author="Tresbu (generated)" id="1479290665977-2">
+      <addForeignKeyConstraint baseColumnNames="geofence_id"
+                               baseTableName="trakeye_trcase"
+                               constraintName="FK_7pmbyfhnetg408r8r4m5bek1d"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="trakeye_geofence"/>
+   </changeSet>
+</databaseChangeLog>

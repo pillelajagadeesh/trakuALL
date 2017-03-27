@@ -1,0 +1,26 @@
+{
+    "trakeyeApp": {
+        "trakeyeType" : {
+            "home": {
+                "title": "TrakeyeTypes",
+                "createLabel": "Trakeye Type を追加",
+                "createOrEditLabel": "Trakeye Typeを追加または編集",
+                "search": "Search for Trakeye Type"
+            },
+            "created": "A new Trakeye Type is created with identifier {{ param }}",
+            "updated": "A Trakeye Type is updated with identifier {{ param }}",
+            "deleted": "A Trakeye Type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Trakeye Type {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Trakeye Type"
+            },
+            "name": "Name",
+            "description": "Description",
+            "createdDate": "Created Date",
+            "updatedDate": "Updated Date",
+            "user": "User"
+        }
+    }
+}

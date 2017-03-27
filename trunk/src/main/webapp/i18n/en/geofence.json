@@ -1,0 +1,28 @@
+{
+    "trakeyeApp": {
+        "geofence" : {
+            "home": {
+                "title": "Geofences",
+                "createLabel": "Create Geofence",
+                "create": "Create Geofence",
+                "Edit": "Edit a Geofence",
+                "search": "Search"
+            },
+            "created": "Geofence is created with identifier {{ param }}",
+            "updated": "Geofence is updated with identifier {{ param }}",
+            "deleted": "Geofence is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Geofence {{ id }}?"
+            },
+            "detail": {
+                "title": "Geofence"
+            },
+            "name": "Name",
+            "description": "Description",
+            "coordinates": "Coordinates",
+            "createdDate": "Created Date",
+            "modifiedDate": "Modified Date",
+            "user": "User"
+        }
+    }
+}

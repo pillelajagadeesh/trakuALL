@@ -1,0 +1,39 @@
+<div class="content">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<div class="box box-info">
+				<div class="box-header">
+					<h3 class="box-title"><span translate="trakeyeApp.geofence.detail.title">Geofence</span> - {{vm.geofence.name}}</h3>
+				</div>
+				<div class="box-body">
+					<jhi-alert-error></jhi-alert-error>
+						<dl class="dl-horizontal jh-entity-details">
+							<dt><span translate="trakeyeApp.geofence.name">Name</span></dt>
+							<dd>
+								<span>{{vm.geofence.name}}</span>
+							</dd>
+							<dt><span translate="trakeyeApp.geofence.description">Description</span></dt>
+							<dd>
+								<span>{{vm.geofence.description}}</span>
+							</dd>
+							<dt><span translate="trakeyeApp.geofence.coordinates">Coordinates</span></dt>
+							<dd>
+							<div id="map_canvas" style="width:100%;height:400px;    margin-bottom: 10px;"></div>
+							</dd>
+							
+						</dl>
+					<div class="box-buttons pull-right">
+						<a ui-sref="{{ vm.previousState }}"
+								class="btn btn-info btn-sm mr5">
+							<span class="glyphicon glyphicon-arrow-left"></span> <span translate="entity.action.back"> Back</span>
+						</a>
+						<a ui-sref="geofence.edit({id:vm.geofence.id})" class="btn btn-primary btn-sm">
+							<span class="glyphicon glyphicon-pencil"></span>
+							<span translate="entity.action.edit"> Edit</span>
+						</a>
+					</div>
+				</div>				
+			</div>
+		</div>
+	</div>    
+</div>

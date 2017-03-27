@@ -1,0 +1,44 @@
+<div class="content">
+	<div class="row"><!-- For user admin -->
+		<div class="col-md-8 col-md-offset-2">
+			<div class="box box-info">
+				<div class="box-header">
+					<h3 class="box-title"><i class="fa fa-cloud-upload"></i>Import Cases</h3>
+					<div class="box-tools ng-scope">
+						 <button class="btn btn-create" >
+						 <span class="fa fa-download"></span>
+		                    <a href="content/images/SampleCases.xlsx" download style="color: #fff">Sample File</a>
+		                </button>
+					</div>
+				</div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <jhi-alert-error></jhi-alert-error>
+            <form name="uploadForm" class="form-horizontal" id="upload-file-form1" enctype="multipart/form-data" ng-submit="vm.upload()" method="POST">
+              <div class="box-body">
+              <div class="alert alert-success" ng-show="vm.success">
+			        <p >File has been uploaded successfully</p>
+			  </div>
+                <div class="form-group">
+                  <label for="upload" class="col-sm-3 control-label">Import File</label>
+                  <div class="col-sm-8">
+                	<input type="file" name="uploadfile" ng-model="uploadfile" ng-file-select="uploadfile" id="uploadfile" class="filestyle" valid-file agent-file  accept="*.xlsx||*.xls"  required>
+					<p class="text-danger" ng-if="uploadForm.uploadfile.$error.pattern">Only excel file should be uploaded</p>
+                	    
+                  </div>
+                </div> 
+                
+                          
+              </div>
+              <div class="box-footer">
+              	<div class="col-md-2 col-md-offset-3">
+              		<button type="submit" class="btn btn-primary btn-sm" ng-disabled="uploadForm.$invalid" translate="upload.submit"><i class="fa fa-cloud-upload"></i> Upload</button>
+              	</div>
+              </div>
+             
+            </form>
+          </div>
+		</div>
+		
+	</div>
+</div>

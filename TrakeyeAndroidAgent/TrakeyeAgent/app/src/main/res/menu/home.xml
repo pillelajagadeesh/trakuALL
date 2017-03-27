@@ -1,0 +1,31 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_case"
+        app:actionLayout="@layout/view_cases_icon"
+        android:orderInCategory="96"
+        android:title="@string/MenuCase"
+        app:showAsAction="always" />
+
+
+    <item
+        android:id="@+id/action_notification"
+        app:actionLayout="@layout/view_notification_icon"
+        android:orderInCategory="96"
+        android:title="@string/MenuNotification"
+        app:showAsAction="always" />
+
+    <!--<item-->
+        <!--android:id="@+id/action_geo_fence"-->
+        <!--android:orderInCategory="96"-->
+        <!--android:title="@string/MenuGeoFence"-->
+        <!--android:icon="@drawable/geofencing"-->
+        <!--app:showAsAction="collapseActionView" />-->
+
+<!--    <item
+        android:id="@+id/action_profile"
+        android:title="@string/MenuProfile"
+        app:showAsAction="collapseActionView" />-->
+
+</menu>

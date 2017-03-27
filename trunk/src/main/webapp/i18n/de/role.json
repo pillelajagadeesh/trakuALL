@@ -1,0 +1,25 @@
+{
+    "trakeyeApp": {
+        "role" : {
+            "home": {
+                "title": "Roles",
+                "createLabel": "Role erstellen",
+                "createOrEditLabel": "Role erstellen oder bearbeiten",
+                "search": "Suche nach Role"
+            },
+            "created": "Role erstellt mit ID {{ param }}",
+            "updated": "Role aktualisiert mit ID {{ param }}",
+            "deleted": "Role gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Role {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Role"
+            },
+            "name": "Name",
+            "description": "Description",
+            "createdDate": "Created Date",
+            "user": "User"
+        }
+    }
+}

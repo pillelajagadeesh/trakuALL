@@ -1,0 +1,236 @@
+<div class="content">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<div class="box box-info">
+				<div class="box-header">
+					<h3 class="box-title" id="myUserLabel" ng-if="has_ROLE_SUPER_ADMIN">
+			    		<span ng-if="!vm.customer.id" translate="customerManagement.home.create">Create</span>
+			    		<span ng-if="vm.customer.id" translate="customerManagement.home.edit">Edit</span>
+			    	</h3>
+				</div>
+				<form class="form-horizontal" name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>	
+				<div class="box-body">
+					<jhi-alert-error></jhi-alert-error>
+						<div class="form-group">
+							<label class="col-md-3 control-label">
+								<span translate="customerManagement.firstName">First Name</span> 
+								<sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> <sup>
+							</label>
+							<div class="col-md-7">
+							<input type="text" class="form-control" name="firstName"
+								   ng-model="vm.customer.firstName" ng-required="vm.customer.id == null" ng-minlength=1 ng-maxlength=50 ng-pattern="/^[_'.@A-Za-z0-9-]*$/" ng-readonly="vm.customer.id">
+
+							<div ng-show="editForm.firstName.$invalid">						
+								<p class="help-block"
+								   ng-show="editForm.firstName.$error.maxlength" translate="entity.validation.maxlength"
+								   translate-value-max="50">
+									This field cannot be longer than 50 characters.
+								</p>
+							</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-3 control-label">
+								<span translate="customerManagement.lastName">Last Name</span> 
+								<sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> <sup>
+							</label>
+							<div class="col-md-7">
+								<input type="text" class="form-control" name="lastName"
+									   ng-model="vm.customer.lastName" ng-maxlength="50" ng-required="true" ng-readonly="vm.customer.id">
+
+								<div ng-show="editForm.lastName.$invalid">
+									<p class="help-block"
+									   ng-show="editForm.lastName.$error.maxlength" translate="entity.validation.maxlength"
+									   translate-value-max="50">
+										This field cannot be longer than 50 characters.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-3 control-label">
+								<span translate="customerManagement.email">Email</span> 
+								<sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> <sup>
+							</label>
+							<div class="col-md-7">
+							<input type="email" class="form-control" name="email"
+								   ng-model="vm.customer.email" required ng-maxlength="100" ng-pattern="EMAIL_REGEXP" ng-readonly="vm.customer.id">
+
+							<div ng-show="editForm.email.$invalid">
+								<p class="help-block"
+								   ng-show="editForm.email.$error.maxlength" translate="entity.validation.maxlength"
+								   translate-value-max="100">
+									This field cannot be longer than 100 characters.
+								</p>
+								<p class="help-block"
+								   ng-show="editForm.email.$error.pattern" translate="global.messages.validate.email.invalid">
+									Your e-mail is invalid.
+								</p>  
+							</div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+						<label class="col-md-3 control-label">
+								<span translate="customerManagement.mobilephone">Phone</span> 
+								<sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> <sup>
+							</label>
+							<div class="col-md-7">
+				            <input type="text" class="form-control" name="mobilePhone"
+				                   ng-model="vm.customer.mobilePhone" ng-maxlength="14" ng-minlength="10" ng-pattern="PHONE_REGEXP" required ng-readonly="vm.customer.id">
+				
+				                <p class="help-block"
+				                   ng-show="editForm.mobilePhone.$error.maxlength" translate="global.messages.validate.mobilePhone.maxlength"
+				                   translate-value-max="14">
+				                    This field cannot be longer than 14 characters.
+				                </p>
+				                <p class="help-block"
+				                   ng-show="editForm.mobilePhone.$error.minlength" translate="global.messages.validate.mobilePhone.minlength"
+				                   translate-value-max="10">
+				                    This field cannot be lesser than 10 characters.
+				                </p>
+				                <p class="help-block"
+				                   ng-show="editForm.mobilePhone.$error.pattern" translate="global.messages.validate.mobilePhone.invalid">
+				                    Your phone number is invalid.
+				                </p>
+								
+				            </div>
+				        </div>
+				        
+				        <div class="form-group">
+						<label class="col-md-3 control-label">
+								<span translate="customerManagement.organization">Organization</span> 								
+							</label>
+							<div class="col-md-7">
+				            <input type="text" class="form-control" name="organization"
+				                   ng-model="vm.customer.organization" ng-maxlength="50" ng-minlength="3" ng-readonly="vm.customer.id">
+				
+				                <p class="help-block text-danger"
+				                   ng-show="editForm.organization.$error.maxlength" translate="global.messages.validate.organization.maxlength"
+				                   translate-value-max="15">
+				                    This field cannot be longer than 15 characters.
+				                </p>
+				                <p class="help-block text-danger"
+				                   ng-show="editForm.organization.$error.minlength" translate="global.messages.validate.organization.minlength"
+				                   translate-value-min="3">
+				                    This field cannot be lesser than 3 characters.
+				                </p>
+								
+				            </div>
+				        </div>						
+
+				        <div class="form-group">
+						<label class="col-md-3 control-label">
+								<span translate="customerManagement.city">City</span> 								
+							</label>
+							<div class="col-md-7">
+				            <input type="text" class="form-control" name="city"
+				                   ng-model="vm.customer.city" ng-maxlength="50" ng-minlength="3" ng-readonly="vm.customer.id">
+				
+				                <p class="help-block text-danger"
+				                   ng-show="editForm.city.$error.maxlength" translate="global.messages.validate.city.maxlength"
+				                   translate-value-max="15">
+				                    This field cannot be longer than 15 characters.
+				                </p>
+				                <p class="help-block text-danger"
+				                   ng-show="editForm.city.$error.minlength" translate="global.messages.validate.city.minlength"
+				                   translate-value-min="3">
+				                    This field cannot be lesser than 3 characters.
+				                </p>
+								
+				            </div>
+				        </div>
+				        				        <div class="form-group">
+						<label class="col-md-3 control-label">
+								<span translate="customerManagement.state">State</span> 								
+							</label>
+							<div class="col-md-7">
+				            <input type="text" class="form-control" name="state"
+				                   ng-model="vm.customer.state" ng-maxlength="50" ng-minlength="3" ng-readonly="vm.customer.id">
+				
+				                <p class="help-block text-danger"
+				                   ng-show="editForm.state.$error.maxlength" translate="global.messages.validate.state.maxlength"
+				                   translate-value-max="15">
+				                    This field cannot be longer than 15 characters.
+				                </p>
+				                <p class="help-block text-danger"
+				                   ng-show="editForm.state.$error.minlength" translate="global.messages.validate.state.minlength"
+				                   translate-value-min="3">
+				                    This field cannot be lesser than 3 characters.
+				                </p>
+								
+				            </div>
+				        </div>
+				        
+				       <div class="form-group">
+						<label class="col-md-3 control-label">
+								<span translate="customerManagement.country">Country</span> 								
+							</label>
+							<div class="col-md-7">
+				            <input type="text" class="form-control" name="country"
+				                   ng-model="vm.customer.country" ng-maxlength="50" ng-minlength="3" ng-readonly="vm.customer.id">
+				
+				                <p class="help-block text-danger"
+				                   ng-show="editForm.country.$error.maxlength" translate="global.messages.validate.country.maxlength"
+				                   translate-value-max="15">
+				                    This field cannot be longer than 15 characters.
+				                </p>
+				                <p class="help-block text-danger"
+				                   ng-show="editForm.organization.$error.minlength" translate="global.messages.validate.organization.minlength"
+				                   translate-value-min="3">
+				                    This field cannot be lesser than 3 characters.
+				                </p>
+								
+				            </div>
+				        </div>	
+				        					
+<!-- 						 <div class="form-group">
+						 	<label class="col-md-3 control-label">
+								<span translate="customerManagement.gender">Gender</span> 								
+							</label>
+							<div class="col-md-7">
+				            <input type="text" class="form-control" name="gender"
+				                   ng-model="vm.customer.gender" ng-readonly="vm.customer.id">
+								
+				            </div>
+						</div>   -->
+						
+						<div class="form-group">
+							<label class="col-md-3 control-label" translate="customerManagement.langKey">Lang Key</label>
+							<div class="col-md-7">
+							<input type="langKey" class="form-control" name="langKey" ng-model="vm.customer.langKey"
+									ng-readonly="vm.customer.id">
+							
+ 						</div>
+ 						
+				      </div>
+				      
+				       <div class="form-group">
+							<label class="col-md-3 control-label" translate="customerManagement.status">Status</label>
+							<div class="col-md-7">
+ 					<select class="form-control" value="vm.customer.status" selected name="status" ng-model="vm.customer.status" id="status" required>
+		            <option disabled selected value> --- Select Status --- </option>
+		                <option value="NEW" >NEW</option>
+		                <option value="CREATED">CREATED</option>
+		            </select> 
+ 						</div>
+ 						
+				      </div>			
+						
+				<div class="box-footer">
+						<div class="col-md-4 col-md-offset-3 save-buttons">
+							<button class="btn btn-default btn-sm" ui-sref="customer-management">
+								<span class="glyphicon glyphicon-ban-circle"></span> <span
+								translate="entity.action.cancel">Cancel</span>
+							</button>
+							<button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary btn-sm">
+								<span class="glyphicon glyphicon-edit"></span> <span translate="entity.action.edit">Edit</span>
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+

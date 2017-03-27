@@ -1,0 +1,26 @@
+{
+    "trakeyeApp": {
+        "trakeyeType" : {
+            "home": {
+                "title": "Trakeye Types",
+                "createLabel": "Trakeye Type erstellen",
+                "createOrEditLabel": "Trakeye Type erstellen oder bearbeiten",
+                "search": "Suche nach Trakeye Type"
+            },
+            "created": "Trakeye Type erstellt mit ID {{ param }}",
+            "updated": "Trakeye Type aktualisiert mit ID {{ param }}",
+            "deleted": "Trakeye Type gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Trakeye Type {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Trakeye Type"
+            },
+            "name": "Name",
+            "description": "Description",
+            "createdDate": "Created Date",
+            "updatedDate": "Updated Date",
+            "user": "User"
+        }
+    }
+}

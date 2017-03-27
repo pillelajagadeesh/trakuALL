@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+   
+   <!-- <changeSet author="Freeware Sys (generated)" id="1477460774773-1">
+      <addUniqueConstraint columnNames="name" tableName="trakeye_geofence"/>
+   </changeSet>
+   <changeSet author="Freeware Sys (generated)" id="1477460774773-2">
+      <dropUniqueConstraint constraintName="usergeofence" tableName="trakeye_geofence"/>
+   </changeSet>
+   <changeSet author="Freeware Sys (generated)" id="1477460774773-3">
+      <dropNotNullConstraint columnDataType="bigint"
+                             columnName="user_id"
+                             tableName="trakeye_geofence"/>
+   </changeSet> -->
+   <changeSet author="hari (generated)" id="1477460774773-1">
+   <loadData encoding="UTF-8"
+                  file="config/liquibase/data_users.csv"
+                  separator=";"
+                  tableName="trakeye_user">
+            <column name="activated" type="boolean"/>
+            <column name="created_date" type="timestamp"/>
+        </loadData>
+    </changeSet>
+    <changeSet author="hari (generated)" id="1477460774773-2">
+    	<loadData encoding="UTF-8"
+                  file="config/liquibase/data_usersauthorities.csv"
+                  separator=";"
+                  tableName="trakeye_user_authority">
+     	</loadData>
+     </changeSet>
+     <changeSet author="hari (generated)" id="1477460774773-3">
+     	<loadData encoding="UTF-8"
+                  file="config/liquibase/data_type.csv"
+                  separator=";"
+                  tableName="trakeye_type">
+      	</loadData>
+      </changeSet>
+      <changeSet author="hari (generated)" id="1477460774773-4">
+      		<loadData encoding="UTF-8"
+                  file="config/liquibase/data_typeattribute.csv"
+                  separator=";"
+                  tableName="trakeye_type_attribute">
+      		</loadData>
+      	</changeSet>
+         <changeSet author="hari (generated)" id="1477460774773-5">
+           <loadData encoding="UTF-8"
+                  file="config/liquibase/data_geofence.csv"
+                  separator=";"
+                  tableName="trakeye_geofence">
+          </loadData>            
+      </changeSet>
+      <changeSet author="hari (generated)" id="1477460774773-6">
+          <loadData encoding="UTF-8"
+                  file="config/liquibase/data_usersgeofence.csv"
+                  separator=";"
+                  tableName="trakeye_user_geofence">
+          </loadData>
+   </changeSet>
+   <changeSet author="hari (generated)" id="1477460774773-7">
+              <loadData encoding="UTF-8"
+                  file="config/liquibase/data_casetype.csv"
+                  separator=";"
+                  tableName="trakeye_case_type"/>
+     </changeSet> 
+      <changeSet author="hari (generated)" id="1477460774773-8">
+           	<loadData encoding="UTF-8"
+                  file="config/liquibase/data_casetypeattribute.csv"
+                  separator=";"
+                  tableName="trakeye_casetype_attribute">
+      		</loadData>
+      </changeSet>
+      <changeSet author="hari (generated)" id="1477460774773-9">
+         <loadData encoding="UTF-8"
+                  file="config/liquibase/data_servicetype.csv"
+                  separator=";"
+                  tableName="trakeye_service_type">
+         </loadData>
+      </changeSet>
+      <changeSet author="hari (generated)" id="1477460774773-10">
+         	<loadData encoding="UTF-8"
+                  file="config/liquibase/data_serviceattribute.csv"
+                  separator=";"
+                  tableName="trakeye_servicetype_attribute">
+      		</loadData>
+      		</changeSet>
+      <changeSet author="hari (generated)" id="1477460774773-11">
+         	<loadData encoding="UTF-8"
+                  file="config/liquibase/data_type_trakeye_attribute.csv"
+                  separator=";"
+                  tableName="trakeye_type_trakeye_attribute">
+      		</loadData>
+      		</changeSet>
+      <changeSet author="hari (generated)" id="1477460774773-12">
+         	<loadData encoding="UTF-8"
+                  file="config/liquibase/data_casetype_trakeye_attribute.csv"
+                  separator=";"
+                  tableName="trakeye_casetype_trakeye_attribute">
+      		</loadData>
+      		</changeSet>
+      <changeSet author="hari (generated)" id="1477460774773-13">
+         	<loadData encoding="UTF-8"
+                  file="config/liquibase/data_servicetype_trakeye_attribute.csv"
+                  separator=";"
+                  tableName="trakeye_servicetype_trakeye_attribute">
+      		</loadData>
+      		</changeSet>
+</databaseChangeLog>

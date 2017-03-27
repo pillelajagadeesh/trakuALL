@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimaryDark1">#0D47A1</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="textColor">#130171</color>
+    <color name="textBackground">#F2F7FA</color>
+    <color name="background">#0D2D79</color>
+    <color name="list_item_title">#fff</color>
+    <color name="white">#ffffff</color>
+    <color name="transparent_background">#00FF0000</color>
+    <color name="black">#FF333333</color>
+    <color name="back_menu">#D0D0D0</color>
+    <color name="tocolr">#f4f4f4</color>
+    <color name="loginbtn">#2cb4fe</color>
+    <color name="menutoolbar">#03a9f5</color>
+    <color name="errormsg">#c10202</color>
+    <color name="lightblue">#d4f0fc</color>
+    <color name="lightgray">#7f7f7f</color>
+    <color name="page_nav_color">#68b7f0</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="CYAN">#00FFFF</color>
+    <color name="BLACK">#000000</color>
+    <color name="BLUE">#0000FF</color>
+    <color name="BLUEVIOLET">#8A2BE2</color>
+    <color name="BROWN">#A52A2A</color>
+    <color name="CHARTREUSE">#7FFF00</color>
+    <color name="CRIMSON">#DC143C</color>
+    <color name="YELLOW">#FFFF00</color>
+    <color name="MAGENTA">#8B008B</color>
+    <color name="DEEPPINK">#FF1493</color>
+    <color name="LIGHTCORAL">#F08080</color>
+
+    <color name="light_gray_bg">#dfdfdf</color>
+    <color name="to_colr">#f4f4f4</color>
+    <color name="login_btn">#2cb4fe</color>
+    <color name="menu_tool_bar">#03a9f5</color>
+    <color name="error_msg">#c10202</color>
+    <color name="light_blue">#d4f0fc</color>
+    <color name="light_gray">#7f7f7f</color>
+    <color name="light_transparent_bg">#A6000000</color>
+</resources>

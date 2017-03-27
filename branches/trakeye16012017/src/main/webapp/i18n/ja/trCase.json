@@ -1,0 +1,34 @@
+{
+    "trakeyeApp": {
+        "trCase" : {
+            "home": {
+                "title": "TrCases",
+                "createLabel": "Tr Case を追加",
+                "createOrEditLabel": "Tr Caseを追加または編集",
+                "search": "Search for Tr Case"
+            },
+            "created": "A new Tr Case is created with identifier {{ param }}",
+            "updated": "A Tr Case is updated with identifier {{ param }}",
+            "deleted": "A Tr Case is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Tr Case {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Tr Case"
+            },
+            "description": "Description",
+            "createDate": "Create Date",
+            "updateDate": "Update Date",
+            "pinLat": "Pin Lat",
+            "pinLong": "Pin Long",
+            "address": "Address",
+            "escalated": "Escalated",
+            "status": "Status",
+            "reportedBy": "Reported By",
+            "assignedTo": "Assigned To",
+            "updatedBy": "Updated By",
+            "assignedBy": "Assigned By",
+            "caseType": "Case Type"
+        }
+    }
+}

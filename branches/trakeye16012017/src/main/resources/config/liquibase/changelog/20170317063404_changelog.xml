@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+   <changeSet author="gaddesurendrakumar (generated)" id="1489733002473-1">
+      <dropUniqueConstraint constraintName="trakeye_user_email_key" tableName="trakeye_user"/>
+   </changeSet>
+   
+   <changeSet author="gaddesurendrakumar" id="1489733002473-2">
+    	<dropIndex indexName="idx_user_email" tableName="trakeye_user"/>
+   </changeSet>
+   
+</databaseChangeLog>

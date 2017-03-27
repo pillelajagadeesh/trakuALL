@@ -1,0 +1,31 @@
+{
+    "trakeyeApp": {
+        "asset" : {
+            "home": {
+                "title": "Assets",
+                "createLabel": "Create Asset",
+                "create": "Create Asset",
+                "update": "Edit Asset",
+                "search": "Search"
+            },
+            "created": "A new Asset is created with identifier {{ param }}",
+            "updated": "A Asset is updated with identifier {{ param }}",
+            "deleted": "A Asset is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Asset {{ id }}?"
+            },
+            "detail": {
+                "title": "Asset"
+            },
+            "name": "Name",
+            "description": "Description",
+            "createDate": "Created Date",
+            "updateDate": "Updated Date",
+            "user": "User",
+            "coordinates": "Coordinates",
+            "assetType": "Asset Type",
+            "assetTypeAttributeValue": "Asset Type Attribute Value",
+            "assetCoordinate": "Asset Coordinate"
+        }
+    }
+}

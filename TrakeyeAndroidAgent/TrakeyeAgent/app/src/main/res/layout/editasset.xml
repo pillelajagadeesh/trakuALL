@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/coordinatorlayout"
+    android:fitsSystemWindows="true"
+    >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:weightSum="1">
+
+    <RelativeLayout
+        android:id="@+id/topLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fifty_dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/menutoolbar">
+
+        <RelativeLayout
+            android:id="@+id/rlBack"
+            android:layout_width="@dimen/thirty_dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/fifteen_dp">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/twenty_dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/arrow_icon"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/fifteen_dp"
+            android:layout_toRightOf="@+id/rlBack"
+            android:text="@string/editasset"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/twenty_sp"
+            />
+
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/two_fourty_three_dp"
+        android:layout_above="@+id/map"
+        android:layout_below="@+id/topLayout"
+        android:fillViewport="true"
+        android:layout_marginTop="@dimen/twelve_dp"
+        android:layout_marginLeft="@dimen/fifteen_dp"
+        android:layout_marginRight="@dimen/fifteen_dp"
+        android:padding="@dimen/five_dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name"
+                android:textColor="@color/menutoolbar"
+                android:textSize="@dimen/fifteen_dp"
+                />
+
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:gravity="top"
+                android:hint="@string/asset_name"
+                android:textSize="@dimen/twelve_dp"
+                android:maxLength="512"
+                android:maxLines="2"
+                android:paddingBottom="@dimen/five_dp"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/back_menu"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_dp"
+                android:layout_margin="@dimen/three_dp"
+                android:background="@color/light_gray_bg"/>
+
+            <TextView
+                android:id="@+id/tv_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/description"
+                android:layout_marginTop="@dimen/twelve_dp"
+                android:textColor="@color/menutoolbar"
+                android:textSize="@dimen/fifteen_dp"
+                />
+
+            <EditText
+                android:id="@+id/et_desc"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sixty_dp"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:background="@color/transparent"
+                android:gravity="top"
+                android:hint="@string/enter_description_512_chr_only"
+                android:maxLength="512"
+                android:maxLines="2"
+                android:textSize="@dimen/twelve_dp"
+                android:paddingBottom="@dimen/five_dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/back_menu"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_dp"
+                android:layout_margin="@dimen/three_dp"
+                android:background="@color/light_gray_bg"/>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/twenty_dp">
+
+                <LinearLayout
+                    android:id="@+id/llSpread"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/ten_dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/bt_start"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/hundred_dp"
+                        android:background="@color/menutoolbar"
+                        android:text="@string/start"
+                        android:drawableLeft="@drawable/start"
+                        android:padding="5dp"
+                        android:textColor="@color/white"
+                        />
+
+                    <Button
+                        android:id="@+id/bt_save"
+                        android:padding="5dp"
+                        android:drawableLeft="@drawable/save"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/menutoolbar"
+                        android:text="@string/update"
+                        android:textColor="@color/white"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llFixed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/ten_dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/bt_pin"
+                        android:drawableLeft="@drawable/pin"
+                        android:padding="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/menutoolbar"
+                        android:text="@string/pin_n_location"
+                        android:textColor="@color/white"
+                        />
+
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/two_hundred_and_fifty_dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_weight="0.13">
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <ImageButton
+            android:id="@+id/btnMyLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"
+            android:background="@drawable/ub__button_centerlocation_normal"/>
+    </RelativeLayout>
+</RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

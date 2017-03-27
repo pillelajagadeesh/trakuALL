@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title th:text="#{email.notification.title}">TrakEye Email Notification</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body style="background: #efefef;">
+		<div class="email-template" style="width: 100%; background: #fff; border-bottom: 3px solid #65b8fc; border-left: 1px solid #efefef;
+    border-right: 1px solid #efefef; ">
+			<p style="background:#65b8fc; margin-top: 0px;"><img src="http://trakeye.com/content/images/logo.png" /></p>
+			<div class="email-body" style="padding: 0px 20px;">
+				<p th:text="#{email.notification.greeting(${tousername})}"  style=" font-weight: bold;">
+				Dear
+				</p>
+				<p th:text="${description}">
+				</p>
+				<p>
+					<span th:text="#{email.notification.text2}">Regards, </span>
+					<!-- <br/>
+					<em th:text="${fromusername}"></em> -->
+				</p>
+			</div>
+		</div>
+    </body>
+</html>

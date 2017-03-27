@@ -1,0 +1,47 @@
+<div class="content">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="box box-solid">
+		    	 <div class="box-header with-border">
+		      		 <h3 class="box-title"><span translate="trakeyeApp.caseType.detail.title">Case Type</span> {{vm.caseType.name}}</h3>
+		    	 </div>
+					<div class="box-body">
+					    <jhi-alert-error></jhi-alert-error>
+					   <dl class="dl-horizontal jh-entity-details">
+					        <dt><span translate="trakeyeApp.caseType.name">Name</span></dt>
+					        <dd>
+					            <span>{{vm.caseType.name}}</span>
+					        </dd>
+					        <dt><span translate="trakeyeApp.caseType.description">Description</span></dt>
+					        <dd>
+					            <span>{{vm.caseType.description}}</span>
+					        </dd>
+					        <dt><span translate="trakeyeApp.caseType.createdDate">Created Date</span></dt>
+					        <dd>
+					            <span>{{vm.caseType.createdDate | date:'medium'}}</span>
+					        </dd>
+					        <dt><span translate="trakeyeApp.caseType.updateDate">Update Date</span></dt>
+					        <dd>
+					            <span>{{vm.caseType.updateDate | date:'medium'}}</span>
+					        </dd>
+					        <dt><span translate="trakeyeApp.caseType.user">User</span></dt>
+					        <dd>
+					            {{vm.caseType.user.login}}
+					        </dd> 
+					    </dl>
+						<div class="box-buttons pull-right">
+						    <a ui-sref="case-type"
+						            class="btn btn-info btn-sm mr5">
+						        <span class="glyphicon glyphicon-arrow-left"></span> <span translate="entity.action.back"> Back</span>
+						    </a>
+						
+						    <a ui-sref="case-type.edit({id:vm.caseType.id})" class="btn btn-primary btn-sm">
+						        <span class="glyphicon glyphicon-pencil"></span>
+						        <span translate="entity.action.edit"> Edit</span>
+						    </a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>

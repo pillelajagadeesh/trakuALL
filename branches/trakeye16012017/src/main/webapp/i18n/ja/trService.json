@@ -1,0 +1,29 @@
+{
+    "trakeyeApp": {
+        "trService" : {
+            "home": {
+                "title": "TrServices",
+                "createLabel": "Tr Service を追加",
+                "createOrEditLabel": "Tr Serviceを追加または編集",
+                "search": "Search for Tr Service"
+            },
+            "created": "A new Tr Service is created with identifier {{ param }}",
+            "updated": "A Tr Service is updated with identifier {{ param }}",
+            "deleted": "A Tr Service is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Tr Service {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Tr Service"
+            },
+            "createdDate": "Created Date",
+            "modifiedDate": "Modified Date",
+            "description": "Description",
+            "serviceDate": "Service Date",
+            "status": "Status",
+            "notes": "Notes",
+            "user": "User",
+            "trCase": "Tr Case"
+        }
+    }
+}

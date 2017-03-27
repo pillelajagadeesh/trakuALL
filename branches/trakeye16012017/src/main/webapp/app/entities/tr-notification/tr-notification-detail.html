@@ -1,0 +1,60 @@
+<div class="content">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="box box-solid">
+		    	 <div class="box-header with-border">
+		      		 <h3 class="box-title"><span translate="trakeyeApp.trNotification.detail.title">Tr Notification</span> {{vm.trNotification.description}}</h3>
+		    	 </div>
+					<div class="box-body">
+					    <jhi-alert-error></jhi-alert-error>
+					   <dl class="dl-horizontal jh-entity-details">
+							<dt><span translate="trakeyeApp.trNotification.subject">Subject</span></dt>
+					        <dd>
+					            <span>{{vm.trNotification.subject}}</span>
+					        </dd>
+					        
+					        <dt><span translate="trakeyeApp.trNotification.description">Description</span></dt>
+					        <dd>
+					            <span>{{vm.trNotification.description}}</span>
+					        </dd>
+					        <dt><span translate="trakeyeApp.trNotification.status">Status</span></dt>
+					        <dd>
+					            <span translate="{{'trakeyeApp.NotificationStatus.' + vm.trNotification.status}}">{{vm.trNotification.status}}</span>
+					        </dd>
+					        
+					        <dt><span translate="trakeyeApp.trNotification.alertType">Alert Type</span></dt>
+					        <dd>
+					            <span translate="{{'trakeyeApp.AlertType.' + vm.trNotification.alertType}}">{{vm.trNotification.alertType}}</span>
+					        </dd>
+					        <dt><span translate="trakeyeApp.trNotification.fromUser">From User</span></dt>
+					        <dd>
+					            {{vm.trNotification.fromUserName}}
+					        </dd>
+					        <dt><span translate="trakeyeApp.trNotification.toUser">To User</span></dt>
+					        <dd>
+					            {{vm.trNotification.toUserName}}
+					        </dd>
+					        <dt><span translate="trakeyeApp.trNotification.trCase">Tr Case</span></dt>
+					        <dd>
+					            <a ui-sref="tr-case-detail({id:vm.trNotification.trCaseId})">{{vm.trNotification.trCaseId}}</a>
+					        </dd>
+							<dt><span translate="trakeyeApp.trNotification.createdDate">Created Date</span></dt>
+					        <dd>
+					            <span>{{vm.trNotification.createdDate | date:'medium'}}</span>
+					        </dd>
+					    </dl>
+						<div class="box-buttons pull-right">
+						    <a ui-sref="{{ vm.previousState }}"
+						            class="btn btn-info btn-sm mr5">
+						        <span class="glyphicon glyphicon-arrow-left"></span> <span translate="entity.action.back"> Back</span>
+						    </a>						
+						    <a ng-if="has_ROLE_USER_ADMIN" ui-sref="tr-notification.edit({id:vm.trNotification.id})" class="btn btn-primary btn-sm">
+						        <span class="glyphicon glyphicon-pencil"></span>
+						        <span translate="entity.action.edit"> Edit</span>
+						    </a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>

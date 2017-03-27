@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title th:text="#{email.customer.admin.title}">New Customer Registration</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body style="background: #efefef;">
+		<div class="email-template" style="width: 100%; background: #fff; border-bottom: 3px solid #65b8fc; border-left: 1px solid #efefef;
+    border-right: 1px solid #efefef; ">
+			<p style="background:#65b8fc; margin-top: 0px;">
+			<img src="http://trakeye.com/content/images/logo.png"/>
+			</p>
+			<div class="email-body" style="padding: 0px 20px;">
+			<p th:text="#{email.activation.greeting(${user.firstName})}" style=" font-weight: bold;">
+				Hello
+			</p>
+			<p th:text="#{email.customer.text2}">
+				:
+			</p>
+			<table style="border-collapse: collapse;">
+			<thead style="background-color: rgba(148, 135, 135, 0.15);">
+			<tr>
+			 <th  style="border: 1px solid #dddddd;"> Name </th>
+  			 <th  style="border: 1px solid #dddddd;"> Email </th>
+  			 <th  style="border: 1px solid #dddddd;"> Organization </th>
+  			 <th  style="border: 1px solid #dddddd;"> Phone No </th>
+  			 <th  style="border: 1px solid #dddddd;"> City </th>
+  			 </tr>
+  			 
+			</thead>
+			<tbody>
+			<tr>
+			<td style="border: 1px solid #dddddd;" th:text="${customer.firstName} "/>
+			<td style="border: 1px solid #dddddd;" th:text="${customer.email} "/>
+			<td style="border: 1px solid #dddddd;" th:text=" ${customer.organization} "/>
+			<td style="border: 1px solid #dddddd;" th:text=" ${customer.mobilePhone} "/>
+			<td style="border: 1px solid #dddddd;" th:text=" ${customer.city} "/>
+			</tr>
+
+			</tbody>
+			</table>
+			<p>
+				<span th:text="#{email.activation.text2}">Regards, </span>
+				<br/>
+				<B><em th:text="#{email.signature}">.</em></B>
+			</p>
+		</div>
+		</div>
+    </body>
+</html>

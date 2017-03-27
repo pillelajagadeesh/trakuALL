@@ -1,0 +1,102 @@
+<div class="content">
+
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<div class="box box-info">
+				<div class="box-header">
+					<h3 class="box-title">
+						<i class="fa fa-battery-full"></i> <span translate="global.menu.battery-report"> Battery Reports</span>
+					</h3>
+				</div>
+				<!-- /.box-header -->
+				<!-- form start -->
+				<form class="form-horizontal" name="batteryreportForm" ng-submit="batteryreport()">
+					<div class="box-body">
+						<div class="form-group">
+							<label class="col-sm-3 control-label">From Date</label>
+							<div class="col-sm-3">
+								<div class="input-group">
+									<input type="text" class="form-control" name="fromDate"
+										required disabled datetime-picker="mediumDate"
+										enable-time="false" ng-model="vm.fromDate"
+										ng-change="vm.calculateFromDate()"
+										is-open="vm.datePickerOpenStatus.fromDate" /> <span
+										class="input-group-btn">
+										<button type="button" class="btn btn-default"
+											ng-click="vm.openCalendar('fromDate')">
+											<i class="glyphicon glyphicon-calendar"></i>
+										</button>
+									</span>
+								</div>
+							</div>
+							<label class="col-sm-2 control-label">To Date</label>
+							<div class="col-sm-3">
+								<div class="input-group">
+									<input type="text" class="form-control" name="toDate" required
+										disabled datetime-picker="mediumDate" enable-time="false"
+										ng-model="vm.toDate" ng-change="vm.calculateToDate()"
+										is-open="vm.datePickerOpenStatus.toDate" /> <span
+										class="input-group-btn">
+										<button type="button" class="btn btn-default"
+											ng-click="vm.openCalendar('toDate')">
+											<i class="glyphicon glyphicon-calendar"></i>
+										</button>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label"> <span>Select
+									User</span>
+							</label>
+							<div class="col-sm-6">
+
+								<select class="select2 form-control " name="search" required
+									ng-model="vm.userid"
+									ng-options="item.id as item.login for item in vm.batteryusers">
+									<option value="">Select UserName</option>
+									<option ng-repeat="user in vm.batteryusers" value="user.id">{{user.login}}</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="box-footer">
+						<div class="col-md-2 col-md-offset-3">
+							<button type="submit" class="btn btn-primary btn-sm"
+								ng-disabled="batteryreportForm.$invalid" >
+								Submit</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+<!--  added for heightchart start -->
+	<!--<div class="row" ng-if="batteryreport">
+		<div id="linegraphdiv">
+			<div class="col-md-10 col-md-offset-1">
+				<div class="box box-solid">
+					<div class="box-header">
+						<h3 class="box-title">Battery Line Graph</h3>
+					</div>
+					<div class="box-body chart-responsive">
+						<div id="linegraphmessage">
+							<p class="text-danger">No battery data available for the given input</p>
+						</div>
+						<div id="battery_graph"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>-->
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<div id="battery_graph"></div>
+		</div>
+	</div>
+
+<!--  added for heightchart end -->
+
+
+</div>

@@ -1,0 +1,79 @@
+<div class="content">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="box box-solid">
+		    	 <div class="box-header with-border">
+		      		 <h3 class="box-title"><span translate="userManagement.detail.customertitle" ng-if="has_ROLE_SUPER_ADMIN">Customer</span>
+		      		 <span translate="userManagement.detail.agenttitle" ng-if="has_ROLE_USER_ADMIN">Agent</span> - {{vm.user.login}}</h3>
+		    	 </div>
+					<div class="box-body">
+					    <jhi-alert-error></jhi-alert-error>
+					   		<dl class="dl-horizontal jh-entity-details">
+						        <dt><span translate="userManagement.login">Login</span></dt>
+						        <dd><span>{{vm.user.login}}</span></dd>
+						        <dt><span translate="userManagement.firstName">First Name</span></dt>
+						        <dd>{{vm.user.firstName}}</dd>
+						        <dt><span translate="userManagement.lastName">Last Name</span></dt>
+						        <dd>{{vm.user.lastName}}</dd>
+						        <dt ><span translate="userManagement.email">Email</span></dt>
+						        <dd>{{vm.user.email}}</dd>
+						        <dt ><span translate="userManagement.phone">Phone</span></dt>
+						        <dd>{{vm.user.phone}}</dd>
+						        <dt ng-if="has_ROLE_USER_ADMIN"><span translate="userManagement.imei">IMEI</span></dt>
+						        <dd ng-if="has_ROLE_USER_ADMIN">{{vm.user.imei}}</dd>
+						        <dt ng-if="has_ROLE_USER_ADMIN"><span  translate="userManagement.operatingsystem">Operating System</span></dt>
+						        <dd ng-if="has_ROLE_USER_ADMIN">{{vm.user.operatingSystem}}</dd>
+						        <dt ng-if="has_ROLE_USER_ADMIN"><span translate="userManagement.applicationversion">Application Version</span></dt>
+						        <dd ng-if="has_ROLE_USER_ADMIN">{{vm.user.applicationVersion}}</dd>
+						        <dt ng-if="has_ROLE_USER_ADMIN"><span translate="userManagement.gpsstatus">GPS Status</span></dt>
+						        <dd ng-if="has_ROLE_USER_ADMIN" ng-show="vm.user.gpsStatus" translate="userManagement.gpson">ON</dd>
+						        <dd ng-if="has_ROLE_USER_ADMIN" ng-show="!vm.user.gpsStatus" translate="userManagement.gpsoff">Off</dd>
+						        <dt ><span translate="userManagement.status">Status</span></dt>
+						        <dd  ng-show="vm.user.activated"><span class="label label-success"  translate="userManagement.activated">Activated</span></dd>
+						        <dd ng-show="!vm.user.activated"><span class="label label-danger" translate="userManagement.deactivated">Deactivated</span></dd>
+						        <!-- <dt><span translate="userManagement.phone">Phone</span></dt>
+						        <dd>{{vm.user.phone}}</dd>
+						        <dt><span translate="userManagement.imsi">IMSI</span></dt>
+						        <dd>{{vm.user.imsi}}</dd> -->
+						        <!--<dt><span translate="userManagement.activated">Activated</span></dt>
+						        <dd>{{vm.user.activated}}</dd>-->
+						        <dt><span translate="userManagement.langKey">Lang Key</span></dt>
+						        <dd>{{vm.user.langKey}}</dd>
+						        <dt ng-if="has_ROLE_USER_ADMIN"><span translate="userManagement.fromTime">From Time</span></dt>
+						        <dd ng-if="has_ROLE_USER_ADMIN">{{getLocalhour(vm.user.fromTime)}}</dd>
+						        <dt ng-if="has_ROLE_USER_ADMIN"><span translate="userManagement.toTime">To Time</span></dt>
+						        <dd ng-if="has_ROLE_USER_ADMIN">{{getLocalhour(vm.user.toTime)}}</dd>
+						        <dt ng-if="has_ROLE_USER_ADMIN"><span translate="userManagement.geofence">Geofence</span></dt>
+						        <dd ng-if="has_ROLE_USER_ADMIN"><span><div ng-repeat="authority in vm.user.geofences">
+					                        <span class="label label-default">{{ authority }}</span>
+					                    </div></span></dd>
+					            <dt ><span translate="userManagement.profiles">Profiles</span></dt>
+						        <dd> <span><div ng-repeat="authority in vm.user.authorities">
+					                        <span ng-show="authority === 'ROLE_USER_ADMIN'" class="label label-primary">{{ authority }}</span>
+					                        <span ng-show="authority === 'ROLE_USER'" class="label label-info">{{ authority }}</span>
+					                    </div></span></dd>
+					            <dt ng-if="has_ROLE_USER_ADMIN"><span translate="userManagement.userimage">User Image</span></dt>       
+					           <dd ng-if="has_ROLE_USER_ADMIN" >
+					           <div class="col-md-2" ng-show="vm.user.userImage != null">
+					                  <img class="img-responsive" ng-src="data:image/jpeg;base64,{{vm.user.userImage}}" style="padding-bottom: 10px; width:40px;height:40px;"  > 
+					           </div>
+					                 
+							</dd>      
+						    </dl>
+						<div class="box-buttons pull-right">
+						    <a ui-sref="user-management"
+						            class="btn btn-info btn-sm mr5">
+						        <span class="glyphicon glyphicon-arrow-left"></span> <span translate="entity.action.back"> Back</span>
+						    </a>
+						    <a ui-sref="user-management.edit({login:vm.user.login})" class="btn btn-primary btn-sm">
+						        <span class="glyphicon glyphicon-pencil"></span>
+						        <span translate="entity.action.edit"> Edit</span>
+						    </a>
+						    
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+

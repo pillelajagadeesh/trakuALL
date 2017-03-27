@@ -1,0 +1,29 @@
+{
+    "trakeyeApp": {
+        "trNotification" : {
+            "home": {
+                "title": "TrNotifications",
+                "createLabel": "नया Tr Notification बनाएँ",
+                "createOrEditLabel": "Tr Notification बनाएँ या संपादित करें",
+                "search": "Tr Notification खोजें"
+            },
+            "created": "एक नया Tr Notification [identifier: {{ param }}] तैयार है",
+            "updated": "एक Tr Notification [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Tr Notification [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Tr Notification [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Tr Notification"
+            },
+            "createdDate": "Created Date",
+            "description": "Description",
+            "status": "Status",
+            "subject": "Subject",
+            "alertType": "Alert Type",
+            "fromUser": "From User",
+            "toUser": "To User",
+            "trCase": "Tr Case"
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "trakeyeApp": {
+        "caseType" : {
+            "home": {
+                "title": "CaseTypes",
+                "createLabel": "नया Case Type बनाएँ",
+                "createOrEditLabel": "Case Type बनाएँ या संपादित करें",
+                "search": "Case Type खोजें"
+            },
+            "created": "एक नया Case Type [identifier: {{ param }}] तैयार है",
+            "updated": "एक Case Type [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Case Type [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Case Type [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Case Type"
+            },
+            "name": "Name",
+            "description": "Description",
+            "createdDate": "Created Date",
+            "updateDate": "Update Date",
+            "user": "User"
+        }
+    }
+}

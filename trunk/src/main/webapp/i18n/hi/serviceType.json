@@ -1,0 +1,26 @@
+{
+    "trakeyeApp": {
+        "serviceType" : {
+            "home": {
+                "title": "ServiceTypes",
+                "createLabel": "नया Service Type बनाएँ",
+                "createOrEditLabel": "Service Type बनाएँ या संपादित करें",
+                "search": "Service Type खोजें"
+            },
+            "created": "एक नया Service Type [identifier: {{ param }}] तैयार है",
+            "updated": "एक Service Type [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Service Type [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Service Type [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Service Type"
+            },
+            "name": "Name",
+            "description": "Description",
+            "createdDate": "Created Date",
+            "updatedDate": "Updated Date",
+            "user": "User"
+        }
+    }
+}

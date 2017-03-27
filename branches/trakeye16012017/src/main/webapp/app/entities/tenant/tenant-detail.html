@@ -1,0 +1,104 @@
+<div class="content">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="box box-solid">
+		    	 <div class="box-header with-border">
+		      		 <h3 class="box-title"><span translate="trakeyeApp.tenant.detail.title">Tenant</span> - {{vm.tenant.id}} </h3>
+		      	 </div>
+					<div class="box-body">
+					    <jhi-alert-error></jhi-alert-error>
+					   		<dl class="dl-horizontal jh-entity-details">
+						       <dt><span translate="trakeyeApp.tenant.organization">Organization</span></dt>
+					        <dd>
+					            <span>{{vm.tenant.organization}}</span>
+					        </dd>
+					        <dt><span translate="trakeyeApp.tenant.loginName">Login Name</span></dt>
+					        <dd>
+					            <span>{{vm.tenant.loginName}}</span>
+					        </dd>
+					        <dt><span translate="trakeyeApp.tenant.email">Email</span></dt>
+					        <dd>
+					            <span>{{vm.tenant.email}}</span>
+					        </dd>
+					        <dt><span translate="trakeyeApp.tenant.phone">Phone</span></dt>
+					        <dd>
+					            <span>{{vm.tenant.phone}}</span>
+					        </dd>
+					        <dt><span translate="trakeyeApp.tenant.city">City</span></dt>
+					        <dd>
+					            <span>{{vm.tenant.city}}</span>
+					        </dd>
+					        <dt><span translate="trakeyeApp.tenant.address">Address</span></dt>
+					        <dd>
+					            <span>{{vm.tenant.address}}</span>
+					        </dd>
+						    </dl>
+						<div class="box-buttons pull-right">
+						    <a ui-sref="{{ vm.previousState }}"
+						            class="btn btn-info btn-sm">
+						        <span class="glyphicon glyphicon-arrow-left"></span> <span translate="entity.action.back"> Back</span>
+						    </a>
+						    <a ui-sref="tenant-detail.edit({id:vm.tenant.id})" class="btn btn-primary btn-sm">
+						        <span class="glyphicon glyphicon-pencil"></span>
+						        <span translate="entity.action.edit"> Edit</span>
+						    </a>
+						    
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+
+
+
+<!-- <div>
+    <h2><span translate="trakeyeApp.tenant.detail.title">Tenant</span> {{vm.tenant.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="trakeyeApp.tenant.organization">Organization</span></dt>
+        <dd>
+            <span>{{vm.tenant.organization}}</span>
+        </dd>
+        <dt><span translate="trakeyeApp.tenant.loginName">Login Name</span></dt>
+        <dd>
+            <span>{{vm.tenant.loginName}}</span>
+        </dd>
+        <dt><span translate="trakeyeApp.tenant.email">Email</span></dt>
+        <dd>
+            <span>{{vm.tenant.email}}</span>
+        </dd>
+        <dt><span translate="trakeyeApp.tenant.phone">Phone</span></dt>
+        <dd>
+            <span>{{vm.tenant.phone}}</span>
+        </dd>
+        <dt><span translate="trakeyeApp.tenant.city">City</span></dt>
+        <dd>
+            <span>{{vm.tenant.city}}</span>
+        </dd>
+        <dt><span translate="trakeyeApp.tenant.address">Address</span></dt>
+        <dd>
+            <span>{{vm.tenant.address}}</span>
+        </dd>
+        <dt><span translate="trakeyeApp.tenant.createdDate">Created Date</span></dt>
+        <dd>
+            <span>{{vm.tenant.createdDate}}</span>
+        </dd>
+        <dt><span translate="trakeyeApp.tenant.updatedDate">Updated Date</span></dt>
+        <dd>
+            <span>{{vm.tenant.updatedDate}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="tenant-detail.edit({id:vm.tenant.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" translate="entity.action.edit"> Edit</span>
+    </button>
+</div> -->

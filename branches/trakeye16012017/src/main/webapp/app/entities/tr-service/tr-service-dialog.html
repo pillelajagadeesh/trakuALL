@@ -1,0 +1,145 @@
+<div class="content">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<div class="box box-info">
+				<div class="box-header">
+					<h3 class="box-title" id="myTrServiceLabel">
+			    	 <span ng-if="!vm.trService.id" translate="trakeyeApp.trService.home.create">Create</span>
+			    	 <span ng-if="vm.trService.id" translate="trakeyeApp.trService.home.EditLabel">Edit</span>
+			    	</h3>
+				</div>
+				<div class="box-body">
+					<form name="editForm" role="form" class="form-horizontal" novalidate ng-submit="vm.save()">					  
+					        <jhi-alert-error></jhi-alert-error>
+					        <div class="form-group" ng-if="vm.trService.id">
+					            <label class="col-md-3 control-label" for="id" translate="global.field.id">ID</label>
+					            <div class="col-md-7">
+					            <input type="text" class="form-control" id="id" name="id"
+					                    ng-model="vm.trService.id" ng-readonly="true" >
+					             </div>
+					        </div>
+					     
+					        <div class="form-group">
+					            <label class="col-md-3 control-label" translate="trakeyeApp.trService.description" for="field_description">Description</label>
+					            <div class="col-md-7">
+					            	<textarea rows="2" class="form-control" name="description" id="field_description"
+					                    ng-model="vm.trService.description" ng-readonly="!has_ROLE_USERADMIN && vm.trService.id"></textarea>
+					            </div>            
+					        </div>
+					        <div class="form-group">
+					            <label class="col-md-3 control-label">
+						            <span translate="trakeyeApp.trService.serviceDate" for="field_serviceDate">Service Date</span>
+						            <sup><span class="required-icon" ><i class="fa fa-asterisk text-danger"></i></span> </sup>
+						        </label>					            
+					               <div class="col-md-7">
+						                <div class="input-group">
+						                    <input id="field_serviceDate" type="text" class="form-control" name="serviceDate" ng-readonly="!has_ROLE_USER_ADMIN" datetime-picker="{{dateformat}}" ng-model="vm.trService.serviceDate" is-open="vm.datePickerOpenStatus.serviceDate"
+						                     required />
+						                    <span class="input-group-btn" ng-if="has_ROLE_USER_ADMIN">
+						                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('serviceDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+						                    </span>
+						                </div>
+					                </div>
+					        </div>
+					        <div class="form-group">
+					            <label class="col-md-3 control-label">
+						            <span translate="trakeyeApp.trService.status">status</span>
+						            <sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span> </sup>
+						        </label>
+					           <div class="col-md-7">
+					            <select class="form-control" name="status" ng-model="vm.trService.status" id="field_status" required>
+					                <option value="INPROGRESS" translate="trakeyeApp.ServiceStatus.INPROGRESS">INPROGRESS</option>
+					                <option value="PENDING" translate="trakeyeApp.ServiceStatus.PENDING">PENDING</option>
+					                <option value="CLOSED" translate="trakeyeApp.ServiceStatus.CLOSED">CLOSED</option>
+					                <option value="CANCELLED" translate="trakeyeApp.ServiceStatus.CANCELLED">CANCELLED</option>
+					            </select>
+					            </div>
+					        </div>
+					        <div class="form-group">
+					            <label class="col-md-3 control-label" translate="trakeyeApp.trService.notes" for="field_notes">Notes</label>
+					           <div class="col-md-7">
+					            <input type="text" class="form-control" name="notes" id="field_notes"
+					                    ng-model="vm.trService.notes"/>
+					            </div>
+					        </div>
+					        
+					        <div class="form-group">
+					            <label class="col-md-3 control-label">
+						            <span translate="trakeyeApp.trService.trCase">Tr Case</span>
+						          <sup> <span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span></sup> 
+						        </label>
+					            <div class="col-md-7">
+					            
+					             <!-- <select class="form-control select2" name="trcases" ng-model="vm.trService.trCase.id"
+						             ng-options="trCase.id as trCase.description for trCase in vm.trcases" required ng-disabled="!has_ROLE_USER_ADMIN">
+						             <option value="" translate="trakeyeApp.trService.selectCase">Select Case</option>
+						            </select>  -->
+						            <input list="caseslist" class="form-control" id="field_caseid" placeholder="Search case id" type="text" ng-model="vm.trService.trCase.id" autocomplete="off" name="trcases"  ng-change="vm.filtertrcasesid()" required
+						            ng-disabled="!has_ROLE_USER_ADMIN" ng-pattern="/^[0-9]+$/"> 
+  		                    <datalist ng-hide="!vm.caseids" id="caseslist" class="form-control1">		            
+							<option ng-repeat="case in vm.caseids" value="{{case.id}}">
+	           			 	</option>
+		                    </datalist> 
+					      <p class="help-block" ng-show="editForm.trcases.$error.pattern" translate="trakeyeApp.trService.caseiderror">
+				                  Enter only numeric values for case id
+				          </p>
+					            </div>
+					        </div>
+					         <div class="form-group" ng-if="has_ROLE_USER_ADMIN">
+					            <label class="col-md-3 control-label">
+						            <span translate="trakeyeApp.trService.trServicetype">Tr Service</span>
+						            <sup><span class="required-icon"><i class="fa fa-asterisk text-danger"></i></span></sup> 
+						        </label>
+					            <div class="col-md-7">
+						           <select class="form-control select2" name="trakeyeType" ng-model="vm.serviceType" ng-change="vm.selectattributes()" ng-disabled="!has_ROLE_USERADMIN && vm.trService.id"
+						             ng-options="item as item.name for item in vm.serviceTypes track by item.id" required>
+						             <option value="" translate="trakeyeApp.trService.selectType">Select ServiceType</option>
+						            </select>         
+					           </div>
+					         </div> 
+					          <div class="form-group" ng-if="has_ROLE_USER_ADMIN">
+					          <div ng-repeat="attribute in vm.trService.serviceTypeAttributeValues track by $index">
+					            <label class="col-md-3 control-label">{{attribute.serviceTypeAttribute.name}}</label>
+						            <div class="col-md-7">
+						            	<input type="text" class="form-control added-service" name="value"
+						                   ng-model="vm.trService.serviceTypeAttributeValues[$index].attributeValue">
+						            </div>
+					           </div>
+					         </div> 
+					          <div class="form-group">
+		            <label class="col-md-3 control-label" translate="trakeyeApp.trService.serviceImages">images</label>
+		            <div class="col-md-7">
+						 <input type="file" name="file" multiple="multiple" class="filestyle" id="serviceImages" accept="image/*" >
+					</div>	
+					<div class="col-md-2" ng-if="vm.trService.id">
+						<a class="btn btn-sm btn-info" ng-click="toggle()">Show Images</a>
+					</div>					
+		        </div>
+				<div class="form-group" ng-if="allimages">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-3">
+						<div class="col-md-3" ng-repeat="img in vm.serviceImages track by img.id" >
+							<img class="img-responsive" ng-src="data:image/jpeg;base64,{{img.image}}" style="padding-bottom: 10px;">
+						
+						</div>
+						</div>
+					</div>
+					
+				  </div>
+					    <div class="box-footer">
+					    	<div class="col-md-4 col-md-offset-3 save-buttons">						    	
+						        <button type="button" class="btn btn-default btn-sm" ui-sref="tr-service">
+						            <span class="glyphicon glyphicon-ban-circle"></span> <span translate="entity.action.cancel">Cancel</span>
+						        </button>
+						        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary btn-sm">
+						            <span class="glyphicon glyphicon-save"></span> <span translate="entity.action.save">Save</span>
+						        </button>							    
+						    </div>						        
+					    </div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
